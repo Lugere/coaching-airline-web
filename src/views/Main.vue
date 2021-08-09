@@ -19,7 +19,7 @@
                     </div>
                     <div class="info">
                         <div class="moderator">Andrea Hohmann moderiert</div>
-                        <div class="time">1:33 / 2:50</div>
+                        <div class="time">1:33 | 2:50</div>
                     </div>
                 </div>
                 <div class="open-player-btn">

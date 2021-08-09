@@ -16,10 +16,11 @@ const routes: Array<RouteConfig> = [
     {
         path: "/",
         name: "Main",
+        redirect: "Home",
         component: Main,
     },
     {
-        path: "/",
+        path: "/Home",
         name: "Home",
         meta: {
             breadcrumb: "Home",
