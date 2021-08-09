@@ -1,0 +1,159 @@
+#Main {
+    .nav-bar {
+        align-items: center;
+        background-color: rgba(196, 196, 196, 0.15);
+        display: flex;
+        font-family: "Roboto Light";
+        height: 80px;
+        width: 100%;
+        position: relative;
+
+        .logo {
+            height: 80%;
+            margin-left: 10px;
+
+            img {
+                height: 100%;
+                transform: rotate(-10deg);
+            }
+        }
+
+        .title {
+            color: white;
+            font-size: 16pt;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .player {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            margin-left: 40px;
+            min-width: 700px;
+            color: white;
+            user-select: none;
+
+            .play-btn * {
+                cursor: pointer;
+                font-size: 16pt;
+            }
+
+            .player-grp {
+                display: flex;
+                flex-direction: column;
+                margin-left: 10px;
+                width: 100%;
+
+                .song-title {
+                    font-size: 16pt;
+                }
+
+                .progress {
+                    margin-top: 7px;
+                    position: relative;
+                    height: 7px;
+
+                    .track {
+                        background-color: white;
+                        border-radius: 1px;
+                        height: 2px;
+                        position: absolute;
+                        top: 2.5px;
+                        width: 100%;
+                    }
+
+                    .bar {
+                        background-color: purple;
+                        border-radius: 4px;
+                        height: 100%;
+                        position: absolute;
+                        width: 70%;
+                    }
+                }
+
+                .info {
+                    color: white;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 7px;
+                }
+            }
+
+            .open-player-btn {
+                margin-left: 10px;
+            }
+
+            .volume-control {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-left: 50px;
+
+                [class*=volume-] {
+                    cursor: pointer;
+                }
+
+                .volume-up, .volume-down {
+                    transform: scale(1.5);
+                }
+
+                .volume-bar {
+                    width: 150px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    margin: 0 20px 0 15px;
+
+                    .track {
+                        position: absolute;
+                        background-color: white;
+                        height: 2px;
+                        border-radius: 1px;
+                        width: 100%;
+                    }
+
+                    .bar {
+                        position: absolute;
+                        height: 7px;
+                        border-radius: 4px;
+                        width: 50%;
+                        background-color: purple;
+                    }
+
+                    .volume-btn {
+                        height: 14px;
+                        width: 14px;
+                        border-radius: 7px;
+                        background-color: white;
+                        position: absolute;
+                        left: 70px;
+                    }
+                }
+            }
+        }
+
+        .links {
+            position: absolute;
+            right: 60px;
+
+            ul {
+                list-style: none;
+                flex-direction: row;
+                display: flex;
+                font-size: 24pt;
+
+                li {
+                    a {
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    & + li {
+                        margin-left: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
