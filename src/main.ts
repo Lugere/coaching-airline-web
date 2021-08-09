@@ -4,7 +4,8 @@ import router from "./router";
 import store from "./store";
 
 import { MdIcon, MdTooltip } from "vue-material/dist/components";
-import "vue-material/dist/vue-material.min.css";
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 Vue.use(MdIcon);
 Vue.use(MdTooltip);
 

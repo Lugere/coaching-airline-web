@@ -1,0 +1,23 @@
+#progress-bar {
+    margin-top: 7px;
+    position: relative;
+    height: 7px;
+
+    .track {
+        background-color: white;
+        border-radius: 1px;
+        height: 2px;
+        position: absolute;
+        top: 2.5px;
+        width: 100%;
+    }
+
+    .bar {
+        background-color: purple;
+        border-radius: 4px;
+        height: 100%;
+        position: absolute;
+        transition: width ease-in 1s;
+        min-width: 8px;
+    }
+}
