@@ -1,7 +1,8 @@
 <template>
     <div id="progress-bar">
-            <div class="track">&nbsp;</div>
-            <div :style="`width: ${length}%; !important`" class="bar">&nbsp;</div>
+        <div class="track">&nbsp;</div>
+        <div :style="`width: ${length}%; !important`" class="bar">&nbsp;</div>
+        <div :style="`left: ${length}%;`" class="progress-control">&nbsp;</div>
     </div>
 </template>
 

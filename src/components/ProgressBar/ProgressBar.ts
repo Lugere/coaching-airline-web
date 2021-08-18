@@ -1,6 +1,7 @@
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
+import GetterMixin from "@/mixins/GetterMixin";
 
 @Component
-export default class ProgressBar extends Vue {
-    @Prop() length!: number;
+export default class ProgressBar extends GetterMixin {
+    @Prop() pbLength!: number;
 }

@@ -1,4 +1,5 @@
-import { Vue, Component } from "vue-property-decorator";
+import GetterMixin from "@/mixins/GetterMixin";
+import { Component } from "vue-property-decorator";
 
 @Component
-export default class Schedule extends Vue {}
+export default class Schedule extends GetterMixin {}

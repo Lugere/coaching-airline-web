@@ -1,20 +1,25 @@
-import { Vue, Component } from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
+import { mapState } from "vuex";
+import GetterMixin from "@/mixins/GetterMixin";
 import ProgressBar from "@/components/ProgressBar/ProgressBar.vue";
+import VolumeControl from "@/components/VolumeControl/VolumeControl.vue";
+import store from "@/store";
 
 @Component({
+    computed: {
+        ...mapState(["isPlaying", "length", "songTitle", "songLength", "songPlayed", "volume"]),
+    },
     components: {
         ProgressBar,
+        VolumeControl,
     },
 })
-export default class Main extends Vue {
-    public isPlaying = false;
-    public length = 0;
-    public songTitle = "Peter Maffay - So bist du";
-    public songLength = 175;
-    public songPlayed = 0;
-
+export default class Main extends GetterMixin {
     public onPlayClicked() {
-        this.isPlaying = !this.isPlaying;
+        if (this.songLength == this.songPlayed && !this.isPlaying) {
+            this.songPlayed = 0;
+            store.state.isPlaying = true;
+        } else this.isPlaying = !this.isPlaying;
     }
 
     public convertToMinutes(time: number) {
@@ -26,9 +31,10 @@ export default class Main extends Vue {
     mounted() {
         setInterval(() => {
             if (this.isPlaying) {
-                const length = Math.floor((100 / this.songLength) * this.songPlayed);
+                const length = (100 / this.songLength) * this.songPlayed;
+                console.log(length);
                 this.length = length;
-                if (this.songPlayed == this.songLength) this.songPlayed = 0;
+                if (this.songPlayed == this.songLength) this.isPlaying = false;
                 else this.songPlayed++;
             }
         }, 1000);
