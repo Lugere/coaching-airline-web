@@ -1,2 +1,54 @@
+@import "@/utilities/variables.scss";
+
 #Contact {
+    display: grid;
+    gap: 1em;
+    grid-row-start: 2;
+    grid-template-rows: auto 175px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    padding-right: 1em;
+    .main-container {
+        background-color: $gray-t;
+        border-radius: 3px;
+        grid-column-end: 3;
+        grid-column-start: 1;
+        height: 100%;
+        padding: 2em;
+        width: 100%;
+
+        .header {
+            color: $white;
+            font-size: 16pt;
+            margin-bottom: 1em;
+        }
+
+        .sub-container {
+            display: grid;
+            gap: 1em;
+            grid-template-columns: 50% 50%;
+
+            .form {
+                .el-form-item {
+                    margin-bottom: 10px;
+                }
+
+                label {
+                    color: $white;
+                    display: initial;
+                    font-family: "Roboto Light";
+                    font-size: 12pt;
+                }
+
+                .container {
+                    display: grid;
+                    gap: 1em;
+                    grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
+                }
+            }
+        }
+    }
 }

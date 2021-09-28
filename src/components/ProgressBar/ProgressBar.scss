@@ -1,14 +1,14 @@
 #progress-bar {
+    height: 7px;
     margin-top: 7px;
     position: relative;
-    height: 7px;
 
     .track {
         background-color: white;
         border-radius: 1px;
         height: 2px;
         position: absolute;
-        top: 2.5px;
+        top: 1px;
         width: 100%;
     }
 
@@ -19,14 +19,13 @@
         position: absolute;
     }
 
-    .progress-control {
-        height: 14px;
-        width: 14px;
-        border-radius: 7px;
+    .handle {
         background-color: white;
+        border-radius: 7px;
+        height: 12px;
         position: absolute;
-        left: 0;
         top: -4px;
         transition: left ease 500ms;
+        width: 12px;
     }
 }

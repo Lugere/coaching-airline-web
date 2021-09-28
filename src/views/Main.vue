@@ -1,12 +1,15 @@
 <template>
-    <div id="Main">
+    <main id="Main">
         <div class="nav-bar">
             <div class="content">
-                <div class="logo">
-                    <img src="@/assets/images/logo-cropped.png" alt="coaching airline logo" />
-                </div>
-                <div class="title">Coaching Airline Radio</div>
-                <div class="player">
+                <router-link to="Home" class="logo">
+                    <img
+                        src="@/assets/images/logo-cropped.png"
+                        alt="coaching airline logo - papierflieger fliegt um globus"
+                    />
+                    <div class="title">Coaching Airline Radio</div>
+                </router-link>
+                <section class="player">
                     <div
                         class="play-btn"
                         @click="onPlayClicked()"
@@ -37,24 +40,69 @@
                         <md-tooltip :md-delay="300">Öffne lokalen Player</md-tooltip>
                     </div>
                     <VolumeControl />
-                </div>
-                <div class="links">
+                </section>
+                <section class="links">
                     <ul>
                         <li>
-                            <router-link to="Schedule">Sendeplan</router-link>
+                            <router-link to="Sendeplan" class="link">
+                                <md-icon>event_note</md-icon>
+                                <span>Sendeplan</span>
+                            </router-link>
                         </li>
                         <li>
-                            <router-link to="Team">Unser Team</router-link>
+                            <router-link to="Team" class="link">
+                                <md-icon>group</md-icon>
+                                <span>Team</span>
+                            </router-link>
                         </li>
                         <li>
-                            <router-link to="Contact">Kontakt</router-link>
+                            <router-link to="Kontakt" class="link">
+                                <md-icon>email</md-icon>
+                                <span>Kontakt</span>
+                            </router-link>
                         </li>
                     </ul>
-                </div>
+                </section>
+                <section class="drawer-trigger" @click="toggleDrawer()">
+                    <md-icon>menu</md-icon>
+                </section>
             </div>
         </div>
+        <el-drawer
+            class="drawer"
+            title="Coaching Airline Radio"
+            :visible.sync="showDrawer"
+            direction="rtl"
+        >
+            <ul class="list">
+                <router-link to="Home" class="link">
+                    <li class="list-item" :class="activeTab == 'Home' ? 'active' : null" @click="showDrawer = false">
+                        <md-icon>home</md-icon>
+                        <span>Home</span>
+                    </li>
+                </router-link>
+                <router-link to="Sendeplan" class="link">
+                    <li class="list-item" :class="activeTab == 'Sendeplan' ? 'active' : null" @click="showDrawer = false">
+                        <md-icon>event_note</md-icon>
+                        <span>Sendeplan</span>
+                    </li>
+                </router-link>
+                <router-link to="Team" class="link">
+                    <li class="list-item" :class="activeTab == 'Team' ? 'active' : null" @click="showDrawer = false">
+                        <md-icon>group</md-icon>
+                        <span>Team</span>
+                    </li>
+                </router-link>
+                <router-link to="Kontakt" class="link">
+                    <li class="list-item" :class="activeTab == 'Kontakt' ? 'active' : null" @click="showDrawer = false">
+                        <md-icon>email</md-icon>
+                        <span>Kontakt</span>
+                    </li>
+                </router-link>
+            </ul>
+        </el-drawer>
         <router-view />
-    </div>
+    </main>
 </template>
 
 <script src="./Main.ts" lang="ts"></script>

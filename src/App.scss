@@ -1,7 +1,10 @@
+@import "@/utilities/variables.scss";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none !important;
 }
 #app {
     background-attachment: fixed;
@@ -12,4 +15,51 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+
+    img {
+        user-select: none !important;
+    }
+
+    a {
+        color: $magenta;
+    }
+
+    /* Scrollbar */
+
+    // width
+    ::-webkit-scrollbar {
+        border-radius: 3px;
+        width: 10px;
+    }
+
+    // Track
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 5px;
+    }
+
+    // Handle
+    ::-webkit-scrollbar-thumb {
+        background: $magenta;
+        border-radius: 5px;
+    }
+
+    // Handle on hover
+    ::-webkit-scrollbar-thumb:hover {
+        background: $magenta-hover;
+        border-radius: 5px;
+    }
+
+    /* Selection Color */
+
+    ::-moz-selection {
+        /* Code for Firefox */
+        color: white;
+        background: $purple;
+    }
+
+    ::selection {
+        color: white;
+        background: $purple;
+    }
 }

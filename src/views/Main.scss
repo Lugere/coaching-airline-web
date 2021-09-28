@@ -1,3 +1,5 @@
+@import "@/utilities/variables.scss";
+
 @media only screen and (min-width: 2500px) {
     #Main {
         .nav-bar {
@@ -11,25 +13,75 @@
     }
 }
 
+@media only screen and (max-width: 1500px) {
+    #Main {
+        padding: 0 !important;
+
+        .nav-bar .content {
+            width: 95% !important;
+        }
+    }
+}
+@media only screen and (min-width: 1220px) {
+    #Main {
+        .nav-bar .content .drawer-trigger {
+            display: none !important;
+        }
+    }
+}
+@media only screen and (max-width: 1220px) {
+    #Main {
+        .nav-bar .content .links {
+            display: none !important;
+        }
+    }
+}
+
 #Main {
+    display: grid;
+    grid-template-rows: 80px auto;
+    gap: 1em;
+    height: 100vh;
+    // overflow: hidden;
+    padding: 0 10%;
+
     .nav-bar {
-        width: 100%;
-        background-color: rgba(196, 196, 196, 0.15);
+        background-color: $gray-t;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
 
         .content {
             align-items: center;
             display: flex;
             height: 80px;
             position: relative;
+            width: 80%;
 
             .md-icon {
-                color: white !important;
-                transform: scale(1.5);
+                color: white;
+                font-size: 24pt !important;
+            }
+
+            .drawer-trigger {
+                margin-left: auto;
+                cursor: pointer;
+
+                * {
+                    font-size: 28pt !important;
+                }
             }
 
             .logo {
-                height: 80%;
-                margin-left: 10px;
+                align-items: center;
+                display: flex;
+                height: 60%;
+                margin-bottom: auto;
+                margin-top: auto;
+                text-decoration: none;
 
                 img {
                     height: 100%;
@@ -39,20 +91,25 @@
 
             .title {
                 color: white;
-                font-size: 16pt;
+                font-family: "Roboto Black";
+                font-size: 12pt;
                 text-transform: uppercase;
-                font-family: "Roboto Light";
+
+                a {
+                    color: $white !important;
+                    text-decoration: none !important;
+                }
             }
 
             .player {
                 align-items: center;
+                color: white;
                 display: flex;
+                font-family: "Roboto Light";
                 height: 100%;
                 margin-left: 40px;
-                min-width: 700px;
-                color: white;
+                min-width: 625px;
                 user-select: none;
-                font-family: "Roboto Light";
 
                 .play-btn * {
                     cursor: pointer;
@@ -65,7 +122,7 @@
                     width: 100%;
 
                     .song-title {
-                        font-size: 16pt;
+                        font-size: 12pt;
                     }
 
                     .info {
@@ -82,18 +139,33 @@
             }
 
             .links {
-                position: absolute;
-                right: 60px;
-                font-size: 16pt;
-                text-transform: uppercase;
                 font-family: "Roboto Light";
+                font-size: 12pt;
+                margin-left: auto;
+                text-transform: uppercase;
 
                 ul {
-                    list-style: none;
-                    flex-direction: row;
                     display: flex;
+                    flex-direction: row;
+                    list-style: none;
 
                     li {
+                        min-width: 100px;
+
+                        .link {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            i {
+                                font-size: 25pt !important;
+                            }
+
+                            span {
+                                margin-top: 10px;
+                            }
+                        }
+
                         a {
                             color: white;
                             text-decoration: none;
@@ -103,6 +175,55 @@
                             margin-left: 25px;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .drawer {
+        .el-drawer {
+            background-color: $gray;
+            font-size: 16pt;
+            text-transform: uppercase;
+            min-width: 250px;
+        }
+
+        header,
+        .el-drawer__body,
+        .el-drawer__title,
+        a {
+            color: $white;
+        }
+
+        a {
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .list {
+            color: white;
+            font-size: 16pt;
+            text-transform: uppercase;
+
+            .link {
+                .md-icon {
+                    font-size: 24pt !important;
+                    color: white;
+                    margin-right: 1em;
+                }
+            }
+
+            .list-item {
+                padding: 1em;
+                border-left: 5px solid transparent;
+
+                &.active {
+                    background-color: $purple-t;
+                    border-color: $white;
+                }
+
+                &:hover {
+                    background-color: $purple-t;
                 }
             }
         }

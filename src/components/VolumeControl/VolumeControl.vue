@@ -8,8 +8,8 @@
         </div>
         <div class="volume-bar">
             <div class="track">&nbsp;</div>
-            <div class="bar">&nbsp;</div>
-            <div class="volume-btn">
+            <div id="js-volume-bar" class="bar">&nbsp;</div>
+            <div id="js-volume-btn" class="handle">
                 &nbsp;
                 <md-tooltip>{{ `${volume}%` }}</md-tooltip>
             </div>

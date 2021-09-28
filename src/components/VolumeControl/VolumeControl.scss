@@ -1,43 +1,44 @@
 #volume-control {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
-    margin-left: 50px;
+    margin-left: 25px;
 
     [class*="volume-"] {
         cursor: pointer;
     }
 
     .volume-bar {
-        width: 150px;
-        display: flex;
         align-items: center;
-        position: relative;
+        display: flex;
         margin: 0 20px 0 15px;
+        position: relative;
+        width: 100px;
 
         .track {
-            position: absolute;
             background-color: white;
-            height: 2px;
             border-radius: 1px;
+            height: 2px;
+            position: absolute;
             width: 100%;
         }
 
         .bar {
-            position: absolute;
-            height: 7px;
-            border-radius: 4px;
-            width: 50%;
             background-color: purple;
+            border-radius: 4px;
+            height: 7px;
+            position: absolute;
+            width: 50%;
         }
 
-        .volume-btn {
-            height: 14px;
-            width: 14px;
-            border-radius: 7px;
+        .handle {
             background-color: white;
+            border-radius: 7px;
+            height: 12px;
+            left:50%;
             position: absolute;
-            left: 70px;
+            transform: translate(-50%, 0);
+            width: 12px;
         }
     }
 }

@@ -17,50 +17,53 @@ const routes: Array<RouteConfig> = [
         path: "/",
         name: "Main",
         redirect: "Home",
+        children: [
+            {
+                path: "/Home",
+                name: "Home",
+                meta: {
+                    breadcrumb: "Home",
+                },
+                component: Home,
+            },
+            {
+                path: "/Team",
+                name: "Team",
+                meta: {
+                    breadcrumb: "Team",
+                },
+                component: Team,
+            },
+            {
+                path: "/Kontakt",
+                name: "Kontakt",
+                meta: {
+                    breadcrumb: "Kontakt",
+                },
+                component: Contact,
+            },
+            {
+                path: "/Sendeplan",
+                name: "Sendeplan",
+                meta: {
+                    breadcrumb: "Sendeplan",
+                },
+                component: Schedule,
+            },
+        ],
         component: Main,
-    },
-    {
-        path: "/Home",
-        name: "Home",
-        meta: {
-            breadcrumb: "Home",
-        },
-        component: Home,
-    },
-    {
-        path: "/Team",
-        name: "Team",
-        meta: {
-            breadcrumb: "Team",
-        },
-        component: Team,
-    },
-    {
-        path: "/Contact",
-        name: "Contact",
-        meta: {
-            breadcrumb: "Contact",
-        },
-        component: Contact,
-    },
-    {
-        path: "/Schedule",
-        name: "Schedule",
-        meta: {
-            breadcrumb: "Schedule",
-        },
-        component: Schedule,
     },
 ];
 
 const router = new VueRouter({
     mode: "history",
-    base: process.env.BASE_URL,
     routes,
 });
 
 router.beforeEach((to, from, next) => {
     if (to.meta) document.title = `Coaching Airline Radio | ${to.meta.breadcrumb}`;
+    else document.title = "Coaching Airline Radio";
+    next();
 });
 
 export default router;

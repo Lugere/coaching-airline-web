@@ -15,6 +15,12 @@ import store from "@/store";
     },
 })
 export default class Main extends GetterMixin {
+    public showDrawer = false;
+
+    public toggleDrawer() {
+        this.showDrawer = !this.showDrawer;
+    }
+
     public onPlayClicked() {
         if (this.songLength == this.songPlayed && !this.isPlaying) {
             this.songPlayed = 0;
@@ -26,6 +32,10 @@ export default class Main extends GetterMixin {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
         return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+
+    get activeTab() {
+        return this.$route.name;
     }
 
     mounted() {

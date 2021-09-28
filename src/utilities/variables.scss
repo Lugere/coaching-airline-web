@@ -1,0 +1,38 @@
+/*
+* Main Color Palette
+*/
+
+$gray-t: #55398296;
+$gray: #553982;
+$magenta-hover: #cc1ce8;
+$magenta: #e22eff;
+$purple-t: #d050ff96;
+$purple: #d150ff;
+$purple-hover: #b51ded;
+$white-t: #ffffff4f;
+$white: #ffffff;
+
+/*
+ * Element-UI Theme
+ */
+$--color-primary: $magenta;
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+// @import "~element-ui/packages/theme-chalk/src/index";
+
+/*
+ * Social Media Color Palette
+ */
+$facebook-hover: #c42adc;
+$facebook: #e649ff;
+
+$linkedin-hover: #d02d8f;
+$linkedin: #ff50b9;
+
+$telegram-hover: #dc3246;
+$telegram: #ff5065;
+
+$twitter-hover: #dc32d6;
+$twitter: #ff50f8;
+
+$xing-hover: #b034dd;
+$xing: #d150ff;
