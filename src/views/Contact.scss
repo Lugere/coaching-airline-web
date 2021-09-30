@@ -11,6 +11,7 @@
     position: relative;
     width: 100%;
     padding-right: 1em;
+
     .main-container {
         background-color: $gray-t;
         border-radius: 3px;
@@ -47,6 +48,79 @@
                     display: grid;
                     gap: 1em;
                     grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
+                }
+
+                .submit-btn {
+                    display: flex;
+                    justify-content: right;
+
+                    .el-button {
+                        width: 200px;
+                    }
+                }
+            }
+
+            .quotes {
+                display: grid;
+                color: $white;
+                font-style: italic;
+                font-family: "Roboto Thin";
+                padding: 0 3em;
+                line-height: 40px;
+                text-transform: uppercase;
+
+                .container {
+                    display: flex;
+                    margin-top: 1em;
+
+                    .img {
+                        max-height: 400px;
+                        max-width: 400px;
+
+                        img {
+                            clip-path: polygon(6% 7%, 100% 0, 93% 96%, 6% 86%);
+                        }
+                    }
+
+                    .sub-container {
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 2em;
+                        width: 500px;
+
+                        .signature {
+                            width: 300px;
+                        }
+                    }
+                }
+
+                .quote-1,
+                .quote-2 {
+                    quotes: "“" "”" "‘" "’";
+                    font-size: 24pt;
+                    position: relative;
+                }
+                .quote-1::before,
+                .quote-2::before {
+                    content: "\275D";
+                    position: absolute;
+                    left: -40px;
+                    transform: scale(2);
+                    color: $white-t;
+                    top: 5px;
+                }
+                .quote-1::after,
+                .quote-2::after {
+                    content: "\275E";
+                    position: absolute;
+                    transform: scale(2);
+                    color: $white-t;
+                    margin-left: 10px;
+                    bottom: -5px;
+                }
+
+                .quote-2 {
+                    margin-left: 1em;
                 }
             }
         }

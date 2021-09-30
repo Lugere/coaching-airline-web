@@ -25,11 +25,29 @@
                             type="textarea"
                         />
                     </el-form-item>
-                    <el-form-item>
-                        <el-button type="primary">Abschicken</el-button>
+                    <el-form-item class="submit-btn">
+                        <el-button type="primary" @click="sendEmail()">Absenden</el-button>
                     </el-form-item>
                 </el-form>
-                <div class="quotes"></div>
+                <div class="quotes">
+                    <blockquote class="quote-1">
+                        mache die reise deines lebens und fliege mit coaching airline in eine neue
+                        welt
+                    </blockquote>
+                    <div class="container">
+                        <div class="img">
+                            <img src="@/assets/images/team/andrea-hohmann.jpg" alt="andrea hohmann" />
+                        </div>
+                        <div class="sub-container">
+                            <di class="quote-2">
+                                das beste was du zu bieten hast bist du selbst
+                            </di>
+                            <div class="signature">
+                                <img src="@/assets/images/signature.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
         <Footer />

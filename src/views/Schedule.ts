@@ -49,7 +49,7 @@ export default class Schedule extends GetterMixin {
 
     public truncateString(str) {
         if (str.length > 100) {
-            return str.slice(0, 90) + "...";
+            return str.slice(0, 74) + "...";
         }
     }
 }

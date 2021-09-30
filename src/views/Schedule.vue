@@ -44,9 +44,9 @@
                             <div>Sonntag</div>
                         </th>
                     </tr>
-                    <tr class="times" v-for="(time, index) in times" :key="index">
-                        <th>{{ getTableTime(index) }}</th>
-                        <td v-for="(time, index) in days" :key="index">
+                    <tr class="times" v-for="(time, timeIndex) in times" :key="timeIndex">
+                        <th>{{ getTableTime(timeIndex) }}</th>
+                        <td v-for="(time, dayIndex) in days" :key="dayIndex">
                             <el-tooltip
                                 :open-delay="300"
                                 placement="bottom"
@@ -65,7 +65,7 @@
                                     <div class="title">
                                         {{ team[Math.floor(Math.random() * 6)].name }}
                                     </div>
-                                    <div class="time">{{ getTableTime(index) }}</div>
+                                    <div class="time">{{ getTableTime(timeIndex) }}</div>
                                     <div class="theme">Alles von Abba bis Zappa</div>
                                     <div class="desc">
                                         {{
@@ -81,7 +81,7 @@
                                 <img src="@/assets/images/default-profile.png" alt="" />
                                 <div slot="content" class="content">
                                     <div class="title">Auto-DJ</div>
-                                    <div class="time">{{ getTableTime(index) }}</div>
+                                    <div class="time">{{ getTableTime(timeIndex) }}</div>
                                 </div>
                             </el-tooltip>
                         </td>

@@ -6,10 +6,14 @@ import Footer from "@/components/Footer/Footer.vue";
     components: { Footer },
 })
 export default class Contact extends GetterMixin {
-    contact = {
+    public contact = {
         name: "",
         email: "",
         subject: "",
         message: "",
     };
+
+    public sendEmail() {
+        console.log("lol");
+    }
 }
