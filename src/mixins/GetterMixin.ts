@@ -6,18 +6,31 @@ moment.locale("de");
 
 @Component({
     computed: {
-        ...mapState(["team", "isPlaying", "length", "songTitle", "songLength", "songPlayed", "volume", "news"]),
+        ...mapState([
+            "isMute",
+            "isPlaying",
+            "length",
+            "news",
+            "song",
+            "songLength",
+            "songPlayed",
+            "songTitle",
+            "team",
+            "volume",
+        ]),
     },
 })
 export default class GetterMixin extends Vue {
+    public isMute!: any;
     public isPlaying!: any;
     public length!: any;
-    public songTitle!: any;
+    public news!: any;
+    public song!: any;
     public songLength!: any;
     public songPlayed!: any;
-    public volume!: any;
-    public news!: any;
+    public songTitle!: any;
     public team!: any;
+    public volume!: any;
 
     public convertToDate(timestamp: number): string {
         const DATE = new Date(timestamp * 1000);

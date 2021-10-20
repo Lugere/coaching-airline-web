@@ -23,7 +23,7 @@
                         </md-tooltip>
                     </div>
                     <div class="player-grp">
-                        <span class="song-title">{{ songTitle }}</span>
+                        <span class="song">{{ `${song.meta.artist} — ${song.meta.name}` }}</span>
                         <ProgressBar :pb-length="length" />
                         <div class="info">
                             <div class="moderator">Andrea Hohmann moderiert</div>
@@ -77,25 +77,41 @@
         >
             <ul class="list">
                 <router-link to="Home" class="link">
-                    <li class="list-item" :class="activeTab == 'Home' ? 'active' : null" @click="showDrawer = false">
+                    <li
+                        class="list-item"
+                        :class="activeTab == 'Home' ? 'active' : null"
+                        @click="showDrawer = false"
+                    >
                         <md-icon>home</md-icon>
                         <span>Home</span>
                     </li>
                 </router-link>
                 <router-link to="Sendeplan" class="link">
-                    <li class="list-item" :class="activeTab == 'Sendeplan' ? 'active' : null" @click="showDrawer = false">
+                    <li
+                        class="list-item"
+                        :class="activeTab == 'Sendeplan' ? 'active' : null"
+                        @click="showDrawer = false"
+                    >
                         <md-icon>event_note</md-icon>
                         <span>Sendeplan</span>
                     </li>
                 </router-link>
                 <router-link to="Team" class="link">
-                    <li class="list-item" :class="activeTab == 'Team' ? 'active' : null" @click="showDrawer = false">
+                    <li
+                        class="list-item"
+                        :class="activeTab == 'Team' ? 'active' : null"
+                        @click="showDrawer = false"
+                    >
                         <md-icon>group</md-icon>
                         <span>Team</span>
                     </li>
                 </router-link>
                 <router-link to="Kontakt" class="link">
-                    <li class="list-item" :class="activeTab == 'Kontakt' ? 'active' : null" @click="showDrawer = false">
+                    <li
+                        class="list-item"
+                        :class="activeTab == 'Kontakt' ? 'active' : null"
+                        @click="showDrawer = false"
+                    >
                         <md-icon>email</md-icon>
                         <span>Kontakt</span>
                     </li>

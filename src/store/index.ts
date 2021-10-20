@@ -5,12 +5,21 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
+        // Player
         isPlaying: false,
         length: 0,
-        songTitle: "Peter Maffay - So bist du",
-        songLength: 175,
+        songLength: 307,
         songPlayed: 0,
-        volume: 20,
+        volume: 25,
+        isMute: false,
+        song: {
+            meta: {
+                artist: "Peter Maffay",
+                name: "So bist du",
+                file: "so-bist-du.mp3",
+            },
+        },
+        // Main View
         news: [
             {
                 title: "Dieter Bohlen am Freitag bei uns im Radio!",
@@ -48,6 +57,7 @@ const store = new Vuex.Store({
                 newsId: 2,
             },
         ],
+        // Team View
         team: [
             {
                 name: "Andrea Hohmann",
@@ -246,6 +256,7 @@ const store = new Vuex.Store({
                        montes, nascetur ridiculus mus.`,
             },
         ],
+        // Schedule View
         schedule: [{}],
     },
     mutations: {
@@ -254,9 +265,6 @@ const store = new Vuex.Store({
         },
         setLength(state, val) {
             state.length = val;
-        },
-        setSongTitle(state, val) {
-            state.songTitle = val;
         },
         setSongLength(state, val) {
             state.songLength = val;
@@ -273,6 +281,9 @@ const store = new Vuex.Store({
         setTeam(state, val) {
             state.team = val;
         },
+        setIsMute(state, val) {
+            state.isMute = val;
+        }
     },
     actions: {
         toggleIsPlaying({ commit }, isPlaying: boolean) {
@@ -287,9 +298,17 @@ const store = new Vuex.Store({
             commit("setLength", length);
         },
 
+        setSongLength({ commit }, length: number) {
+            commit("setSongLength", length);
+        },
+
         updateVolume({ commit }, volume: number) {
             commit("setVolume", volume);
-        }
+        },
+
+        toggleIsMute({ commit }, isMute) {
+            commit("setIsMute", isMute);
+        },
     },
     modules: {},
 });
