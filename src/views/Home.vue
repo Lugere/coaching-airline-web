@@ -24,38 +24,18 @@
                         clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
                         amet.
                         <br /><br />
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                        amet.
+                        <br /><br />
                         Lorem ipsum
                     </p>
                 </section>
                 <div class="image">
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
                 </div>
-            </div>
-            <div class="panel news-panel">
-                <section class="title">
-                    Aktuelle
-                    <span class="highlight-text">News</span>
-                </section>
-                <section class="content">
-                    <el-carousel :interval="5000" class="carousel">
-                        <el-carousel-item
-                            class="article"
-                            v-for="article in news"
-                            :key="article.newsId"
-                        >
-                            <div class="image">
-                                <img :src="getImageUrl(article.imageUrl, '')" />
-                            </div>
-                            <div class="text">
-                                <div class="date">{{ convertToDate(article.date) }}</div>
-                                <div class="title">{{ article.title }}</div>
-                                <p>
-                                    {{ article.content }}
-                                </p>
-                            </div>
-                        </el-carousel-item>
-                    </el-carousel>
-                </section>
             </div>
             <div class="panel news-panel">
                 <section class="title">

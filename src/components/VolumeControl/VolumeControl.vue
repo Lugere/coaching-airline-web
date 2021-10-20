@@ -1,18 +1,22 @@
 <template>
     <div id="volume-control">
-        <div class="volume-down">
-            <md-icon v-if="volume == 0">volume_off</md-icon>
+        <div class="volume-down" @click="isMute = !isMute">
+            <md-icon v-if="isMute || volume == 0">volume_off</md-icon>
             <md-icon v-else-if="volume <= 10">volume_mute</md-icon>
             <md-icon v-else-if="volume <= 60">volume_down</md-icon>
             <md-icon v-else>volume_up</md-icon>
         </div>
         <div class="volume-bar">
-            <div class="track">&nbsp;</div>
-            <div id="js-volume-bar" class="bar">&nbsp;</div>
-            <div id="js-volume-btn" class="handle">
-                &nbsp;
-                <md-tooltip>{{ `${volume}%` }}</md-tooltip>
-            </div>
+            <input
+                type="range"
+                name="volume-slider"
+                :value="isMute ? 0 : volume"
+                id="volume-slider-js"
+                class="volume-slider"
+                @input="updateVolume()"
+            />
+            <div :style="`width: ${isMute ? 0 : volume}%; !important`" class="bar">&nbsp;</div>
+            <md-tooltip>{{ `${volume}%` }}</md-tooltip>
         </div>
     </div>
 </template>

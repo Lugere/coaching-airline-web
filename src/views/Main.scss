@@ -118,6 +118,7 @@
                 .player-grp {
                     display: flex;
                     flex-direction: column;
+                    justify-content: space-between;
                     margin: 20px;
                     width: 100%;
 
@@ -129,7 +130,6 @@
                         color: white;
                         display: flex;
                         justify-content: space-between;
-                        margin-top: 7px;
                     }
                 }
 

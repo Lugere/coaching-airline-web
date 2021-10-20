@@ -1,68 +1,12 @@
 import { Vue, Component } from "vue-property-decorator";
 import store from "@/store";
 import moment from "moment";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 moment.locale("de");
 
 @Component({
     computed: {
-        ...mapState(["isPlaying", "team"]),
-        // isPlaying: {
-        //     get() {
-        //         return store.state.isPlaying;
-        //     },
-        //     set(val) {
-        //         store.commit("setIsPlaying", val);
-        //     },
-        // },
-        length: {
-            get() {
-                return store.state.length;
-            },
-            set(val) {
-                store.commit("setLength", val);
-            },
-        },
-        songTitle: {
-            get() {
-                return store.state.songTitle;
-            },
-            set(val) {
-                store.commit("setSongTitle", val);
-            },
-        },
-        songLength: {
-            get() {
-                return store.state.songLength;
-            },
-            set(val) {
-                store.commit("setSongLength", val);
-            },
-        },
-        songPlayed: {
-            get() {
-                return store.state.songPlayed;
-            },
-            set(val) {
-                store.commit("setSongPlayed", val);
-            },
-        },
-        volume: {
-            get() {
-                return store.state.volume;
-            },
-            set(val) {
-                store.commit("setVolume", val);
-            },
-        },
-        news: {
-            get() {
-                return store.state.news;
-            },
-            set(val) {
-                store.commit("setNews", val);
-            },
-        },
+        ...mapState(["team", "isPlaying", "length", "songTitle", "songLength", "songPlayed", "volume", "news"]),
     },
 })
 export default class GetterMixin extends Vue {

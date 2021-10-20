@@ -16,6 +16,7 @@
                         :alt="isPlaying ? 'musik pausieren' : 'musik abspielen'"
                     >
                         <md-icon v-if="!isPlaying" class="">play_circle</md-icon>
+                        <!-- <md-icon v-else-if="isPlaying && isLoading" class="spinning">play_circle</md-icon> -->
                         <md-icon v-else>pause_circle</md-icon>
                         <md-tooltip :md-delay="300">
                             {{ isPlaying ? "Pause" : "Abspielen" }}

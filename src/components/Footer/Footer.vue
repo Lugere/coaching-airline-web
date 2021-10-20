@@ -1,6 +1,7 @@
 <template>
     <footer id="Footer">
         <div class="content">
+            
             <section class="contact">
                 <span class="title">Coaching Airline Radio</span>
                 <div class="options">

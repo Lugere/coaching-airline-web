@@ -246,11 +246,7 @@ const store = new Vuex.Store({
                        montes, nascetur ridiculus mus.`,
             },
         ],
-        schedule: [
-            {
-                
-            }
-        ]
+        schedule: [{}],
     },
     mutations: {
         setIsPlaying(state, val) {
@@ -278,7 +274,23 @@ const store = new Vuex.Store({
             state.team = val;
         },
     },
-    actions: {},
+    actions: {
+        toggleIsPlaying({ commit }, isPlaying: boolean) {
+            commit("setIsPlaying", isPlaying);
+        },
+
+        setSongPlayed({ commit }, songPlayed: number) {
+            commit("setSongPlayed", songPlayed);
+        },
+
+        setLength({ commit }, length: number) {
+            commit("setLength", length);
+        },
+
+        updateVolume({ commit }, volume: number) {
+            commit("setVolume", volume);
+        }
+    },
     modules: {},
 });
 
