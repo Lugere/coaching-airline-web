@@ -19,7 +19,7 @@ export default class Main extends GetterMixin {
         this.showDrawer = !this.showDrawer;
     }
 
-    public audioPlayer;
+    public audioPlayer: any;
 
     public async onPlayClicked() {
         if (this.songLength <= this.songPlayed && !this.isPlaying) {
@@ -77,5 +77,11 @@ export default class Main extends GetterMixin {
 
         this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
         this.audioPlayer.volume = this.volume / 100;
+        this.audioPlayer.addEventListener("pause", () => {
+            store.dispatch("toggleIsPlaying", false);
+        })
+        this.audioPlayer.addEventListener("play", () => {
+            store.dispatch("toggleIsPlaying", true);
+        })
     }
 }
