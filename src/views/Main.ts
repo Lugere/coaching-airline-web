@@ -13,33 +13,53 @@ import store from "@/store";
 export default class Main extends GetterMixin {
     public showDrawer = false;
     public isLoading = false;
-    public soundSrc;
 
-    public toggleDrawer() {
-        this.showDrawer = !this.showDrawer;
+    // mod-portal
+    public login = {
+        email: "",
+        password: "",
+        passwordRepeat: "",
+        name: "",
+    };
+    public activeTab = "login";
+    public activeStep = 1;
+    // public showLogin = false;
+
+    public handleLoginClose(): void {
+        store.dispatch("toggleLogin", false);
     }
 
-    public audioPlayer: any;
+    public handleLoginOpen(): void {
+        this.login.email = "";
+        this.login.password = "";
+    }
 
-    public async onPlayClicked() {
+    // audio-player
+    public audioPlayer;
+    public soundSrc;
+    public onPlayClicked(): void {
         if (this.songLength <= this.songPlayed && !this.isPlaying) {
             // set player to 0 and start playing when song has ended and play is pressed
-            await store.dispatch("setSongPlayed", 0);
-            await store.dispatch("toggleIsPlaying", true);
+            store.dispatch("setSongPlayed", 0);
+            store.dispatch("toggleIsPlaying", true);
         } else {
             // start/stop playing when play is pressed
             this.isLoading = true;
             setTimeout(() => {
                 return 0;
             }, 2000);
-            await store.dispatch("toggleIsPlaying", !this.isPlaying);
+            store.dispatch("toggleIsPlaying", !this.isPlaying);
         }
         // play/pause audio
         if (this.isPlaying) this.audioPlayer.play();
         else this.audioPlayer.pause();
     }
 
-    public convertToMinutes(time: number) {
+    public toggleDrawer(): void {
+        this.showDrawer = !this.showDrawer;
+    }
+
+    public convertToMinutes(time: number): string {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
         // Time format => ##:## | cut everything else
@@ -49,22 +69,24 @@ export default class Main extends GetterMixin {
         );
     }
 
-    get activeTab() {
+    // getters
+
+    get activeDrawerLink(): string | null | undefined {
         return this.$route.name;
     }
 
     @Watch("volume")
-    volumeHandler() {
+    volumeHandler(): void {
         this.audioPlayer.volume = this.volume / 100;
     }
 
     @Watch("isMute")
-    isMuteHandler() {
+    isMuteHandler(): void {
         if (this.isMute) this.audioPlayer.volume = 0;
         else this.audioPlayer.volume = this.volume / 100;
     }
 
-    mounted() {
+    mounted(): void {
         setInterval(() => {
             if (this.isPlaying) {
                 const length = (100 / this.songLength) * this.songPlayed;
@@ -75,13 +97,14 @@ export default class Main extends GetterMixin {
             }
         }, 10);
 
-        this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
+        // this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
+        this.audioPlayer = new Audio("http://5.9.153.212:8000/stream.ogg");
         this.audioPlayer.volume = this.volume / 100;
         this.audioPlayer.addEventListener("pause", () => {
             store.dispatch("toggleIsPlaying", false);
-        })
+        });
         this.audioPlayer.addEventListener("play", () => {
             store.dispatch("toggleIsPlaying", true);
-        })
+        });
     }
 }

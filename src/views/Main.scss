@@ -46,7 +46,7 @@
     padding: 0 10%;
 
     .nav-bar {
-        background-color: $gray-t;
+        background-color: $purple-t;
         display: flex;
         justify-content: center;
         left: 0;
@@ -182,7 +182,7 @@
 
     .drawer {
         .el-drawer {
-            background-color: $gray;
+            background-color: $purple;
             font-size: 16pt;
             text-transform: uppercase;
             min-width: 250px;
@@ -225,6 +225,138 @@
                 &:hover {
                     background-color: $purple-t;
                 }
+            }
+        }
+    }
+
+    .login-dialog {
+        display: flex;
+        transition: height ease 200ms;
+
+        .title,
+        .el-form-item__label,
+        .el-tabs__item:not(.is-active) {
+            color: $white;
+        }
+
+        .el-dialog {
+            background-color: $purple;
+            width: 400px;
+            margin-top: auto !important;
+            margin-bottom: auto;
+
+            .title {
+                font-size: 16pt;
+                font-family: "Roboto Black";
+                text-transform: uppercase;
+
+                .logo {
+                    height: 32px;
+                    margin-right: 10px;
+                }
+            }
+
+            .sm-button-group {
+                display: flex;
+                flex-direction: column;
+
+                .el-button {
+                    border: none;
+                    color: $white;
+                    position: relative;
+                    // text-align: left;
+                    padding-left: 48px;
+
+                    .fab {
+                        background-color: $white;
+                        border-radius: 4px;
+                        display: grid;
+                        font-size: 14pt;
+                        height: 100%;
+                        left: 0;
+                        place-items: center;
+                        position: absolute;
+                        top: 0;
+                        width: 38px;
+
+                        &.fa-google {
+                            color: $google-cc;
+                            border: 2px solid $google-cc;
+                        }
+                        &.fa-facebook {
+                            color: $facebook-cc;
+                            border: 2px solid $facebook-cc;
+                        }
+                    }
+
+                    &.login-google {
+                        background-color: $google-cc;
+                    }
+
+                    &.login-facebook {
+                        background-color: $facebook-cc;
+                    }
+
+                    & + .el-button {
+                        margin-left: 0;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            .seperator {
+                border-bottom: 1px solid $white-t;
+                position: relative;
+                margin: 2em 0 1em 0;
+
+                .text {
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    background-color: $purple;
+                    padding: 0 5px;
+                    color: $white-t;
+                }
+            }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+
+                .links {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1em;
+                }
+
+                .profile-label {
+                    float: initial;
+                }
+
+                .upload-profile {
+                    border: 5px dashed $white;
+                    border-radius: 6px;
+                    color: $white;
+                    display: grid;
+                    font-size: 46pt;
+                    height: 200px;
+                    place-items: center;
+                    width: 200px;
+                    margin: 0 auto 0 auto;
+                    cursor: pointer;
+                }
+
+                .upload-button {
+                    width: 100%;
+                    margin: 15px 0;
+                }
+            }
+
+            .button-group {
+                width: 100%;
+                display: flex;
+                justify-content: right;
             }
         }
     }

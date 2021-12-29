@@ -69,6 +69,11 @@
                     </div>
                 </div>
             </section>
+            <section class="mod-portal">
+                <el-button type="primary" class="el-button--accent" @click="openLogin()">
+                    Mod-Portal öffnen
+                </el-button>
+            </section>
             <section class="other-info">
                 <div class="title">Links</div>
                 <div class="imprint info">

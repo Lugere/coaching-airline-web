@@ -11,12 +11,13 @@ moment.locale("de");
             "isPlaying",
             "length",
             "news",
+            "showLogin",
             "song",
             "songLength",
             "songPlayed",
             "songTitle",
             "team",
-            "volume",
+            "volume"
         ]),
     },
 })

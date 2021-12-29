@@ -79,7 +79,7 @@
                 <router-link to="Home" class="link">
                     <li
                         class="list-item"
-                        :class="activeTab == 'Home' ? 'active' : null"
+                        :class="activeDrawerLink == 'Home' ? 'active' : null"
                         @click="showDrawer = false"
                     >
                         <md-icon>home</md-icon>
@@ -89,7 +89,7 @@
                 <router-link to="Sendeplan" class="link">
                     <li
                         class="list-item"
-                        :class="activeTab == 'Sendeplan' ? 'active' : null"
+                        :class="activeDrawerLink == 'Sendeplan' ? 'active' : null"
                         @click="showDrawer = false"
                     >
                         <md-icon>event_note</md-icon>
@@ -99,7 +99,7 @@
                 <router-link to="Team" class="link">
                     <li
                         class="list-item"
-                        :class="activeTab == 'Team' ? 'active' : null"
+                        :class="activeDrawerLink == 'Team' ? 'active' : null"
                         @click="showDrawer = false"
                     >
                         <md-icon>group</md-icon>
@@ -109,7 +109,7 @@
                 <router-link to="Kontakt" class="link">
                     <li
                         class="list-item"
-                        :class="activeTab == 'Kontakt' ? 'active' : null"
+                        :class="activeDrawerLink == 'Kontakt' ? 'active' : null"
                         @click="showDrawer = false"
                     >
                         <md-icon>email</md-icon>
@@ -118,6 +118,115 @@
                 </router-link>
             </ul>
         </el-drawer>
+        <el-dialog
+            :visible="showLogin"
+            class="login-dialog"
+            id="login"
+            @close="handleLoginClose()"
+            @open="handleLoginOpen()"
+            :modal="true"
+        >
+            <section class="title" slot="title">
+                <img src="@/assets/images/logo-cropped.png" class="logo" alt="" />
+                <span>login</span>
+            </section>
+            <el-tabs stretch v-model="activeTab">
+                <el-tab-pane label="Login" name="login">
+                    <section class="sm-button-group">
+                        <el-button class="login-google">
+                            <i class="fab fa-google" />
+                            <span>Mit Google anmelden</span>
+                        </el-button>
+                        <el-button class="login-facebook">
+                            <i class="fab fa-facebook" />
+                            <span>Mit Facebook anmelden</span>
+                        </el-button>
+                    </section>
+                    <div class="seperator">
+                        <span class="text">
+                            oder
+                        </span>
+                    </div>
+                    <el-form class="form" :model="login">
+                        <el-form-item label="E-Mail">
+                            <el-input v-model="login.email" auto-complete="email" />
+                        </el-form-item>
+                        <el-form-item label="Password">
+                            <el-input v-model="login.password" show-password />
+                        </el-form-item>
+                        <div class="links">
+                            <router-link to="" class="forgot-password"
+                                >Password vergessen?</router-link
+                            >
+                            <router-link to="" class="create-account" @click="activeTab = 'signup'">
+                                Noch kein Konto?
+                            </router-link>
+                        </div>
+                    </el-form>
+                </el-tab-pane>
+                <el-tab-pane label="Registrieren" name="signup">
+                    <section class="sm-button-group">
+                        <el-button class="login-google">
+                            <i class="fab fa-google" />
+                            <span>Mit Google registrieren</span>
+                        </el-button>
+                        <el-button class="login-facebook">
+                            <i class="fab fa-facebook" />
+                            <span>Mit Facebook registrieren</span>
+                        </el-button>
+                    </section>
+                    <div class="seperator">
+                        <span class="text">
+                            oder
+                        </span>
+                    </div>
+                    <el-form class="form" :model="login">
+                        <div class="step-one" v-if="activeStep == 1">
+                            <el-form-item label="E-Mail">
+                                <el-input v-model="login.email" auto-complete="email" />
+                            </el-form-item>
+                            <el-form-item label="Password">
+                                <el-input v-model="login.password" show-password />
+                            </el-form-item>
+                            <el-form-item label="Password wiederholen">
+                                <el-input v-model="login.passwordRepeat" show-password />
+                            </el-form-item>
+                        </div>
+                        <div class="step-two" v-if="activeStep == 2">
+                            <el-form-item label="Nutzername">
+                                <el-input v-model="login.name" auto-complete="name" />
+                            </el-form-item>
+                            <label class="el-form-item__label profile-label">Profilbild</label>
+                            <div class="upload-profile">
+                                <i class="fas fa-user" />
+                            </div>
+                            <el-button type="primary" class="upload-button"
+                                >Bild hochladen</el-button
+                            >
+                        </div>
+                        <div class="links">
+                            <router-link to="" class="create-account" @click="activeTab = 'login'">
+                                Du hast schon ein Konto?
+                            </router-link>
+                        </div>
+                    </el-form>
+                </el-tab-pane>
+            </el-tabs>
+            <div class="button-group">
+                <el-button class="cancel-button" type="info" @click="handleLoginClose()">
+                    Abbrechen
+                </el-button>
+                <el-button type="primary" plain v-if="activeStep == 2 && activeTab == 'signup'" @click="activeStep = 1">
+                    Zurück
+                </el-button>
+                <el-button v-if="activeTab == 'login'" class="submit-button" type="primary" @click="activeStep = 2">{{
+                    "Anmelden"
+                }}</el-button>
+                <el-button v-else class="submit-button" type="primary" @click="activeStep = 2">{{
+                    activeStep == 2 ? "Registrieren" : "Weiter"
+                }}</el-button>
+            </div>
+        </el-dialog>
         <router-view />
     </main>
 </template>

@@ -4,7 +4,6 @@
             <section class="header">
                 Kontakt
             </section>
-            .
             <section class="sub-container">
                 <el-form class="form" label-position="top">
                     <div class="container">

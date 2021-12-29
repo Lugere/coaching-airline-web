@@ -13,7 +13,7 @@
     padding-right: 1em;
 
     .main-container {
-        background-color: $gray-t;
+        background-color: $purple-t;
         border-radius: 3px;
         grid-column-end: 3;
         grid-column-start: 1;
@@ -47,6 +47,7 @@
                 font-family: "Roboto Thin";
                 text-transform: uppercase;
                 width: 100%;
+                border-spacing: 0;
 
                 td,
                 th {

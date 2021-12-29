@@ -39,7 +39,7 @@ export default class Schedule extends GetterMixin {
     ];
     days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-    getTableTime(index) {
+    getTableTime(index: number): string {
         const hoursStart = this.times[index].start.slice(0, 2);
         const hoursEnd = this.times[index].end.slice(0, 2);
         const minutesStart = this.times[index].start.slice(2, 4);
@@ -47,9 +47,9 @@ export default class Schedule extends GetterMixin {
         return `${hoursStart}:${minutesStart} - ${hoursEnd}:${minutesEnd} Uhr`;
     }
 
-    public truncateString(str) {
+    public truncateString(str: string): string {
         if (str.length > 100) {
             return str.slice(0, 74) + "...";
-        }
+        } else return "";
     }
 }

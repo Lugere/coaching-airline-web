@@ -12,25 +12,20 @@
                         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
                         voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
                         clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-                        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet.
+                        amet. Lorem ipsum dolor sit amet.
                         <br /><br />
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet.
+                        Ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum
+                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         <br /><br />
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet.
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         <br /><br />
                         Lorem ipsum
+                        <br /><br />
+                        <b>LOREM IPSUM</b>
                     </p>
                 </section>
                 <div class="image">
@@ -119,9 +114,8 @@
                             <span class="time">18:00 - 20:00 Uhr</span>
                         </div>
                         <div class="desc">
-                            Thema:
                             <span class="highlight">
-                                Von Abba bis Zappa
+                                Alles von Abba bis Zappa
                             </span>
                         </div>
                     </div>

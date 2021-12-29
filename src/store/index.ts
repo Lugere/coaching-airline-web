@@ -6,19 +6,20 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         // Player
+        isMute: false,
         isPlaying: false,
         length: 0,
-        songLength: 307,
-        songPlayed: 0,
-        volume: 25,
-        isMute: false,
+        showLogin: false,
         song: {
             meta: {
                 artist: "Peter Maffay",
                 name: "So bist du",
-                file: "so-bist-du.mp3",
+                file: "stream.pls",
             },
         },
+        songLength: 307,
+        songPlayed: 0,
+        volume: 25,
         // Main View
         news: [
             {
@@ -260,54 +261,98 @@ const store = new Vuex.Store({
         schedule: [{}],
     },
     mutations: {
-        setIsPlaying(state, val) {
-            state.isPlaying = val;
+        setIsPlaying(state, value: boolean): void {
+            state.isPlaying = value;
         },
-        setLength(state, val) {
-            state.length = val;
+
+        setLength(state, value: number): void {
+            state.length = value;
         },
-        setSongLength(state, val) {
-            state.songLength = val;
+
+        setSongLength(state, value: number): void {
+            state.songLength = value;
         },
-        setSongPlayed(state, val) {
-            state.songPlayed = val;
+
+        setSongPlayed(state, value: number): void {
+            state.songPlayed = value;
         },
-        setVolume(state, val) {
-            state.volume = val;
+
+        setVolume(state, value: number): void {
+            state.volume = value;
         },
-        setNews(state, val) {
-            state.news = val;
+
+        setNews(state, value): void {
+            state.news = value;
         },
-        setTeam(state, val) {
-            state.team = val;
+
+        setTeam(state, value): void {
+            state.team = value;
         },
-        setIsMute(state, val) {
-            state.isMute = val;
-        }
+
+        setIsMute(state, value: boolean): void {
+            state.isMute = value;
+        },
+
+        setShowLogin(state, value): void {
+            state.showLogin = value;
+        },
     },
     actions: {
-        toggleIsPlaying({ commit }, isPlaying: boolean) {
+        toggleIsPlaying({ commit }, isPlaying): void {
             commit("setIsPlaying", isPlaying);
         },
 
-        setSongPlayed({ commit }, songPlayed: number) {
+        setSongPlayed({ commit }, songPlayed): void {
             commit("setSongPlayed", songPlayed);
         },
 
-        setLength({ commit }, length: number) {
+        setLength({ commit }, length): void {
             commit("setLength", length);
         },
 
-        setSongLength({ commit }, length: number) {
+        setSongLength({ commit }, length): void {
             commit("setSongLength", length);
         },
 
-        updateVolume({ commit }, volume: number) {
+        updateVolume({ commit }, volume): void {
             commit("setVolume", volume);
         },
 
-        toggleIsMute({ commit }, isMute) {
+        addTeamMember(
+            { commit },
+            member: {
+                name: string;
+                role: string;
+                imageUrl: string;
+                socialMedia: [
+                    {
+                        brand: string;
+                        link: string;
+                    },
+                ];
+                desc: string;
+            },
+        ): void {
+            const team = store.state.team;
+            team.push(member);
+            commit("setTeam", team);
+        },
+
+        toggleIsMute(
+            { commit },
+            isMute: {
+                title: string;
+                content: string;
+                date: number;
+                imageUrl: string;
+                newsId: number;
+            },
+        ): void {
             commit("setIsMute", isMute);
+        },
+
+        toggleLogin({ commit }, showLogin: boolean): void {
+            commit("setShowLogin", showLogin);
         },
     },
     modules: {},

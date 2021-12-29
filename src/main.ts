@@ -5,8 +5,9 @@ import store from "./store";
 
 import ElementUI from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css';
-import "./utilities/variables.scss";
 Vue.use(ElementUI);
+
+import "./utilities/variables.scss";
 
 import { MdIcon, MdTooltip } from "vue-material/dist/components";
 import 'vue-material/dist/vue-material.min.css'

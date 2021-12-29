@@ -1,7 +1,7 @@
 @import "@/utilities/variables.scss";
 
 #Footer {
-    background-color: $gray-t;
+    background-color: $purple-t;
     border-radius: 3px 3px 0 0;
     bottom: 0;
     color: $white;
@@ -11,8 +11,9 @@
 
     .content {
         display: grid;
-        gap: 2em;
+        gap: 1em 2em;
         grid-template-columns: 50% 20% 30%;
+        grid-template-rows: 50% 50%;
         padding: 2em;
         width: 100%;
         height: 100%;
@@ -67,6 +68,12 @@
                         margin-right: 20px;
                     }
                 }
+            }
+
+            &.mod-portal {
+                grid-row-start: 2;
+                grid-column-start: 2;
+                font-size: 14pt;
             }
 
             &.other-info {

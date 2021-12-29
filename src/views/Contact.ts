@@ -13,7 +13,7 @@ export default class Contact extends GetterMixin {
         message: "",
     };
 
-    public sendEmail() {
+    public sendEmail(): void {
         console.log("lol");
     }
 }

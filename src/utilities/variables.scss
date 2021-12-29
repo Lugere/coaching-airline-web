@@ -2,26 +2,31 @@
 * Main Color Palette
 */
 
-$gray-t: #55398296;
-$gray: #553982;
+$purple-active: #501fa0;
+$purple-hover: #6935bd;
+$purple-t: #55398296;
+$purple: #553982;
 $magenta-hover: #cc1ce8;
 $magenta: #e22eff;
-$purple-t: #d050ff96;
-$purple: #d150ff;
-$purple-hover: #b51ded;
 $white-t: #ffffff4f;
 $white: #ffffff;
+$red: #a70040;
 
 /*
  * Element-UI Theme
  */
 $--color-primary: $magenta;
+$--color-danger: $red;
 $--font-path: "~element-ui/lib/theme-chalk/fonts";
 // @import "~element-ui/packages/theme-chalk/src/index";
 
 /*
  * Social Media Color Palette
  */
+
+$google-cc: #de5246;
+$facebook-cc: #3b5998;
+
 $facebook-hover: #c42adc;
 $facebook: #e649ff;
 
