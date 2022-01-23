@@ -1,0 +1,44 @@
+@import "@/utilities/variables.scss";
+
+#Legal {
+    display: grid;
+    gap: 1em;
+    grid-row-start: 2;
+    grid-template-rows: auto 175px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    padding-right: 1em;
+
+    .main-container {
+        background-color: $purple-t;
+        border-radius: 3px;
+        grid-column-end: 3;
+        grid-column-start: 1;
+        height: 100%;
+        padding: 2em;
+        width: 100%;
+        color: $white;
+
+        .el-tabs__item:not(.is-active) {
+            color: $white !important;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+
+        .picture-rights {
+            li {
+                margin-left: 2em;
+                list-style-type: "©";
+
+                .text {
+                    margin-left: 1em;
+                }
+            }
+        }
+    }
+}

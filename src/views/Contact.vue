@@ -38,9 +38,9 @@
                             <img src="@/assets/images/team/andrea-hohmann.jpg" alt="andrea hohmann" />
                         </div>
                         <div class="sub-container">
-                            <di class="quote-2">
+                            <div class="quote-2">
                                 das beste was du zu bieten hast bist du selbst
-                            </di>
+                            </div>
                             <div class="signature">
                                 <img src="@/assets/images/signature.png" alt="">
                             </div>

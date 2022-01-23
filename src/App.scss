@@ -63,18 +63,3 @@
         background: $purple;
     }
 }
-
-.el-button--accent {
-    background-color: $purple !important;
-    border-color: $purple !important;
-
-    &:hover {
-        background-color: $purple-hover !important;
-        border-color: $purple-hover !important;
-    }
-
-    &:active {
-        background-color: $purple-active !important;
-        border-color: $purple-active !important;
-    }
-}

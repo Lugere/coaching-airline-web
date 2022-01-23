@@ -46,7 +46,7 @@
     padding: 0 10%;
 
     .nav-bar {
-        background-color: $purple-t;
+        background-color: $purple;
         display: flex;
         justify-content: center;
         left: 0;
@@ -121,6 +121,24 @@
                     justify-content: space-between;
                     margin: 20px;
                     width: 100%;
+                    position: relative;
+
+                    .live-indicator {
+                        position: absolute;
+                        top: -4px;
+                        right: 0;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+
+                        &.live {
+                            background-color: $red;
+                        }
+
+                        &.offline {
+                            background-color: $white-t;
+                        }
+                    }
 
                     .song {
                         font-size: 12pt;
@@ -265,27 +283,20 @@
                     color: $white;
                     position: relative;
                     // text-align: left;
-                    padding-left: 48px;
 
-                    .fab {
-                        background-color: $white;
-                        border-radius: 4px;
-                        display: grid;
-                        font-size: 14pt;
-                        height: 100%;
-                        left: 0;
-                        place-items: center;
-                        position: absolute;
-                        top: 0;
-                        width: 38px;
+                    .inner-content {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
 
-                        &.fa-google {
-                            color: $google-cc;
-                            border: 2px solid $google-cc;
-                        }
-                        &.fa-facebook {
-                            color: $facebook-cc;
-                            border: 2px solid $facebook-cc;
+                        .fab {
+                            border-radius: 4px;
+                            display: grid;
+                            font-size: 14pt;
+                            height: 100%;
+                            place-items: center;
+                            top: 0;
+                            margin-right: 10px;
                         }
                     }
 

@@ -1,9 +1,15 @@
 <template>
     <footer id="Footer">
         <div class="content">
-            
             <section class="contact">
-                <span class="title">Coaching Airline Radio</span>
+                <span class="title">
+                    <span>
+                        Coaching Airline® Radio
+                    </span>
+                    <span class="rights">
+                        ©2022 coachingairlineradio.de &mdash; Alle Rechte vorbehalten
+                    </span>
+                </span>
                 <div class="options">
                     <div class="option address">
                         <span>Andrea Hohmann</span>
@@ -13,15 +19,21 @@
                     <div class="option">
                         <div class="line">
                             <div class="highlight">E-Mail</div>
-                            info@coachingairline.de
+                            <a href="mailto:info@coachingairline.de">
+                                info@coachingairline.de
+                            </a>
                         </div>
                         <div class="line">
                             <div class="highlight">Telefon</div>
-                            01234 567 890
+                            <a href="tel:+4901234567890">
+                                01234 567 890
+                            </a>
                         </div>
                         <div class="line">
                             <div class="highlight">Mobil</div>
-                            +49 876 543 210
+                            <a href="tel:+49876543210">
+                                +49 876 543 210
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -30,25 +42,25 @@
                 <div class="title">Social Media</div>
                 <div class="links">
                     <div class="link">
-                        <a href="https://www.xing.com/profile/Andrea_Hohmann17/" target="_blank">
+                        <a href="https://www.xing.com/profile/Andrea_Hohmann17/cv" target="_blank">
                             <i class="fab fa-xing" />
                         </a>
                         <md-tooltip md-delay="300">/Andrea_Hohmann17</md-tooltip>
                     </div>
                     <div class="link">
                         <a
-                            href="https://www.facebook.com/profile.php?id=100001440305754"
+                            href="https://www.facebook.com/coachingirlineradio/"
                             target="_blank"
                         >
                             <i class="fab fa-facebook-f" />
                         </a>
-                        <md-tooltip md-delay="300">/hohmann.andrea</md-tooltip>
+                        <md-tooltip md-delay="300">/coachingirlineradio</md-tooltip>
                     </div>
                     <div class="link">
-                        <a href="https://twitter.com/CoachingAirline" target="_blank">
+                        <a href="https://twitter.com/AirlineCoaching" target="_blank">
                             <i class="fab fa-twitter" />
                         </a>
-                        <md-tooltip md-delay="300">@CoachingAirline</md-tooltip>
+                        <md-tooltip md-delay="300">@AirlineCoaching</md-tooltip>
                     </div>
                     <div class="link">
                         <a
@@ -60,11 +72,11 @@
                         <md-tooltip md-delay="300">/in/andrea-hohmann-0b558236/</md-tooltip>
                     </div>
                     <div class="link">
-                        <a href="https://t.me/coaching_airline" target="_blank">
+                        <a href="https://t.me/RadioCoachingAirline" target="_blank">
                             <i class="fab fa-telegram-plane" />
                         </a>
                         <md-tooltip md-delay="300">
-                            t.me/coaching_airline
+                            t.me/RadioCoachingAirline
                         </md-tooltip>
                     </div>
                 </div>
@@ -77,11 +89,11 @@
             <section class="other-info">
                 <div class="title">Links</div>
                 <div class="imprint info">
-                    <router-link to="#">
+                    <router-link to="Impressum">
                         Impressum
                     </router-link>
-                    &
-                    <router-link to="#">
+                    &amp;
+                    <router-link to="Datenschutz">
                         Datenschutz
                     </router-link>
                 </div>
@@ -91,7 +103,7 @@
                     </router-link>
                 </div>
                 <div class="agb info">
-                    <router-link to="Kontakt">
+                    <router-link to="AGB">
                         AGB
                     </router-link>
                 </div>
@@ -100,7 +112,6 @@
     </footer>
 </template>
 
-<script lang="ts" src="./Footer.ts">
-</script>
+<script lang="ts" src="./Footer.ts"></script>
 
 <style lang="scss" src="./Footer.scss"></style>

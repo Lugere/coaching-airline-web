@@ -1,8 +1,9 @@
-import { Component, Watch } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import GetterMixin from "@/mixins/GetterMixin";
 import ProgressBar from "@/components/ProgressBar/ProgressBar.vue";
 import VolumeControl from "@/components/VolumeControl/VolumeControl.vue";
 import store from "@/store";
+import axios from "axios";
 
 @Component({
     components: {
@@ -75,6 +76,14 @@ export default class Main extends GetterMixin {
         return this.$route.name;
     }
 
+    get songPlayedInMinutes(): string {
+        return this.convertToMinutes(this.songPlayed);
+    }
+
+    get songLengthInMinutes(): string {
+        return this.convertToMinutes(this.songLength);
+    }
+
     @Watch("volume")
     volumeHandler(): void {
         this.audioPlayer.volume = this.volume / 100;
@@ -86,7 +95,7 @@ export default class Main extends GetterMixin {
         else this.audioPlayer.volume = this.volume / 100;
     }
 
-    mounted(): void {
+    beforeMount(): void {
         setInterval(() => {
             if (this.isPlaying) {
                 const length = (100 / this.songLength) * this.songPlayed;
@@ -96,9 +105,12 @@ export default class Main extends GetterMixin {
                 else store.dispatch("setSongPlayed", this.songPlayed + 0.01);
             }
         }, 10);
+        setInterval(() => {
+            if (this.isPlaying) store.dispatch("updatePlayingData");
+        }, 1000);
 
         // this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
-        this.audioPlayer = new Audio("http://5.9.153.212:8000/stream.ogg");
+        this.audioPlayer = new Audio("https://demo.azuracast.com/radio/8000/radio.mp3");
         this.audioPlayer.volume = this.volume / 100;
         this.audioPlayer.addEventListener("pause", () => {
             store.dispatch("toggleIsPlaying", false);

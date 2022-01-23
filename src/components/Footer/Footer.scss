@@ -22,6 +22,21 @@
         section {
             .title {
                 font-size: 14pt;
+                display: flex;
+                flex-direction: column;
+
+                .md-icon {
+                    color: $white;
+                }
+
+                .rights {
+                    font-size: 8pt;
+
+                    .md-icon {
+                        color: $white;
+                        font-size: 6pt;
+                    }
+                }
             }
 
             &.contact {
@@ -61,7 +76,7 @@
                 .links {
                     display: flex;
                     font-size: 24pt;
-                    margin-top: .35em;
+                    margin-top: 0.35em;
 
                     .link {
                         height: 25px;

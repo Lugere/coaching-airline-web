@@ -11,7 +11,8 @@
                     </el-button-group>
                 </div>
             </section>
-            <section class="sub-container">
+            <el-calendar />
+            <!-- <section class="sub-container">
                 <table>
                     <tr class="days">
                         <th>KW 38</th>
@@ -87,7 +88,7 @@
                         </td>
                     </tr>
                 </table>
-            </section>
+            </section> -->
         </div>
         <Footer />
     </div>

@@ -5,6 +5,7 @@ import Home from "../views/Home.vue";
 import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import Schedule from "../views/Schedule.vue";
+import Legal from "../views/Legal.vue";
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,35 @@ const routes: Array<RouteConfig> = [
                     breadcrumb: "Sendeplan",
                 },
                 component: Schedule,
+            },
+            {
+                path: "/Legal",
+                name: "Legal",
+                redirect: "Impressum",
+                children: [
+                    {
+                        path: "/Impressum",
+                        name: "Impressum",
+                        meta: {
+                            breadcrumb: "Impressum",
+                        },
+                    },
+                    {
+                        path: "/Datenschutz",
+                        name: "Datenschutz",
+                        meta: {
+                            breadcrumb: "Datenschutz",
+                        },
+                    },
+                    {
+                        path: "/AGB",
+                        name: "AGB",
+                        meta: {
+                            breadcrumb: "AGB",
+                        },
+                    },
+                ],
+                component: Legal,
             },
         ],
         component: Main,

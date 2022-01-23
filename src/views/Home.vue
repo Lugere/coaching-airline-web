@@ -3,30 +3,43 @@
         <div class="main-container">
             <div class="panel welcome-panel">
                 <section class="title">
-                    Willkommen bei
+                    Warum
                     <span class="highlight-text">Coaching Airline Radio</span>
+                    hören?
                 </section>
                 <section class="content">
-                    <p class="text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                        amet. Lorem ipsum dolor sit amet.
-                        <br /><br />
-                        Ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum
-                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        <br /><br />
-                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                        <br /><br />
-                        Lorem ipsum
-                        <br /><br />
-                        <b>LOREM IPSUM</b>
-                    </p>
+                    <div class="text">
+                        <p>
+                            Coaching Airline Radio ist ein nicht kommerzielles Webradio der Marke
+                            Coaching Airline.
+                        </p>
+                        <p>
+                            Wir gestalten für Euch ein Programm mit Themen hautnah am „Menschen“ und
+                            vermitteln nicht nur Spaß und gute Laune zur Unterhaltung durch unser
+                            vielfältiges Musikprogramm, sondern packen auch interessante und
+                            Wissenswerte Themeninhalte an.
+                        </p>
+                        <p>
+                            Livetalks, Interviews mit Künstlern und authentische Geschichten die
+                            ihresgleichen suchen.
+                        </p>
+                        <p>
+                            Jeder der etwas zu erzählen hat und es in die Welt hinaustragen will,
+                            ist bei Coaching Airline Radio herzlich willkommen.
+                        </p>
+                        <p>
+                            Einfach Kontakt aufnehmen, sein Anliegen schildern über unser
+                            <router-link to="Kontakt">
+                                Kontaktformular!
+                            </router-link>
+                        </p>
+                        <p>
+                            Ich freue mich auf eine Nachricht!
+                        </p>
+                        <div class="signature">
+                            <img src="@/assets/images/signature.png" alt="signature" />
+                        </div>
+                    </div>
                 </section>
                 <div class="image">
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
@@ -38,21 +51,30 @@
                     <span class="highlight-text">News</span>
                 </section>
                 <section class="content">
-                    <el-carousel :interval="5000" class="carousel">
+                    <el-carousel
+                        :autoplay="false"
+                        :loop="true"
+                        direction="vertical"
+                        class="carousel"
+                    >
                         <el-carousel-item
                             class="article"
                             v-for="article in news"
                             :key="article.newsId"
                         >
                             <div class="image">
-                                <img :src="getImageUrl(article.imageUrl, '')" />
+                                <!-- <img :src="getImageUrl(article.imageUrl, '')" /> -->
+                                <el-image :src="getImageUrl(article.imageUrl, '')">
+                                    <div slot="placeholder" class="placeholder">
+                                        Lade Bild
+                                        <div class="dot">...</div>
+                                    </div>
+                                </el-image>
                             </div>
                             <div class="text">
                                 <div class="date">{{ convertToDate(article.date) }}</div>
                                 <div class="title">{{ article.title }}</div>
-                                <p>
-                                    {{ article.content }}
-                                </p>
+                                <div v-html="article.content" />
                             </div>
                         </el-carousel-item>
                     </el-carousel>
@@ -63,21 +85,18 @@
             <div class="panel">
                 <section class="social-media">
                     <div class="sm xing">
-                        <a href="https://www.xing.com/profile/Andrea_Hohmann17/" target="_blank">
-                            <i class="fab fa-xing"></i>
+                        <a href="https://www.xing.com/profile/Andrea_Hohmann17/cv" target="_blank">
+                            <i class="fab fa-xing" />
                         </a>
                     </div>
                     <div class="sm facebook">
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100001440305754"
-                            target="_blank"
-                        >
-                            <i class="fab fa-facebook"></i>
+                        <a href="https://www.facebook.com/coachingirlineradio/" target="_blank">
+                            <i class="fab fa-facebook" />
                         </a>
                     </div>
                     <div class="sm twitter">
-                        <a href="https://twitter.com/CoachingAirline" target="_blank">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://twitter.com/AirlineCoaching" target="_blank">
+                            <i class="fab fa-twitter" />
                         </a>
                     </div>
                     <div class="sm linkedin">
@@ -89,26 +108,19 @@
                         </a>
                     </div>
                     <div class="sm telegram">
-                        <a href="https://t.me/coaching_airline" target="_blank">
-                            <i class="fab fa-telegram-plane"></i>
+                        <a href="https://t.me/RadioCoachingAirline" target="_blank">
+                            <i class="fab fa-telegram-plane" />
                         </a>
                     </div>
                 </section>
                 <section class="infos">
-                    <div class="entry">
-                        <div class="title">Gruß- und Wunschbox</div>
-                        <div class="desc">
-                            Hier könnt ihr eure Grüße schreiben und Musikwünsche abgeben
-                        </div>
-                        <div class="subtitle">
-                            <el-link :underline="false">
-                                Zur Gruß- und Wunschbox
-                                <i class="fas fa-long-arrow-alt-right" />
-                            </el-link>
-                        </div>
-                    </div>
                     <div class="entry moderator">
-                        <div class="title">Aktueller Moderator</div>
+                        <div class="title">
+                            <md-icon>person</md-icon>
+                            <div>
+                                Aktueller Moderator
+                            </div>
+                        </div>
                         <div class="subtitle">
                             <span>Andrea Hohmann</span>
                             <span class="time">18:00 - 20:00 Uhr</span>
@@ -118,6 +130,34 @@
                                 Alles von Abba bis Zappa
                             </span>
                         </div>
+                    </div>
+                    <div class="entry">
+                        <div class="title">
+                            <md-icon>menu_book</md-icon>
+                            <div>
+                                Gästebuch
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Hier könnt ihr eure Grüße schreiben
+                        </div>
+                        <el-button type="primary" disabled>
+                            Cooming Soon
+                        </el-button>
+                    </div>
+                    <div class="entry wishes">
+                        <div class="title">
+                            <md-icon>auto_awesome</md-icon>
+                            <div>
+                                Wunschbox
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Du willst etwas bestimmtes hören? Dann kannst du dir hier was wünschen!
+                        </div>
+                        <el-button type="primary" disabled>
+                            Cooming Soon
+                        </el-button>
                     </div>
                 </section>
             </div>

@@ -23,23 +23,32 @@
                         </md-tooltip>
                     </div>
                     <div class="player-grp">
-                        <span class="song">{{ `${song.meta.artist} — ${song.meta.name}` }}</span>
+                        <div class="live-indicator" :class="isLive ? 'live' : 'offline'">
+                            <md-tooltip :md-delay="300">
+                                {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
+                            >
+                        </div>
+                        <span class="song" v-if="song.artist">
+                            {{ `${song.artist} — ${song.title}` }}
+                        </span>
+                        <span v-else class="song song-placeholder">&lt;Kein Song gefunden&gt;</span>
                         <ProgressBar :pb-length="length" />
                         <div class="info">
-                            <div class="moderator">Andrea Hohmann moderiert</div>
+                            <div class="moderator">AUTO-DJ moderiert</div>
                             <div class="time">
-                                {{
-                                    `${convertToMinutes(songPlayed)} | ${convertToMinutes(
-                                        songLength,
-                                    )}`
-                                }}
+                                {{ `${songPlayedInMinutes} | ${songLengthInMinutes}` }}
                             </div>
                         </div>
                     </div>
-                    <div class="open-player-btn" alt="lokalen player öffnen">
-                        <md-icon class="">radio</md-icon>
-                        <md-tooltip :md-delay="300">Öffne lokalen Player</md-tooltip>
-                    </div>
+                    <a
+                        href="https://stream.coachingairlineradio.de/public/coachingairlineradio/playlist.pls"
+                        download="coachingairlineradio.pls"
+                    >
+                        <div class="open-player-btn" alt="lokalen player öffnen">
+                            <md-icon>radio</md-icon>
+                            <md-tooltip :md-delay="300">Öffne lokalen Player</md-tooltip>
+                        </div>
+                    </a>
                     <VolumeControl />
                 </section>
                 <section class="links">
@@ -128,18 +137,22 @@
         >
             <section class="title" slot="title">
                 <img src="@/assets/images/logo-cropped.png" class="logo" alt="" />
-                <span>login</span>
+                <span>mod-portal</span>
             </section>
             <el-tabs stretch v-model="activeTab">
                 <el-tab-pane label="Login" name="login">
                     <section class="sm-button-group">
                         <el-button class="login-google">
-                            <i class="fab fa-google" />
-                            <span>Mit Google anmelden</span>
+                            <div class="inner-content">
+                                <i class="fab fa-google" />
+                                <span>Mit Google anmelden</span>
+                            </div>
                         </el-button>
                         <el-button class="login-facebook">
-                            <i class="fab fa-facebook" />
-                            <span>Mit Facebook anmelden</span>
+                            <div class="inner-content">
+                                <i class="fab fa-facebook" />
+                                <span>Mit Facebook anmelden</span>
+                            </div>
                         </el-button>
                     </section>
                     <div class="seperator">
@@ -165,7 +178,7 @@
                     </el-form>
                 </el-tab-pane>
                 <el-tab-pane label="Registrieren" name="signup">
-                    <section class="sm-button-group">
+                    <!-- <section class="sm-button-group">
                         <el-button class="login-google">
                             <i class="fab fa-google" />
                             <span>Mit Google registrieren</span>
@@ -179,7 +192,7 @@
                         <span class="text">
                             oder
                         </span>
-                    </div>
+                    </div> -->
                     <el-form class="form" :model="login">
                         <div class="step-one" v-if="activeStep == 1">
                             <el-form-item label="E-Mail">
@@ -216,12 +229,20 @@
                 <el-button class="cancel-button" type="info" @click="handleLoginClose()">
                     Abbrechen
                 </el-button>
-                <el-button type="primary" plain v-if="activeStep == 2 && activeTab == 'signup'" @click="activeStep = 1">
+                <el-button
+                    type="primary"
+                    v-if="activeStep == 2 && activeTab == 'signup'"
+                    @click="activeStep = 1"
+                >
                     Zurück
                 </el-button>
-                <el-button v-if="activeTab == 'login'" class="submit-button" type="primary" @click="activeStep = 2">{{
-                    "Anmelden"
-                }}</el-button>
+                <el-button
+                    v-if="activeTab == 'login'"
+                    class="submit-button"
+                    type="primary"
+                    @click="activeStep = 2"
+                    >{{ "Anmelden" }}</el-button
+                >
                 <el-button v-else class="submit-button" type="primary" @click="activeStep = 2">{{
                     activeStep == 2 ? "Registrieren" : "Weiter"
                 }}</el-button>

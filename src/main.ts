@@ -3,15 +3,21 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+// Vue Axios
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
+
+// Element
 import ElementUI from "element-ui";
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+import "./utilities/theme/index.css";
+import locale from "element-ui/lib/locale/lang/de"
+Vue.use(ElementUI, { locale });
 
-import "./utilities/variables.scss";
-
+// Vue Material
 import { MdIcon, MdTooltip } from "vue-material/dist/components";
-import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+import "vue-material/dist/vue-material.min.css";
+import "vue-material/dist/theme/default.css";
 Vue.use(MdIcon);
 Vue.use(MdTooltip);
 
