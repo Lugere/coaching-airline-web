@@ -72,16 +72,24 @@ export default class Main extends GetterMixin {
 
     // getters
 
-    get activeDrawerLink(): string | null | undefined {
+    public get activeDrawerLink(): string | null | undefined {
         return this.$route.name;
     }
 
-    get songPlayedInMinutes(): string {
+    public get songPlayedInMinutes(): string {
         return this.convertToMinutes(this.songPlayed);
     }
 
-    get songLengthInMinutes(): string {
+    public get songLengthInMinutes(): string {
         return this.convertToMinutes(this.songLength);
+    }
+
+    public get nowPlayingText(): string {
+        let rawText = "";
+        if (this.song.artist && this.song.title)
+            rawText = `${this.song.artist} — ${this.song.title}`;
+        if (rawText.length >= 30) return `${rawText.slice(0, 30)}...`;
+        return rawText;
     }
 
     @Watch("volume")
@@ -96,13 +104,11 @@ export default class Main extends GetterMixin {
     }
 
     beforeMount(): void {
+        store.dispatch("updatePlayingData");
         setInterval(() => {
             if (this.isPlaying) {
                 const length = (100 / this.songLength) * this.songPlayed;
                 store.dispatch("setLength", length);
-                if (Math.floor(this.songPlayed) >= this.songLength)
-                    store.dispatch("toggleIsPlaying", false);
-                else store.dispatch("setSongPlayed", this.songPlayed + 0.01);
             }
         }, 10);
         setInterval(() => {
@@ -110,7 +116,7 @@ export default class Main extends GetterMixin {
         }, 1000);
 
         // this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
-        this.audioPlayer = new Audio("https://demo.azuracast.com/radio/8000/radio.mp3");
+        this.audioPlayer = new Audio("https://stream.coachingairlineradio.de/radio/8000/radio.mp3");
         this.audioPlayer.volume = this.volume / 100;
         this.audioPlayer.addEventListener("pause", () => {
             store.dispatch("toggleIsPlaying", false);

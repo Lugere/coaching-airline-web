@@ -6,10 +6,11 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         // API URLs
-        streamURL: "https://demo.azuracast.com/api",
+        streamURL: "https://stream.coachingairlineradio.de/api",
 
         // Playing Data
-        isLive: true,
+        isOnline: true,
+        isLive: false,
         isMute: false,
         isPlaying: false,
         length: 0,
@@ -20,6 +21,7 @@ const store = new Vuex.Store({
         },
         songLength: 0,
         songPlayed: 0,
+        streamerName: "",
         volume: 25,
 
         // Main View
@@ -275,6 +277,10 @@ const store = new Vuex.Store({
         schedule: [{}],
     },
     mutations: {
+        setIsOnline(state, value: boolean): void {
+            state.isOnline = value;
+        },
+
         setIsLive(state, value: boolean): void {
             state.isLive = value;
         },
@@ -303,6 +309,10 @@ const store = new Vuex.Store({
             state.song.title = value;
         },
 
+        setStreamerName(state, value: string) {
+            state.streamerName = value;
+        },
+
         setVolume(state, value: number): void {
             state.volume = value;
         },
@@ -328,14 +338,17 @@ const store = new Vuex.Store({
             await Vue.axios
                 .get(`${state.streamURL}/nowplaying/1`)
                 .then(result => {
-                    console.log(result.data);
                     if (result.data) {
                         const { live, now_playing, is_online } = result.data;
-                        commit("setIsLive", is_online);
-                        commit("setSongLength", now_playing.duration);
-                        commit("setSongPlayed", now_playing.elapsed);
-                        commit("setSongArtist", now_playing.song.artist);
-                        commit("setSongTitle", now_playing.song.title);
+                        if (is_online) {
+                            commit("setIsOnline", is_online);
+                            commit("setIsLive", live.is_live);
+                            commit("setStreamerName", live.streamer_name);
+                            commit("setSongLength", now_playing.duration);
+                            commit("setSongPlayed", now_playing.elapsed);
+                            commit("setSongArtist", now_playing.song.artist);
+                            commit("setSongTitle", now_playing.song.title);
+                        }
                     }
                 })
                 .catch(e => {
@@ -344,8 +357,8 @@ const store = new Vuex.Store({
                 });
         },
 
-        toggleIsPlaying({ commit }, isPlaying): void {
-            commit("setIsPlaying", isPlaying);
+        toggleIsPlaying({ commit, state }, isPlaying): void {
+            if (state.isOnline) commit("setIsPlaying", isPlaying);
         },
 
         setSongPlayed({ commit }, songPlayed): void {

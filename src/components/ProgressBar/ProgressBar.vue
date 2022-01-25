@@ -1,6 +1,16 @@
 <template>
     <div id="progress-bar">
-        <input class="slider" type="range" name="time" id="time" disabled min="1" step="0.0001" max="100" :value="length">
+        <input
+            :value="length"
+            class="slider"
+            disabled
+            id="time"
+            max="100"
+            min="1"
+            name="time"
+            step="0.0001"
+            type="range"
+        />
         <div :style="`width: ${length}%; !important`" class="bar">&nbsp;</div>
     </div>
 </template>

@@ -28,13 +28,22 @@
                                 {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
                             >
                         </div>
-                        <span class="song" v-if="song.artist">
-                            {{ `${song.artist} — ${song.title}` }}
+                        <span class="song">
+                            <span v-if="!isOnline">Stream ist offline</span>
+                            <span v-else>
+                                {{ nowPlayingText }}
+                                <md-tooltip md-delay="300" v-if="nowPlayingText.length > 30">
+                                    {{ `${song.artist} — ${song.title}` }}
+                                </md-tooltip>
+                            </span>
                         </span>
-                        <span v-else class="song song-placeholder">&lt;Kein Song gefunden&gt;</span>
                         <ProgressBar :pb-length="length" />
                         <div class="info">
-                            <div class="moderator">AUTO-DJ moderiert</div>
+                            <div class="moderator">
+                                <span v-if="!isOnline">-/-</span>
+                                <span v-else-if="streamerName">{{ streamerName }} moderiert</span>
+                                <span v-else>AUTO-DJ moderiert</span>
+                            </div>
                             <div class="time">
                                 {{ `${songPlayedInMinutes} | ${songLengthInMinutes}` }}
                             </div>
