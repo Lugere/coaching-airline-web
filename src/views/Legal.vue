@@ -22,11 +22,7 @@
                     </p>
                     <br />
                     <h3>
-                        Finanzamt Limburg-Weilburg Steuer-Nr : 3082861426
-                    </h3>
-                    <br />
-                    <h3>
-                        Coaching Airline ist eine eingetragene Marke beim Patentamt München
+                        Coaching Airline® ist eine eingetragene Marke beim Patentamt München
                         Register- Nr. 302018224276
                     </h3>
                 </el-tab-pane>
@@ -357,7 +353,7 @@
                         aufbewahren müssen.
                     </p>
                 </el-tab-pane>
-                <el-tab-pane label="AGB" name="agb">
+                <!-- <el-tab-pane label="AGB" name="agb">
                     <h1>Allgemeine Geschäftsbedingungen</h1>
                     <br />
                     <h3>§1 Ut wisi</h3>
@@ -477,7 +473,7 @@
                         accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
                         takimata sanctus est Lorem ipsum dolor sit amet.
                     </p>
-                </el-tab-pane>
+                </el-tab-pane> -->
             </el-tabs>
         </div>
         <Footer />

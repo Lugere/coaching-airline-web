@@ -1,11 +1,13 @@
 import GetterMixin from "@/mixins/GetterMixin";
 import { Component } from "vue-property-decorator";
 import Footer from "@/components/Footer/Footer.vue";
+import moment from "moment";
+moment.locale("de-de");
 
 @Component({ components: { Footer } })
 export default class Schedule extends GetterMixin {
-    noentry = "---";
-    times = [
+    public noentry = "---";
+    public times = [
         {
             start: "0800",
             end: "1000",
@@ -35,9 +37,68 @@ export default class Schedule extends GetterMixin {
             end: "0000",
         },
     ];
-    days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+    public days: any = [];
+    public dayModifier = 0;
 
-    getTableTime(index: number): string {
+    public currStreamer = {};
+    public currEventData: any = [];
+
+    get calendarWeek(): number {
+        return moment().week();
+    }
+
+    get currYear(): number {
+        return moment().year();
+    }
+
+    public populateDates(): void {
+        this.days = [];
+        for (let i = this.dayModifier; i < this.dayModifier + 7; i++) {
+            this.days.push({
+                date: moment()
+                    .weekday(i)
+                    .format("DD. MM."),
+                weekDay: moment()
+                    .weekday(i)
+                    .format("dddd"),
+            });
+        }
+    }
+
+    public updateWeek(direction: string) {
+        switch (direction) {
+            case "decr":
+                this.dayModifier -= 7;
+                this.populateDates();
+                break;
+            case "incr":
+                this.dayModifier += 7;
+                this.populateDates();
+                break;
+            default:
+                this.dayModifier = 0;
+                this.populateDates();
+        }
+    }
+
+    public isStreamerPlanned(day, time): boolean {
+        // this method is called everytime a cell is rendered
+        let isPlanned = false;
+        this.schedule.map((event: any) => {
+            if (
+                event.time.start == time.start &&
+                day.date == moment.unix(event.date).format("DD. MM.")
+            ) {
+                isPlanned = true;
+                this.currStreamer = this.team.find(member => member.id == event.streamerId);
+                this.currEventData = event;
+            }
+        });
+
+        return isPlanned;
+    }
+
+    public getTableTime(index: number): string {
         const hoursStart = this.times[index].start.slice(0, 2);
         const hoursEnd = this.times[index].end.slice(0, 2);
         const minutesStart = this.times[index].start.slice(2, 4);
@@ -47,7 +108,11 @@ export default class Schedule extends GetterMixin {
 
     public truncateString(str: string): string {
         if (str.length > 100) {
-            return str.slice(0, 74) + "...";
-        } else return "";
+            return str.slice(0, 200) + "...";
+        } else return str;
+    }
+
+    public beforeMount() {
+        this.populateDates();
     }
 }

@@ -7,12 +7,12 @@ moment.locale("de");
 @Component({
     computed: {
         ...mapState([
-            "isOnline",
             "isLive",
             "isMute",
+            "isOnline",
             "isPlaying",
-            "length",
             "news",
+            "schedule",
             "showLogin",
             "song",
             "songLength",
@@ -25,12 +25,12 @@ moment.locale("de");
     },
 })
 export default class GetterMixin extends Vue {
-    public isOnline!: any;
     public isLive!: any;
     public isMute!: any;
+    public isOnline!: any;
     public isPlaying!: any;
-    public length!: any;
     public news!: any;
+    public schedule!: any;
     public song!: any;
     public songLength!: any;
     public songPlayed!: any;

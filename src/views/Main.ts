@@ -92,6 +92,12 @@ export default class Main extends GetterMixin {
         return rawText;
     }
 
+    public get onAirStatus(): string {
+        if (this.isLive) return "live";
+        if (!this.isLive && this.isOnline) return "online";
+        else return "offline";
+    }
+
     @Watch("volume")
     volumeHandler(): void {
         this.audioPlayer.volume = this.volume / 100;
@@ -105,12 +111,6 @@ export default class Main extends GetterMixin {
 
     beforeMount(): void {
         store.dispatch("updatePlayingData");
-        setInterval(() => {
-            if (this.isPlaying) {
-                const length = (100 / this.songLength) * this.songPlayed;
-                store.dispatch("setLength", length);
-            }
-        }, 10);
         setInterval(() => {
             if (this.isPlaying) store.dispatch("updatePlayingData");
         }, 1000);

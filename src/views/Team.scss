@@ -77,16 +77,28 @@
                         .name {
                             font-size: 16pt;
                         }
+
+                        .mod-name {
+                            color: $magenta;
+                        }
+
+                        .role {
+                            font-family: "Roboto Thin";
+                            font-size: 10pt;
+                            margin-bottom: 10px;
+                        }
+
                         .social-media {
                             display: flex;
+                            margin-bottom: 10px;
 
                             .icon {
                                 background-color: $purple;
                                 border-radius: 50%;
                                 cursor: pointer;
+                                color: $white;
                                 display: grid;
                                 height: 30px;
-                                margin: 10px 0;
                                 place-items: center;
                                 width: 30px;
 
@@ -99,12 +111,6 @@
                                 }
                             }
                         }
-                    }
-
-                    .role {
-                        font-family: "Roboto Thin";
-                        font-size: 10pt;
-                        margin-bottom: 0.5em;
                     }
 
                     .desc {

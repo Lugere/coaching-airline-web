@@ -13,7 +13,6 @@ const store = new Vuex.Store({
         isLive: false,
         isMute: false,
         isPlaying: false,
-        length: 0,
         showLogin: false,
         song: {
             artist: "",
@@ -27,6 +26,7 @@ const store = new Vuex.Store({
         // Main View
         news: [
             {
+                newsId: 1,
                 title: "Wir führen wieder spannende Interviews!",
                 content: `
                     Start der sensationellen Radioshow von Herbert, das Skelett aus dem wunderbaren Kinderbuch von Martina Murseli: "die verrückte Hexte".
@@ -42,128 +42,60 @@ const store = new Vuex.Store({
                 `,
                 date: 1642599114,
                 imageUrl: "radio-booth.jpg",
-                newsId: 1,
             },
             {
-                title: "Live Sendungen",
-                content: `
-                    Zusammen mit Burkhard Thom erstmal 14-tägig (Tag wird noch bekannt gegeben) informatives und Aufklärung gemeinsam in einer
-                    Präventionssendung. Schwerpunkt /Thema: Alkoholismus und Co-Abhängigkeit
-                    <br /><br />
-                    Außerdem stellen wir im Laufe des Monats unsere Live Moderatoren vor, die sich schon für Coaching Airline Radio entschieden haben, mit dabei zu sein!
-                    <br /><br />
-                    Wir halten Euch ständig mit unseren News auf dem laufenden über unsere besonderen Programmpunkte!
-                `,
-                date: 1642599114,
-                imageUrl: "radio-booth.jpg",
-                newsId: 2,
-            },
-            {
-                title: "Live Sendungen",
-                content: `
-                    Zusammen mit Burkhard Thom erstmal 14-tägig (Tag wird noch bekannt gegeben) informatives und Aufklärung gemeinsam in einer
-                    Präventionssendung. Schwerpunkt /Thema: Alkoholismus und Co-Abhängigkeit
-                    <br /><br />
-                    Außerdem stellen wir im Laufe des Monats unsere Live Moderatoren vor, die sich schon für Coaching Airline Radio entschieden haben, mit dabei zu sein!
-                    <br /><br />
-                    Wir halten Euch ständig mit unseren News auf dem laufenden über unsere besonderen Programmpunkte!
-                `,
-                date: 1642599114,
-                imageUrl: "radio-booth.jpg",
                 newsId: 3,
+                title: "Live Sendung: \"Unter uns gesagt\"",
+                content: `
+                    Zusammen mit Burkhard Thom erstmal 14-tägig (Tag wird noch bekannt gegeben) informatives und Aufklärung gemeinsam in einer
+                    Präventionssendung. Schwerpunkt /Thema: Alkoholismus und Co-Abhängigkeit
+                    <br /><br />
+                    Außerdem stellen wir im Laufe des Monats unsere Live Moderatoren vor, die sich schon für Coaching Airline Radio entschieden haben, mit dabei zu sein!
+                    <br /><br />
+                    Wir halten Euch ständig mit unseren News auf dem laufenden über unsere besonderen Programmpunkte!
+                `,
+                date: 1642599114,
+                imageUrl: "radio-booth.jpg",
+            },
+            {
+                newsId: 4,
+                title: "Blockchain-Stammtisch",
+                content: `
+                    Alphabetisierung für die Blockchain- und Krypto-Zukunft ABCF-Academy
+                `,
+                date: 1643304381,
+                imageUrl: "abcf.jpg",
             },
         ],
 
         // Team View
         team: [
             {
+                id: 1,
                 name: "Andrea Hohmann",
+                modName: "",
                 role: "Chefin, Moderatorin",
                 imageUrl: "andrea-hohmann.jpg",
                 socialMedia: [
                     {
-                        brand: "LinkedIn",
-                        link: "www.linkedin.com",
-                    },
-                    {
-                        brand: "Twitter",
-                        link: "www.twitter.com",
+                        brand: "Xing",
+                        link: "https://www.xing.com/profile/Andrea_Hohmann17/cv",
                     },
                     {
                         brand: "Facebook",
-                        link: "www.facebook.com",
+                        link: "https://www.facebook.com/coachingirlineradio/",
                     },
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
-                    },
-                    {
-                        brand: "Telegram",
-                        link: "www.telegram.com",
-                    },
-                ],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
-            },
-            {
-                name: "Thomas Bockmann",
-                role: "Moderator",
-                imageUrl: "thomas-bockmann.jpg",
-                socialMedia: [
                     {
                         brand: "Twitter",
-                        link: "www.twitter.com",
-                    },
-                    {
-                        brand: "Telegram",
-                        link: "www.telegram.com",
-                    },
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
-                    },
-                ],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
-            },
-            {
-                name: "Jonas Richter",
-                role: "Moderator",
-                imageUrl: "jonas-richter.jpg",
-                socialMedia: [
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
+                        link: "https://twitter.com/AirlineCoaching",
                     },
                     {
                         brand: "LinkedIn",
-                        link: "www.linkedin.com",
+                        link: "https://www.linkedin.com/in/andrea-hohmann-0b558236/",
                     },
                     {
-                        brand: "Facebook",
-                        link: "www.facebook.com",
-                    },
-                    {
-                        brand: "Twitter",
-                        link: "www.twitter.com",
+                        brand: "Telegram",
+                        link: "https://t.me/RadioCoachingAirline",
                     },
                 ],
                 desc: `Lorem ipsum dolor sit amet,
@@ -179,27 +111,50 @@ const store = new Vuex.Store({
                        montes, nascetur ridiculus mus.`,
             },
             {
-                name: "Uta Strauss",
+                id: 2,
+                name: "Thomas Brockmann",
+                modName: "",
+                role: "Moderator",
+                imageUrl: "thomas_brockmann.jpg",
+                socialMedia: [],
+                desc: `Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.`,
+            },
+            {
+                id: 3,
+                name: "Berni Schroeter",
+                modName: "",
+                role: "Moderator",
+                imageUrl: "berni_schroeter.jpg",
+                socialMedia: [],
+                desc: `Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.`,
+            },
+            {
+                id: 4,
+                name: "Alexandra Speder",
+                modName: "",
                 role: "Moderatorin",
-                imageUrl: "uta-strauss.jpg",
-                socialMedia: [
-                    {
-                        brand: "Twitter",
-                        link: "www.twitter.com",
-                    },
-                    {
-                        brand: "LinkedIn",
-                        link: "www.linkedin.com",
-                    },
-                    {
-                        brand: "Facebook",
-                        link: "www.facebook.com",
-                    },
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
-                    },
-                ],
+                imageUrl: "alexandra_speder.jpg",
+                socialMedia: [],
                 desc: `Lorem ipsum dolor sit amet,
                        consectetuer adipiscing elit.
                        Aenean commodo ligula eget dolor.
@@ -213,51 +168,72 @@ const store = new Vuex.Store({
                        montes, nascetur ridiculus mus.`,
             },
             {
-                name: "Bernd König",
-                role: "Moderator",
-                imageUrl: "bernd-koenig.jpg",
-                socialMedia: [
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
-                    },
-                    {
-                        brand: "Telegram",
-                        link: "www.telegram.com",
-                    },
-                    {
-                        brand: "Facebook",
-                        link: "www.facebook.com",
-                    },
-                ],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
-            },
-            {
-                name: "Katrin Lange",
+                id: 5,
+                name: "Sabrina König",
+                modName: "",
                 role: "Moderatorin",
-                imageUrl: "katrin-lange.jpg",
+                imageUrl: "sabrina_koenig.jpg",
+                socialMedia: [],
+                desc: `Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.`,
+            },
+            {
+                id: 6,
+                name: "Sascha König",
+                modName: "SilentAngel",
+                role: "Moderator",
+                imageUrl: "sascha_koenig.jpg",
+                socialMedia: [],
+                desc: `Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.`,
+            },
+            {
+                id: 7,
+                name: "Burkhard Thom",
+                modName: "",
+                role: "Moderator",
+                imageUrl: "burkhard_thom.jpg",
+                socialMedia: [],
+                desc: `Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+                       consectetuer adipiscing elit.
+                       Aenean commodo ligula eget dolor.
+                       Aenean massa. Cum sociis natoque
+                       penatibus et magnis dis parturient
+                       montes, nascetur ridiculus mus.`,
+            },
+            {
+                id: 8,
+                name: "Christian Deussen",
+                modName: "",
+                role: "Moderator",
+                imageUrl: "christian_deussen.jpg",
                 socialMedia: [
                     {
-                        brand: "Twitter",
-                        link: "www.twitter.com",
-                    },
-                    {
-                        brand: "Telegram",
-                        link: "www.telegram.com",
-                    },
-                    {
-                        brand: "Xing",
-                        link: "www.xing.com",
+                        brand: "Facebook",
+                        link: "https://www.facebook.com/ChristianDeussenSaenger",
                     },
                 ],
                 desc: `Lorem ipsum dolor sit amet,
@@ -274,7 +250,18 @@ const store = new Vuex.Store({
             },
         ],
         // Schedule View
-        schedule: [{}],
+        schedule: [
+            {
+                time: {
+                    start: "1800",
+                    end: "2000",
+                },
+                date: 1643475600,
+                streamerId: 1,
+                desc: "DESC",
+                theme: "THEME",
+            },
+        ],
     },
     mutations: {
         setIsOnline(state, value: boolean): void {
@@ -287,10 +274,6 @@ const store = new Vuex.Store({
 
         setIsPlaying(state, value: boolean): void {
             state.isPlaying = value;
-        },
-
-        setLength(state, value: number): void {
-            state.length = value;
         },
 
         setSongLength(state, value: number): void {
@@ -348,12 +331,16 @@ const store = new Vuex.Store({
                             commit("setSongPlayed", now_playing.elapsed);
                             commit("setSongArtist", now_playing.song.artist);
                             commit("setSongTitle", now_playing.song.title);
+                        } else {
+                            commit("setIsOnline", false);
+                            commit("setIsLive", false);
                         }
                     }
                 })
                 .catch(e => {
-                    console.error(e);
-                    return {};
+                    console.error(e.message);
+                    commit("setIsOnline", false);
+                    commit("setIsLive", false);
                 });
         },
 
@@ -380,6 +367,7 @@ const store = new Vuex.Store({
         addTeamMember(
             { commit },
             member: {
+                id: number;
                 name: string;
                 role: string;
                 imageUrl: string;
@@ -389,6 +377,7 @@ const store = new Vuex.Store({
                         link: string;
                     },
                 ];
+                modName;
                 desc: string;
             },
         ): void {

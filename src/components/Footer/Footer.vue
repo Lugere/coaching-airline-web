@@ -13,8 +13,9 @@
                 <div class="options">
                     <div class="option address">
                         <span>Andrea Hohmann</span>
-                        <span>Musterstraße 12</span>
-                        <span>12345 Musterstadt</span>
+                        <span>Langasse 63</span>
+                        <span>65597 Hünfelden</span>
+                        <span>Deutschland</span>
                     </div>
                     <div class="option">
                         <div class="line">
@@ -25,14 +26,14 @@
                         </div>
                         <div class="line">
                             <div class="highlight">Telefon</div>
-                            <a href="tel:+4901234567890">
-                                01234 567 890
+                            <a href="tel:064388349742">
+                                06438 / 8349742
                             </a>
                         </div>
                         <div class="line">
                             <div class="highlight">Mobil</div>
-                            <a href="tel:+49876543210">
-                                +49 876 543 210
+                            <a href="tel:+491763978397">
+                                +49 176 / 3978397
                             </a>
                         </div>
                     </div>
@@ -48,10 +49,7 @@
                         <md-tooltip md-delay="300">/Andrea_Hohmann17</md-tooltip>
                     </div>
                     <div class="link">
-                        <a
-                            href="https://www.facebook.com/coachingirlineradio/"
-                            target="_blank"
-                        >
+                        <a href="https://www.facebook.com/coachingirlineradio/" target="_blank">
                             <i class="fab fa-facebook-f" />
                         </a>
                         <md-tooltip md-delay="300">/coachingirlineradio</md-tooltip>
@@ -82,8 +80,8 @@
                 </div>
             </section>
             <section class="mod-portal">
-                <el-button type="primary" class="el-button--accent" @click="openLogin()">
-                    Mod-Portal öffnen
+                <el-button disabled type="primary" class="el-button--accent" @click="openLogin()">
+                    Modportal (Cooming soon)
                 </el-button>
             </section>
             <section class="other-info">
@@ -102,11 +100,11 @@
                         Hilfe / Kontakt
                     </router-link>
                 </div>
-                <div class="agb info">
+                <!-- <div class="agb info">
                     <router-link to="AGB">
                         AGB
                     </router-link>
-                </div>
+                </div> -->
             </section>
         </div>
     </footer>

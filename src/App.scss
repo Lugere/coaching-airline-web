@@ -1,5 +1,17 @@
 @import "@/utilities/variables.scss";
 
+/**
+  * Coaching Airline Font
+  */
+@font-face {
+    font-family: "CoachingAirline";
+    src: url("~@/assets/fonts/itcerasstdbook.ttf");
+}
+@font-face {
+    font-family: "CoachingAirline";
+    src: url("~@/assets/fonts/itcerasstdbook.otf");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -54,12 +66,12 @@
 
     ::-moz-selection {
         /* Code for Firefox */
-        color: white;
-        background: $purple;
+        color: $purple;
+        background: $white;
     }
 
     ::selection {
-        color: white;
-        background: $purple;
+        color: $purple;
+        background: $white;
     }
 }

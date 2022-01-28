@@ -42,7 +42,6 @@
     grid-template-rows: 80px auto;
     gap: 1em;
     height: 100vh;
-    // overflow: hidden;
     padding: 0 10%;
 
     .nav-bar {
@@ -90,10 +89,29 @@
             }
 
             .title {
+                align-items: center;
                 color: white;
-                font-family: "Roboto Black";
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
                 font-size: 12pt;
                 text-transform: uppercase;
+                user-select: none;
+
+                .highlight {
+                    color: $magenta;
+                    font-family: "CoachingAirline", "Roboto";
+                    font-size: 13pt;
+                    text-align: right;
+                }
+
+                :not(.highlight) {
+                    font-size: 30pt;
+                    font-weight: 900;
+                    letter-spacing: 8px;
+                    line-height: 30px;
+                    margin-left: 10px;
+                }
 
                 a {
                     color: $white !important;
@@ -109,7 +127,6 @@
                 height: 100%;
                 margin-left: 40px;
                 min-width: 625px;
-                user-select: none;
 
                 .play-btn * {
                     cursor: pointer;
@@ -120,19 +137,22 @@
                     flex-direction: column;
                     justify-content: space-between;
                     margin: 20px;
-                    width: 100%;
                     position: relative;
+                    width: 100%;
 
-                    .live-indicator {
+                    .on-air-indicator {
                         position: absolute;
-                        top: -4px;
                         right: 0;
-                        width: 12px;
-                        height: 12px;
-                        border-radius: 50%;
+                        top: -4px;
+                        padding: 2px 5px;
+                        border-radius: 5px;
 
                         &.live {
                             background-color: $red;
+                        }
+
+                        &.online {
+                            background-color: $magenta;
                         }
 
                         &.offline {

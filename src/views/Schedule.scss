@@ -70,19 +70,19 @@
                 }
 
                 .date {
-                    background-color: transparent !important;
-                    opacity: 0.5;
+                    color: $white-t;
                 }
 
-                .days {
-                    // :first-child {
-                    //     background-color: $magenta;
-                    //     border-radius: 6px 0 0 0;
-                    // }
+                .days .corner {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    justify-content: center;
+                    font-size: 14px;
 
-                    // :last-child {
-                    //     border-radius: 0 6px 0 0;
-                    // }
+                    .year {
+                        color: $white-t;
+                    }
                 }
 
                 .times {
@@ -116,7 +116,7 @@
 }
 
 [id*="el-tooltip"] {
-    max-width: 200px;
+    max-width: 300px;
 
     .content {
         display: flex;
@@ -129,13 +129,13 @@
         }
 
         .time {
-            color: $purple;
+            color: $white;
             margin-top: 0.25em;
             opacity: 0.75;
         }
 
         .theme {
-            color: $purple;
+            color: $magenta;
             margin: 0.5em 0;
         }
 
@@ -147,7 +147,7 @@
         }
 
         .more-info-btn {
-            margin-left: auto;
+            margin: 10px 0 0 auto;
         }
     }
 }

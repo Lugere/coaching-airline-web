@@ -45,6 +45,17 @@
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
                 </div>
             </div>
+            <div class="panel trailer-panel">
+                <div class="title">
+                    Unser
+                    <span class="highlight-text">Trailer</span>
+                </div>
+                <div class="content">
+                    <video width="800" height="500" controls>
+                        <source src="@/assets/videos/trailer.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
             <div class="panel news-panel">
                 <section class="title">
                     Aktuelle
@@ -64,10 +75,12 @@
                         >
                             <div class="image">
                                 <!-- <img :src="getImageUrl(article.imageUrl, '')" /> -->
-                                <el-image :src="getImageUrl(article.imageUrl, '')">
+                                <el-image :src="getImageUrl(article.imageUrl, '')" fit="cover">
                                     <div slot="placeholder" class="placeholder">
-                                        Lade Bild
-                                        <div class="dot">...</div>
+                                        <div>
+                                            <span> Bild wird geladen </span>
+                                            <span class="dot">...</span>
+                                        </div>
                                     </div>
                                 </el-image>
                             </div>
@@ -122,11 +135,14 @@
                             </div>
                         </div>
                         <div class="subtitle">
-                            <span>Andrea Hohmann</span>
-                            <span class="time">18:00 - 20:00 Uhr</span>
+                            <span v-if="isLive">{{ streamerName }}</span>
+                            <span v-else-if="isOnline">AUTO-DJ</span>
+                            <span v-else>Stream ist Offline</span>
+                            <span class="time" v-if="isOnline">18:00 - 20:00 Uhr</span>
+                            <span class="time" v-else>-/-</span>
                         </div>
                         <div class="desc">
-                            <span class="highlight">
+                            <span class="highlight" v-if="isLive">
                                 Alles von Abba bis Zappa
                             </span>
                         </div>

@@ -7,7 +7,14 @@
                         src="@/assets/images/logo-cropped.png"
                         alt="coaching airline logo - papierflieger fliegt um globus"
                     />
-                    <div class="title">Coaching Airline Radio</div>
+                    <div class="title">
+                        <div class="highlight">
+                            Coaching Airline
+                        </div>
+                        <div>
+                            Radio
+                        </div>
+                    </div>
                 </router-link>
                 <section class="player">
                     <div
@@ -23,26 +30,32 @@
                         </md-tooltip>
                     </div>
                     <div class="player-grp">
-                        <div class="live-indicator" :class="isLive ? 'live' : 'offline'">
+                        <!-- <div class="live-indicator" :class="isLive ? 'live' : 'offline'">
                             <md-tooltip :md-delay="300">
                                 {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
                             >
+                        </div> -->
+                        <div class="on-air-indicator" :class="onAirStatus">
+                            <span v-if="isLive">ON-AIR</span>
+                            <span v-else-if="!isLive && isOnline">ONLINE</span>
+                            <span v-else>OFFLINE</span>
                         </div>
                         <span class="song">
                             <span v-if="!isOnline">Stream ist offline</span>
-                            <span v-else>
+                            <span v-else-if="isOnline && nowPlayingText.length > 0">
                                 {{ nowPlayingText }}
                                 <md-tooltip md-delay="300" v-if="nowPlayingText.length > 30">
                                     {{ `${song.artist} — ${song.title}` }}
                                 </md-tooltip>
                             </span>
+                            <span v-else>&lt;Songtitel nicht verfügbar&gt;</span>
                         </span>
-                        <ProgressBar :pb-length="length" />
+                        <ProgressBar />
                         <div class="info">
                             <div class="moderator">
-                                <span v-if="!isOnline">-/-</span>
-                                <span v-else-if="streamerName">{{ streamerName }} moderiert</span>
-                                <span v-else>AUTO-DJ moderiert</span>
+                                <span v-if="isLive">{{ streamerName }} moderiert</span>
+                                <span v-else-if="isOnline">AUTO-DJ moderiert</span>
+                                <span v-else>-/-</span>
                             </div>
                             <div class="time">
                                 {{ `${songPlayedInMinutes} | ${songLengthInMinutes}` }}

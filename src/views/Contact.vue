@@ -30,7 +30,7 @@
                 </el-form>
                 <div class="quotes">
                     <blockquote class="quote-1">
-                        mache die reise deines lebens und fliege mit coaching airline in eine neue
+                        mache die reise deines lebens und fliege mit coaching airline radio in eine neue
                         welt
                     </blockquote>
                     <div class="container">
