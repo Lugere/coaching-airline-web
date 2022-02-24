@@ -6,24 +6,33 @@ import Team from "../views/Team.vue";
 import Contact from "../views/Contact.vue";
 import Schedule from "../views/Schedule.vue";
 import Legal from "../views/Legal.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
     {
         path: "*",
-        redirect: "Home",
+        redirect: "/404",
     },
     {
         path: "/",
         name: "Main",
-        redirect: "Home",
+        redirect: "/Home",
         children: [
+            {
+                path: "/404",
+                name: "NotFound",
+                meta: {
+                    breadcrumb: "Seite nicht gefunden",
+                },
+                component: NotFound,
+            },
             {
                 path: "/Home",
                 name: "Home",
                 meta: {
-                    breadcrumb: "Home",
+                    breadcrumb: "Startseite",
                 },
                 component: Home,
             },

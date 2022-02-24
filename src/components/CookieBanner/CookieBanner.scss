@@ -1,0 +1,65 @@
+@import "@/utilities/variables.scss";
+
+@keyframes animateout {
+    50% {
+        transform: translateX(4em);
+    }
+    100% {
+        transform: translateX(-600px);
+    }
+}
+
+@keyframes animatein {
+    50% {
+        transform: translateX(calc(600px + 4em));
+    }
+    100% {
+        transform: translateX(calc(600px + 2em));
+    }
+}
+
+#CookieBanner {
+    -webkit-animation: animatein 1000ms ease 2000ms;
+    align-items: center;
+    animation: animatein 1000ms ease 2000ms;
+    background-color: $magenta-disabled;
+    border-radius: 3px;
+    bottom: 1em;
+    color: $purple-active;
+    display: flex;
+    flex-direction: column;
+    font-size: 12pt;
+    left: -600px;
+    line-height: 16pt;
+    padding: 1em 2em;
+    position: fixed;
+    width: 500px;
+    z-index: 999;
+
+    &.hide {
+        -webkit-animation: animateout 1000ms;
+        animation: animateout 1000ms;
+    }
+
+    &.show {
+        transform: translateX(calc(600px + 2em));
+    }
+
+    .title {
+        text-align: left;
+        width: 100%;
+        font-size: 16pt;
+        text-transform: uppercase;
+        margin: 10px;
+        color: $magenta;
+        font-weight: 700;
+    }
+
+    .action-group {
+        margin: 10px 0 0 auto;
+
+        a {
+            margin-right: 10px;
+        }
+    }
+}

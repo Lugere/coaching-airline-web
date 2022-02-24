@@ -1,5 +1,63 @@
 @import "@/utilities/variables.scss";
 
+@media only screen and (max-width: 1300px) {
+    #Footer .content {
+        grid-template-columns: 2fr 1fr 1fr !important;
+        grid-template-areas:
+            "contact modportal otherinfo"
+            "contact socialmedia otherinfo" !important;
+    }
+}
+
+@media only screen and (max-width: 1036px) {
+    #Footer {
+        min-height: initial !important;
+
+        .content {
+            grid-template-rows: 1fr 1fr 1fr !important;
+            grid-template-columns: 1fr 1fr !important;
+            grid-template-areas:
+                "contact contact"
+                "socialmedia otherinfo"
+                "modportal modportal" !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #Footer {
+        height: 500px;
+
+        .content {
+            grid-template-rows: 1fr 1fr 1fr 1fr !important;
+            grid-template-columns: 1fr !important;
+            grid-template-areas:
+                "contact"
+                "socialmedia"
+                "otherinfo"
+                "modportal" !important;
+
+            .contact .options {
+                grid-template-areas:
+                    "address"
+                    "digital" !important;
+                grid-template-columns: 1fr !important;
+
+                .option {
+                    margin: 0 !important;
+                    border: 0 !important;
+                    
+                    + .option {
+                        padding-top: 5px;
+                        border-top: 1px solid $white-t !important;
+                        margin-top: 5px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
 #Footer {
     background-color: $purple-t;
     border-radius: 3px 3px 0 0;
@@ -8,23 +66,26 @@
     grid-column-end: 3;
     grid-column-start: 1;
     grid-row-end: -1;
+    min-height: 200px;
     width: 100%;
+    grid-area: footer;
 
     .content {
         display: grid;
         gap: 1em 2em;
-        grid-template-columns: 50% 20% 30%;
+        grid-template-columns: 35% 20% 20% 25%;
         grid-template-rows: 50% 50%;
-        padding: 2em;
-        width: 100%;
         height: 100%;
         padding-bottom: 10px;
+        padding: 2em;
+        width: 100%;
+        grid-template-areas: "contact modportal socialmedia otherinfo";
 
         section {
             .title {
-                font-size: 14pt;
                 display: flex;
                 flex-direction: column;
+                font-size: 14pt;
 
                 .md-icon {
                     color: $white;
@@ -41,13 +102,12 @@
             }
 
             &.contact {
-                display: grid;
-                gap: 10px;
-                grid-template-rows: 1fr 4fr;
+                grid-area: contact;
 
                 .options {
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-columns: 1fr 1.5fr;
+                    grid-template-areas: "address digital";
 
                     .option {
                         display: flex;
@@ -55,6 +115,11 @@
 
                         &.address {
                             border-right: 1px solid $white-t;
+                            grid-area: address;
+                        }
+
+                        &.digital {
+                            grid-area: digital;
                         }
 
                         .line {
@@ -74,6 +139,8 @@
             }
 
             &.social-media {
+                grid-area: socialmedia;
+
                 .links {
                     display: flex;
                     font-size: 24pt;
@@ -87,12 +154,17 @@
             }
 
             &.mod-portal {
-                grid-row-start: 2;
-                grid-column-start: 2;
+                grid-area: modportal;
                 font-size: 14pt;
+
+                .el-button {
+                    margin-top: 10px;
+                    width: 200px;
+                }
             }
 
             &.other-info {
+                grid-area: otherinfo;
                 font-size: 12pt;
 
                 .info {

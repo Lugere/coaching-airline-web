@@ -11,13 +11,16 @@
                     <div class="text">
                         <p>
                             Coaching Airline Radio ist ein nicht kommerzielles Webradio der Marke
-                            Coaching Airline.
+                            <a target="_blank" href="https://www.coachingairline.de">
+                                Coaching Airline®
+                            </a>
+                            .
                         </p>
                         <p>
                             Wir gestalten für Euch ein Programm mit Themen hautnah am „Menschen“ und
                             vermitteln nicht nur Spaß und gute Laune zur Unterhaltung durch unser
                             vielfältiges Musikprogramm, sondern packen auch interessante und
-                            Wissenswerte Themeninhalte an.
+                            wissenswerte Themeninhalte an.
                         </p>
                         <p>
                             Livetalks, Interviews mit Künstlern und authentische Geschichten die
@@ -34,7 +37,7 @@
                             </router-link>
                         </p>
                         <p>
-                            Ich freue mich auf eine Nachricht!
+                            Wir freuen uns auf eine Nachricht!
                         </p>
                         <div class="signature">
                             <img src="@/assets/images/signature.png" alt="signature" />
@@ -47,12 +50,13 @@
             </div>
             <div class="panel trailer-panel">
                 <div class="title">
-                    Unser
-                    <span class="highlight-text">Trailer</span>
+                    Unsere
+                    <span class="highlight-text">Crew</span>
+                    vorgestellt
                 </div>
                 <div class="content">
-                    <video width="800" height="500" controls>
-                        <source src="@/assets/videos/trailer.mp4" type="video/mp4">
+                    <video controls>
+                        <source src="@/assets/videos/crew.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>
@@ -62,11 +66,17 @@
                     <span class="highlight-text">News</span>
                 </section>
                 <section class="content">
+                    <el-button @click="prevSlide()" class="carousel-trigger left">
+                        <md-icon>arrow_back</md-icon>
+                    </el-button>
                     <el-carousel
                         :autoplay="false"
-                        :loop="true"
-                        direction="vertical"
+                        arrow="never"
+                        indicator-position="none"
                         class="carousel"
+                        ref="news-carousel"
+                        :direction="newsCarouselDirection"
+                        trigger="click"
                     >
                         <el-carousel-item
                             class="article"
@@ -74,7 +84,6 @@
                             :key="article.newsId"
                         >
                             <div class="image">
-                                <!-- <img :src="getImageUrl(article.imageUrl, '')" /> -->
                                 <el-image :src="getImageUrl(article.imageUrl, '')" fit="cover">
                                     <div slot="placeholder" class="placeholder">
                                         <div>
@@ -91,6 +100,9 @@
                             </div>
                         </el-carousel-item>
                     </el-carousel>
+                    <el-button @click="nextSlide()" class="carousel-trigger right">
+                        <md-icon>arrow_forward</md-icon>
+                    </el-button>
                 </section>
             </div>
         </div>
@@ -125,6 +137,11 @@
                             <i class="fab fa-telegram-plane" />
                         </a>
                     </div>
+                    <div class="sm instagram">
+                        <a href="https://www.instagram.com/coachingairline/" target="_blank">
+                            <i class="fab fa-instagram" />
+                        </a>
+                    </div>
                 </section>
                 <section class="infos">
                     <div class="entry moderator">
@@ -138,7 +155,9 @@
                             <span v-if="isLive">{{ streamerName }}</span>
                             <span v-else-if="isOnline">AUTO-DJ</span>
                             <span v-else>Stream ist Offline</span>
-                            <span class="time" v-if="isOnline">18:00 - 20:00 Uhr</span>
+                            <span class="time" v-if="isOnline">
+                                {{ plannedTime }}
+                            </span>
                             <span class="time" v-else>-/-</span>
                         </div>
                         <div class="desc">
@@ -147,7 +166,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="entry">
+                    <div class="entry guestbook">
                         <div class="title">
                             <md-icon>menu_book</md-icon>
                             <div>

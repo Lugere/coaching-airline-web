@@ -8,10 +8,32 @@ $purple-t: #55398296;
 $purple: #553982;
 $magenta-active: #9c00b5;
 $magenta-hover: #cc1ce8;
+$magenta-disabled: #f197ff;
 $magenta: #e22eff;
+$magenta-t: #e32eff4b;
 $white-t: #ffffff4f;
 $white: #ffffff;
 $red: #a70040;
+
+/**
+  * Purple-Magenta Transition
+  */
+
+$pm1: #6b3e9d;
+$pm1-hover: #8156b3;
+$pm1-active: #5a2f8a;
+$pm2: #8440b8;
+$pm2-hover: #9250c5;
+$pm2-active: #7432a7;
+$pm3: #e646ff;
+$pm3-hover: #ec6dff;
+$pm3-active: #ca2ee2;
+$pm4: #c03be9;
+$pm4-hover: #d755ff;
+$pm4-active: #ad2ad5;
+$pm5: #a140d1;
+$pm5-hover: #b658e6;
+$pm5-active: #9030c0;
 
 /**
   * Social Media Color Palette
@@ -34,3 +56,6 @@ $twitter: #ff50f8;
 
 $xing-hover: #b034dd;
 $xing: #d150ff;
+
+$instagram-hover: #b034dd;
+$instagram: #d150ff;

@@ -1,0 +1,34 @@
+User-agent: *
+Disallow: /
+
+User-agent: Adidxbot
+User-agent: AdsBot-Google
+User-agent: Applebot
+User-agent: Baiduspider
+User-agent: Baiduspider-image
+User-agent: Baiduspider-mobile
+User-agent: Baiduspider-video
+User-agent: Googlebot-Video
+User-agent: NaverBot
+User-agent: SeznamBot
+User-agent: Twitterbot
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexMobileBot
+User-agent: YandexSitelinks
+User-agent: YandexVideo
+User-agent: YandexWebmaster
+User-agent: Yeti
+User-agent: bingbot
+User-agent: googlebot
+User-agent: googlebot
+Allow: /
+
+Disallow: /404
+Disallow: /fonts
+Disallow: /videos
+
+User-agent: Facebot
+User-agent: Yahoo Pipes 1.0
+User-agent: externalfacebookhit
+Disallow: /

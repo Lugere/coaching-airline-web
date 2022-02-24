@@ -44,11 +44,11 @@ export default class Schedule extends GetterMixin {
     public currEventData: any = [];
 
     get calendarWeek(): number {
-        return moment().week();
+        return moment().weekday(this.dayModifier).week();
     }
 
     get currYear(): number {
-        return moment().year();
+        return moment().weekday(this.dayModifier).year();
     }
 
     public populateDates(): void {

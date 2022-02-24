@@ -29,30 +29,38 @@ const store = new Vuex.Store({
                 newsId: 1,
                 title: "Wir führen wieder spannende Interviews!",
                 content: `
-                    Start der sensationellen Radioshow von Herbert, das Skelett aus dem wunderbaren Kinderbuch von Martina Murseli: "die verrückte Hexte".
+                    Start der sensationellen Radioshow von Herbert, das Skelett aus dem wunderbaren
+                    Kinderbuch von Martina Murseli: "die verrückte Hexte".
                     <br />
                     Die Stimme von Herbert das Skelett ist kein geringerer als Charli Wolf!
                     <br />
-                    Im Februar (Termin wird noch bekannt gegeben) wird anlässlich des 35-jährigen Todestages und zu Ehren Hans Rosenthal 
-                    am 10. Februar 22 eine  Sondersendung stattfinden, rund um die Sendung 50 Jahre Dallli Dalli und das Wirken des Hans Rosenthal.
+                    Im Februar (Termin wird noch bekannt gegeben) wird anlässlich des 35-jährigen
+                    Todestages und zu Ehren Hans Rosenthal am 10. Februar 22 eine Sondersendung
+                    stattfinden, rund um die Sendung 50 Jahre Dallli Dalli und das Wirken des
+                    HansRosenthal.
                     <br />
-                    Mit Live-Zuschaltung per Telefon der Sohn Gert Rosenthal, der sich zu einen Kurzinterview per Telefon bereit erklärt hat.
+                    Wir freuen uns Euch mitteilen zu können, dass sich der Sohn Gert Rosenthal - Leiter
+                    der Hans-Rosenthal-Stiftung - zu einem Live Kurzinterview per Telefon bereit erklärt hat.
                     <br />
-                    Christian Deussen als Moderator mit seinen Best Of sowie gemeinsam mit Andrea Hohmann die Fortsetzung der Gospel- u. Spirituals
+                    Christian Deussen als Moderator mit seinen Best Of sowie gemeinsam mit Andrea
+                    Hohmann die Fortsetzung der Gospel- u. Spirituals
                 `,
                 date: 1642599114,
                 imageUrl: "radio-booth.jpg",
             },
             {
                 newsId: 3,
-                title: "Live Sendung: \"Unter uns gesagt\"",
+                title: 'Live Sendung: "Unter uns gesagt"',
                 content: `
-                    Zusammen mit Burkhard Thom erstmal 14-tägig (Tag wird noch bekannt gegeben) informatives und Aufklärung gemeinsam in einer
-                    Präventionssendung. Schwerpunkt /Thema: Alkoholismus und Co-Abhängigkeit
-                    <br /><br />
-                    Außerdem stellen wir im Laufe des Monats unsere Live Moderatoren vor, die sich schon für Coaching Airline Radio entschieden haben, mit dabei zu sein!
-                    <br /><br />
-                    Wir halten Euch ständig mit unseren News auf dem laufenden über unsere besonderen Programmpunkte!
+                Zusammen mit Burkhard Thom erstmal 14-tägig (Tag wird noch bekannt gegeben) informatives
+                und Aufklärung gemeinsam in einer Präventionssendung. Schwerpunkt /Thema: Alkoholismus und
+                Co-Abhängigkeit
+                <br /><br />
+                Außerdem stellen wir im Laufe des Monats unsere Live Moderatoren vor, die sich schon für
+                Coaching Airline Radio entschieden haben, mit dabei zu sein!
+                <br /><br />
+                Wir halten Euch ständig mit unseren News auf dem laufenden über unsere besonderen
+                Programmpunkte!
                 `,
                 date: 1642599114,
                 imageUrl: "radio-booth.jpg",
@@ -96,6 +104,10 @@ const store = new Vuex.Store({
                     {
                         brand: "Telegram",
                         link: "https://t.me/RadioCoachingAirline",
+                    },
+                    {
+                        brand: "Instagram",
+                        link: "https://www.instagram.com/coachingairline/",
                     },
                 ],
                 desc: `Lorem ipsum dolor sit amet,
@@ -386,16 +398,7 @@ const store = new Vuex.Store({
             commit("setTeam", team);
         },
 
-        toggleIsMute(
-            { commit },
-            isMute: {
-                title: string;
-                content: string;
-                date: number;
-                imageUrl: string;
-                newsId: number;
-            },
-        ): void {
+        toggleIsMute({ commit }, isMute: boolean): void {
             commit("setIsMute", isMute);
         },
 

@@ -18,7 +18,7 @@
                     <p>
                         E-Mail: info@coachingairline-de<br />
                         Telefon: 06438 / 8349742<br />
-                        Mobil: 0176 / 3978397
+                        Mobil: 0176 / 30783508
                     </p>
                     <br />
                     <h3>
@@ -235,6 +235,16 @@
                         <li>
                             <span class="text">
                                 limart – Fotolia.com
+                            </span>
+                        </li>
+                        <li>
+                            <span class="text">
+                                Alex McCarthy – Unsplash.com
+                            </span>
+                        </li>
+                        <li>
+                            <span class="text">
+                                Fringer Cat – Unsplash.com
                             </span>
                         </li>
                     </ul>

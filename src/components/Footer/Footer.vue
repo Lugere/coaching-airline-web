@@ -17,7 +17,7 @@
                         <span>65597 Hünfelden</span>
                         <span>Deutschland</span>
                     </div>
-                    <div class="option">
+                    <div class="option digital">
                         <div class="line">
                             <div class="highlight">E-Mail</div>
                             <a href="mailto:info@coachingairline.de">
@@ -32,12 +32,20 @@
                         </div>
                         <div class="line">
                             <div class="highlight">Mobil</div>
-                            <a href="tel:+491763978397">
-                                +49 176 / 3978397
+                            <a href="tel:+4917630783508">
+                                +49 176 / 30783508
                             </a>
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="mod-portal">
+                <div class="title">
+                    Mod-Portal
+                </div>
+                <el-button type="primary" class="el-button--accent" @click="openLogin()">
+                    Anmelden
+                </el-button>
             </section>
             <section class="social-media">
                 <div class="title">Social Media</div>
@@ -77,12 +85,15 @@
                             t.me/RadioCoachingAirline
                         </md-tooltip>
                     </div>
+                    <div class="link">
+                        <a href="https://www.instagram.com/coachingairline/" target="_blank">
+                            <i class="fab fa-instagram" />
+                        </a>
+                        <md-tooltip md-delay="300">
+                            @coachingairline
+                        </md-tooltip>
+                    </div>
                 </div>
-            </section>
-            <section class="mod-portal">
-                <el-button disabled type="primary" class="el-button--accent" @click="openLogin()">
-                    Modportal (Cooming soon)
-                </el-button>
             </section>
             <section class="other-info">
                 <div class="title">Links</div>

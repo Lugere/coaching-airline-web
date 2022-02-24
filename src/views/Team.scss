@@ -93,7 +93,7 @@
                             margin-bottom: 10px;
 
                             .icon {
-                                background-color: $purple;
+                                background-color: $magenta;
                                 border-radius: 50%;
                                 cursor: pointer;
                                 color: $white;
@@ -101,11 +101,11 @@
                                 height: 30px;
                                 place-items: center;
                                 width: 30px;
-
+                                
                                 + .icon {
                                     margin-left: 10px;
                                 }
-
+                                
                                 i {
                                     font-size: 12pt;
                                 }

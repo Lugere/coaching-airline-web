@@ -4,6 +4,8 @@ import store from "@/store";
 
 @Component
 export default class Footer extends GetterMixin {
+    $refs;
+
     public openLogin(): void {
         store.dispatch("toggleLogin", true);
     }

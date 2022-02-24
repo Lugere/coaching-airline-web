@@ -6,6 +6,7 @@ import store from "@/store";
 export default class VolumeControl extends GetterMixin {
     public toggleIsMute(): void {
         store.dispatch("toggleIsMute", !this.isMute);
+        this.$cookies.set("isMute", !this.isMute);
     }
 
     public updateVolume(): void {
@@ -18,12 +19,14 @@ export default class VolumeControl extends GetterMixin {
 
     public updateVolumeCookie(): void {
         const volume = store.state.volume;
-        localStorage.setItem("volume", `${volume}`);
+        this.$cookies.set("volume", `${volume}`);
     }
 
     public getVolumeCookie(): void {
-        const volume = localStorage.getItem("volume");
+        const volume: string = this.$cookies.get("volume");
+        const isMute: boolean = this.$cookies.get("isMute");
         store.dispatch("updateVolume", volume ? volume : "50");
+        store.dispatch("toggleIsMute", isMute ? isMute : false);
     }
 
     public get volumeIcon(): string {

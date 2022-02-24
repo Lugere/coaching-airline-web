@@ -33,6 +33,16 @@
             .week-pagination {
                 margin-left: auto;
             }
+
+            .el-button-group {
+                .el-button {
+                    border: none;
+
+                    + .el-button {
+                        margin-left: 2px;
+                    }
+                }
+            }
         }
 
         .sub-container {

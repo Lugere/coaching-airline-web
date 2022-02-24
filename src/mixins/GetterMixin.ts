@@ -2,6 +2,7 @@ import { Vue, Component } from "vue-property-decorator";
 import store from "@/store";
 import moment from "moment";
 import { mapState, mapGetters } from "vuex";
+import * as firebase from "firebase/app";
 moment.locale("de");
 
 @Component({
@@ -20,7 +21,7 @@ moment.locale("de");
             "songTitle",
             "streamerName",
             "team",
-            "volume"
+            "volume",
         ]),
     },
 })
@@ -64,6 +65,10 @@ export default class GetterMixin extends Vue {
                 return "xing";
             case "linkedin":
                 return "linkedin-in";
+            case "instagram":
+                return "instagram";
+            default:
+                return "";
         }
     }
 }

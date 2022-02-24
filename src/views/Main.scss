@@ -13,7 +13,7 @@
     }
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1540px) {
     #Main {
         padding: 0 !important;
 
@@ -22,17 +22,29 @@
         }
     }
 }
-@media only screen and (min-width: 1220px) {
+// Hide Burger-Menu when screen > 1300px
+@media only screen and (min-width: 1300px) {
     #Main {
         .nav-bar .content .drawer-trigger {
             display: none !important;
         }
     }
 }
-@media only screen and (max-width: 1220px) {
+// Hide Links when screen < 1300px
+@media only screen and (max-width: 1300px) {
     #Main {
         .nav-bar .content .links {
             display: none !important;
+        }
+    }
+}
+@media only screen and (max-width: 960px) {
+    #Main {
+    }
+}
+@media only screen and (max-width: 670px) {
+    #Main {
+        .nav-bar .content .player {
         }
     }
 }
@@ -78,8 +90,8 @@
                 align-items: center;
                 display: flex;
                 height: 60%;
-                margin-bottom: auto;
-                margin-top: auto;
+                // margin-bottom: auto;
+                // margin-top: auto;
                 text-decoration: none;
 
                 img {
@@ -279,81 +291,58 @@
 
         .el-dialog {
             background-color: $purple;
-            width: 400px;
-            margin-top: auto !important;
+            border-radius: 8px;
+            box-shadow: 0 0 20px 0 black;
             margin-bottom: auto;
+            margin-top: auto !important;
+            overflow: hidden;
+            width: 450px;
+
+            .side-image {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 50px;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: -280px;
+                }
+            }
 
             .title {
                 font-size: 16pt;
-                font-family: "Roboto Black";
+                font-family: "Roboto Regular";
                 text-transform: uppercase;
+                margin-left: 50px;
 
-                .logo {
-                    height: 32px;
+                .bold {
+                    font-family: "Roboto Black";
                     margin-right: 10px;
                 }
-            }
 
-            .sm-button-group {
-                display: flex;
-                flex-direction: column;
-
-                .el-button {
-                    border: none;
+                .login-icon {
                     color: $white;
-                    position: relative;
-                    // text-align: left;
-
-                    .inner-content {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
-                        .fab {
-                            border-radius: 4px;
-                            display: grid;
-                            font-size: 14pt;
-                            height: 100%;
-                            place-items: center;
-                            top: 0;
-                            margin-right: 10px;
-                        }
-                    }
-
-                    &.login-google {
-                        background-color: $google-cc;
-                    }
-
-                    &.login-facebook {
-                        background-color: $facebook-cc;
-                    }
-
-                    & + .el-button {
-                        margin-left: 0;
-                        margin-top: 10px;
-                    }
+                    margin-left: 23px;
+                    transform: scale(2) translateX(-30%);
                 }
-            }
 
-            .seperator {
-                border-bottom: 1px solid $white-t;
-                position: relative;
-                margin: 2em 0 1em 0;
-
-                .text {
-                    position: absolute;
-                    bottom: -10px;
-                    left: 50%;
-                    transform: translate(-50%, 0);
-                    background-color: $purple;
-                    padding: 0 5px;
-                    color: $white-t;
+                .subtitle {
+                    font-size: 11pt;
+                    margin-left: 66px;
+                    color: $magenta;
+                    margin-top: -5px;
+                    text-transform: uppercase;
                 }
             }
 
             .form {
                 display: flex;
                 flex-direction: column;
+                margin-top: -30px;
+                margin-left: 50px;
 
                 .links {
                     display: flex;
@@ -385,9 +374,7 @@
             }
 
             .button-group {
-                width: 100%;
-                display: flex;
-                justify-content: right;
+                margin-top: -40px;
             }
         }
     }

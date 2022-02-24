@@ -1,14 +1,16 @@
 import { Component, Vue, Watch } from "vue-property-decorator";
 import GetterMixin from "@/mixins/GetterMixin";
+import store from "@/store";
+// Components
 import ProgressBar from "@/components/ProgressBar/ProgressBar.vue";
 import VolumeControl from "@/components/VolumeControl/VolumeControl.vue";
-import store from "@/store";
-import axios from "axios";
+import CookieBanner from "@/components/CookieBanner/CookieBanner.vue";
 
 @Component({
     components: {
         ProgressBar,
         VolumeControl,
+        CookieBanner,
     },
 })
 export default class Main extends GetterMixin {
@@ -28,11 +30,16 @@ export default class Main extends GetterMixin {
 
     public handleLoginClose(): void {
         store.dispatch("toggleLogin", false);
-    }
+    } 
 
     public handleLoginOpen(): void {
         this.login.email = "";
         this.login.password = "";
+    }
+
+    public loginUser(): void {
+        // firebase.auth();
+        return;
     }
 
     // audio-player
@@ -72,6 +79,10 @@ export default class Main extends GetterMixin {
 
     // getters
 
+    public get isCookieAgreement(): boolean {
+        return this.$cookies.get("allowCookies") === "true";
+    }
+
     public get activeDrawerLink(): string | null | undefined {
         return this.$route.name;
     }
@@ -110,6 +121,8 @@ export default class Main extends GetterMixin {
     }
 
     beforeMount(): void {
+        if (!this.$cookies.get("allowCookies")) this.$cookies.set("allowCookies", false);
+
         store.dispatch("updatePlayingData");
         setInterval(() => {
             if (this.isPlaying) store.dispatch("updatePlayingData");
