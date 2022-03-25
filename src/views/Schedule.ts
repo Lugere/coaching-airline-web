@@ -1,5 +1,5 @@
 import GetterMixin from "@/mixins/GetterMixin";
-import { Component } from "vue-property-decorator";
+import { Component, Watch } from "vue-property-decorator";
 import Footer from "@/components/Footer/Footer.vue";
 import moment from "moment";
 moment.locale("de-de");
@@ -33,69 +33,132 @@ export default class Schedule extends GetterMixin {
             end: "2000",
         },
         {
+            start: "2000",
+            end: "2200",
+        },
+        {
             start: "2200",
             end: "0000",
         },
     ];
     public days: any = [];
-    public dayModifier = 0;
+
+    public selectedDate: number;
+    public selectedWeek = new Date();
 
     public currStreamer = {};
     public currEventData: any = [];
 
-    get calendarWeek(): number {
-        return moment().weekday(this.dayModifier).week();
-    }
-
-    get currYear(): number {
-        return moment().weekday(this.dayModifier).year();
-    }
+    public currWeek: number;
+    public currYear: number;
 
     public populateDates(): void {
+        this.currWeek = moment(this.selectedDate).week();
+        this.currYear = moment(this.selectedDate).year();
+
         this.days = [];
-        for (let i = this.dayModifier; i < this.dayModifier + 7; i++) {
+        for (let i = 0; i < 7; i++) {
             this.days.push({
-                date: moment()
+                date: moment(this.selectedDate)
                     .weekday(i)
-                    .format("DD. MM."),
-                weekDay: moment()
+                    .format("DD. MM. YYYY"),
+                weekDay: moment(this.selectedDate)
                     .weekday(i)
                     .format("dddd"),
             });
         }
     }
 
-    public updateWeek(direction: string) {
+    public async onWeekPicked() {
+        this.isTableLoading = true;
+        this.selectedDate = moment(this.selectedWeek).valueOf();
+        this.populateDates();
+        this.isTableLoading = false;
+    }
+
+    public isTableLoading = false;
+
+    public async updateWeek(direction: string) {
+        this.isTableLoading = true;
         switch (direction) {
             case "decr":
-                this.dayModifier -= 7;
+                this.selectedDate = moment(this.selectedDate)
+                    .subtract(7, "days")
+                    .valueOf();
                 this.populateDates();
                 break;
             case "incr":
-                this.dayModifier += 7;
+                this.selectedDate = moment(this.selectedDate)
+                    .add(7, "days")
+                    .valueOf();
                 this.populateDates();
                 break;
             default:
-                this.dayModifier = 0;
+                this.selectedDate = moment().valueOf();
                 this.populateDates();
         }
+        this.selectedWeek = moment(this.selectedDate).toDate();
+        this.isTableLoading = false;
+    }
+
+    public isCellToday(date: string): boolean {
+        return date == moment().format("DD. MM. yyyy");
     }
 
     public isStreamerPlanned(day, time): boolean {
         // this method is called everytime a cell is rendered
         let isPlanned = false;
-        this.schedule.map((event: any) => {
+        this.recurringSchedule.map(event => {
             if (
-                event.time.start == time.start &&
-                day.date == moment.unix(event.date).format("DD. MM.")
-            ) {
+                moment(day, "DD. MM. yyyy").weekday() == event.day &&
+                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                time.start == event.time.start
+            )
                 isPlanned = true;
-                this.currStreamer = this.team.find(member => member.id == event.streamerId);
-                this.currEventData = event;
-            }
+        });
+        this.schedule.map(event => {
+            if (day == event.date && time.start == event.time.start) isPlanned = true;
         });
 
         return isPlanned;
+    }
+
+    public getCurrStreamer(day, time): any {
+        let currStreamer;
+        this.schedule.map(event => {
+            if (day == event.date && time.start == event.time.start)
+                currStreamer = this.team.find(member => member.id == event.streamerId);
+        });
+        this.recurringSchedule.map(event => {
+            if (
+                moment(day, "DD. MM. yyyy").weekday() == event.day &&
+                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                time.start == event.time.start
+            )
+                currStreamer = this.team.find(member => member.id == event.streamerId);
+        });
+
+        return currStreamer;
+    }
+
+    public getCurrEventData(day, time) {
+        let currEventData;
+        this.schedule.map(event => {
+            if (day == event.date && time.start == event.time.start) currEventData = event;
+        });
+        this.recurringSchedule.map(event => {
+            if (
+                moment(day, "DD. MM. yyyy").weekday() == event.day &&
+                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                time.start == event.time.start
+            )
+                currEventData = event;
+        });
+
+        return currEventData;
     }
 
     public getTableTime(index: number): string {
@@ -106,6 +169,14 @@ export default class Schedule extends GetterMixin {
         return `${hoursStart}:${minutesStart} - ${hoursEnd}:${minutesEnd} Uhr`;
     }
 
+    public getStreamerTime(time: { start: string, end: string }): string {
+        const hoursStart = time.start.slice(0, 2);
+        const hoursEnd = time.end.slice(0, 2);
+        const minutesStart = time.start.slice(2, 4);
+        const minutesEnd = time.end.slice(2, 4);
+        return `${hoursStart}:${minutesStart} - ${hoursEnd}:${minutesEnd} Uhr`;
+    }
+
     public truncateString(str: string): string {
         if (str.length > 100) {
             return str.slice(0, 200) + "...";
@@ -113,6 +184,12 @@ export default class Schedule extends GetterMixin {
     }
 
     public beforeMount() {
+        this.selectedDate = moment().valueOf();
+        this.populateDates();
+    }
+
+    @Watch("selectedDate", { immediate: true })
+    public selectedDateHandler() {
         this.populateDates();
     }
 }

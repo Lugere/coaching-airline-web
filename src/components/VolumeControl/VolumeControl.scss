@@ -3,33 +3,33 @@
 #volume-control {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-    margin-left: 25px;
+    grid-area: volumecontrol;
+    margin: 0 auto;
 
     .volume-icon {
         cursor: pointer;
         display: flex;
-        justify-content: left;
         font-size: 18pt;
+        justify-content: left;
         width: 30px;
     }
 
     .volume-bar {
         align-items: center;
         display: flex;
-        margin: 0 20px 0 15px;
+        margin-left: 15px;
         position: relative;
         width: 100px;
 
         .volume-slider {
             -webkit-appearance: none !important;
             appearance: none !important;
-            width: 100%;
-            height: 2px;
             background-color: $white;
+            border-radius: 3px;
+            height: 2px;
             margin: 7px 0;
             outline: none;
-            border-radius: 3px;
+            width: 100%;
 
             &::-webkit-slider-runnable-track {
                 z-index: 100 !important;
@@ -38,11 +38,11 @@
             &::-webkit-slider-thumb {
                 -webkit-appearance: none !important;
                 appearance: none !important;
-                height: 12px;
-                width: 12px;
                 background-color: $white;
                 border-radius: 50%;
                 cursor: pointer;
+                height: 12px;
+                width: 12px;
             }
         }
 

@@ -1,28 +1,28 @@
 @import "@/utilities/variables.scss";
 
 #progress-bar {
-    display: flex;
     align-items: center;
-    width: 100%;
+    display: flex;
     position: relative;
+    width: 100%;
 
     .slider{
         -webkit-appearance: none !important;
         appearance: none !important;
-        width: 100%;
-        height: 2px;
         background-color: $white;
+        border-radius: 3px;
+        height: 2px;
         margin: 7px 0;
         outline: none;
-        border-radius: 3px;
+        width: 100%;
 
         &::-webkit-slider-thumb {
             -webkit-appearance: none !important;
             appearance: none !important;
-            height: 12px;
-            width: 12px;
             background-color: $white;
             border-radius: 50%;
+            height: 12px;
+            width: 12px;
         }
 
         &::-webkit-slider-runnable-track {

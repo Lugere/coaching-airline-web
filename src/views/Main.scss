@@ -2,7 +2,7 @@
 
 @media only screen and (min-width: 2500px) {
     #Main {
-        .nav-bar {
+        nav {
             display: flex;
             justify-content: center;
 
@@ -13,73 +13,131 @@
     }
 }
 
-@media only screen and (max-width: 1540px) {
+@media only screen and (max-width: 1660px) {
     #Main {
         padding: 0 !important;
 
-        .nav-bar .content {
-            width: 95% !important;
+        nav {
+            border-radius: 0 !important;
+
+            .content {
+                width: 95% !important;
+            }
+        }
+
+        footer {
+            border-radius: 0 !important;
         }
     }
 }
 // Hide Burger-Menu when screen > 1300px
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1400px) {
     #Main {
-        .nav-bar .content .drawer-trigger {
+        nav .content .burger-menu {
             display: none !important;
         }
     }
 }
 // Hide Links when screen < 1300px
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
     #Main {
-        .nav-bar .content .links {
-            display: none !important;
+        nav {
+            .content {
+                grid-template-areas: "logo player burgermenu" !important;
+
+                .links {
+                    display: none !important;
+                }
+            }
         }
     }
 }
-@media only screen and (max-width: 960px) {
+
+@media only screen and (max-width: 1050px) {
     #Main {
+        grid-template-rows: 160px 1fr !important;
+
+        nav {
+            height: 160px !important;
+
+            .content {
+                gap: 0 !important;
+                grid-template-rows: 80px 80px !important;
+                grid-template-areas:
+                    "logo burgermenu"
+                    "player player" !important;
+
+                .player {
+                    margin: 0 auto;
+                }
+            }
+        }
     }
 }
-@media only screen and (max-width: 670px) {
-    #Main {
-        .nav-bar .content .player {
+
+@media only screen and (max-width: 660px) {
+    #Main nav .content {
+        grid-template-columns: 1fr 2fr 24px !important;
+        grid-template-areas:
+            "logo volumeresp burgermenu"
+            "player player player" !important;
+
+        .volume-control-resp {
+            display: flex !important;
+        }
+
+        .player {
+            grid-template-columns: 24px 1fr 24px !important;
+            grid-template-areas: "play playergroup openplayer" !important;
+
+            #volume-control {
+                display: none !important;
+            }
         }
     }
 }
 
 #Main {
     display: grid;
-    grid-template-rows: 80px auto;
-    gap: 1em;
+    grid-template-rows: 80px 1fr;
     height: 100vh;
     padding: 0 10%;
+    grid-template-areas:
+        "nav"
+        "view";
 
-    .nav-bar {
-        background-color: $purple;
-        display: flex;
-        justify-content: center;
-        left: 0;
+    nav {
+        background-color: $purple-t;
+        border-radius: 0 0 20px 20px;
+        border: 1px solid $purple-t;
+        height: 80px;
+        inset: 0 0 auto 0;
         position: fixed;
-        right: 0;
-        top: 0;
+        grid-area: nav;
 
         .content {
             align-items: center;
-            display: flex;
-            height: 80px;
-            position: relative;
+            display: grid;
+            grid-template-areas: "logo player links";
+            margin: 0 auto;
             width: 80%;
+            grid-template-rows: 80px;
+            column-gap: 1em;
+
+            .volume-control-resp {
+                display: none;
+                grid-area: volumeresp;
+            }
 
             .md-icon {
                 color: white;
                 font-size: 24pt !important;
             }
 
-            .drawer-trigger {
-                margin-left: auto;
+            .burger-menu {
                 cursor: pointer;
+                grid-area: burgermenu;
+                margin-left: auto;
 
                 * {
                     font-size: 28pt !important;
@@ -89,9 +147,8 @@
             .logo {
                 align-items: center;
                 display: flex;
+                grid-area: logo;
                 height: 60%;
-                // margin-bottom: auto;
-                // margin-top: auto;
                 text-decoration: none;
 
                 img {
@@ -134,23 +191,28 @@
             .player {
                 align-items: center;
                 color: white;
-                display: flex;
+                display: grid;
                 font-family: "Roboto Light";
                 height: 100%;
-                margin-left: 40px;
                 min-width: 625px;
+                grid-area: player;
+                grid-template-areas: "play playergroup openplayer volumecontrol";
+                grid-template-columns: 24px 1fr 24px 145px;
+                column-gap: 2em;
 
-                .play-btn * {
+                .play-button {
+                    grid-area: play;
                     cursor: pointer;
                 }
 
-                .player-grp {
+                .player-group {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    margin: 20px;
                     position: relative;
                     width: 100%;
+                    grid-area: playergroup;
+                    min-width: 300px;
 
                     .on-air-indicator {
                         position: absolute;
@@ -183,8 +245,8 @@
                     }
                 }
 
-                .open-player-btn {
-                    cursor: pointer;
+                .open-player-button {
+                    grid-area: openplayer;
                 }
             }
 
@@ -193,6 +255,7 @@
                 font-size: 12pt;
                 margin-left: auto;
                 text-transform: uppercase;
+                grid-area: links;
 
                 ul {
                     display: flex;
@@ -235,7 +298,7 @@
             background-color: $purple;
             font-size: 16pt;
             text-transform: uppercase;
-            min-width: 250px;
+            min-width: 300px;
         }
 
         header,
@@ -243,6 +306,10 @@
         .el-drawer__title,
         a {
             color: $white;
+        }
+
+        .el-icon-close {
+            font-size: 24pt;
         }
 
         a {
@@ -258,22 +325,32 @@
             .link {
                 .md-icon {
                     font-size: 24pt !important;
-                    color: white;
+                    color: $white;
                     margin-right: 1em;
+                }
+
+                span {
+                    margin: auto 0;
                 }
             }
 
             .list-item {
                 padding: 1em;
                 border-left: 5px solid transparent;
+                margin: 5px;
+                border-radius: 5px;
 
                 &.active {
-                    background-color: $purple-t;
-                    border-color: $white;
+                    background-color: $white;
+                    color: $purple;
+
+                    .md-icon {
+                        color: $purple;
+                    }
                 }
 
-                &:hover {
-                    background-color: $purple-t;
+                &:hover:not(.active) {
+                    background-color: $white-t;
                 }
             }
         }

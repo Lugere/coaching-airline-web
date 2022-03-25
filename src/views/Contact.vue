@@ -1,6 +1,6 @@
 <template>
     <div id="Contact">
-        <div class="main-container">
+        <main>
             <section class="header">
                 Kontakt
             </section>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>

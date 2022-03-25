@@ -2,26 +2,26 @@
 
 #not-found {
     display: grid;
-    gap: 1em;
-    grid-row-start: 2;
-    grid-template-columns: auto 20%;
-    grid-template-rows: auto 175px;
+    grid-area: view;
+    grid-template-areas:
+        "main main"
+        "footer footer";
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
     width: 100%;
-    padding-right: 1em;
 
-    .main-container {
+    main {
         align-items: center;
         background-color: $purple-t;
-        border-radius: 3px;
+        border: 1px solid $purple-t;
+        border-radius: 0 0 3px 3px;
+        border-top: 0;
         color: $white;
         display: flex;
         flex-direction: column;
-        grid-column-end: 3;
-        grid-column-start: 1;
+        grid-area: main;
         height: 100%;
         padding: 2em;
         width: 100%;
@@ -34,30 +34,44 @@
             }
         }
 
-        .title {
-            text-transform: uppercase;
-            font-size: 150pt;
-            line-height: 150pt;
-            font-family: "Roboto Black";
-            text-align: center;
-        }
+        .split-section {
+            column-gap: 1em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            place-items: center;
 
-        .subtitle {
-            font-size: 16pt;
-            margin-bottom: 1em;
-        }
+            .title {
+                font-family: "Roboto Black";
+                font-size: 150pt;
+                line-height: 150pt;
+                text-align: center;
+                text-transform: uppercase;
+            }
 
-        .desc {
-            font-size: 14pt;
-            text-align: center;
-            color: $white;
-            max-width: 250px;
-            line-height: 20pt;
-        }
+            .right-side {
+                position: relative;
+                display: flex;
+                flex-direction: column;
 
-        .return-home * {
-            // font-size: 18pt;
-            margin-top: 1em;
+                .subtitle {
+                    font-size: 20pt;
+                    margin-bottom: 1em;
+                    text-align: center;
+                }
+
+                .desc {
+                    color: $white;
+                    font-family: "Roboto Light";
+                    font-size: 12pt;
+                    margin: 0 auto;
+                    max-width: 250px;
+                    text-align: center;
+                }
+
+                .return-home {
+                    margin: 1em auto 0 auto;
+                }
+            }
         }
     }
 }

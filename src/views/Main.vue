@@ -1,24 +1,24 @@
 <template>
     <main id="Main">
-        <div class="nav-bar">
+        <nav>
             <div class="content">
-                <router-link to="Home" class="logo">
+                <router-link class="logo" to="Home">
                     <img
                         src="@/assets/images/logo-cropped.png"
                         alt="coaching airline logo - papierflieger fliegt um globus"
                     />
-                    <div class="title">
+                    <header class="title">
                         <div class="highlight">
                             Coaching Airline
                         </div>
                         <div>
                             Radio
                         </div>
-                    </div>
+                    </header>
                 </router-link>
                 <section class="player">
                     <div
-                        class="play-btn"
+                        class="play-button"
                         @click="onPlayClicked()"
                         :alt="isPlaying ? 'musik pausieren' : 'musik abspielen'"
                     >
@@ -29,7 +29,7 @@
                             {{ isPlaying ? "Pause" : "Abspielen" }}
                         </md-tooltip>
                     </div>
-                    <div class="player-grp">
+                    <div class="player-group">
                         <!-- <div class="live-indicator" :class="isLive ? 'live' : 'offline'">
                             <md-tooltip :md-delay="300">
                                 {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
@@ -63,10 +63,11 @@
                         </div>
                     </div>
                     <a
+                        class="open-player-button"
                         href="https://stream.coachingairlineradio.de/public/coachingairlineradio/playlist.pls"
                         download="coachingairlineradio.pls"
                     >
-                        <div class="open-player-btn" alt="lokalen player öffnen">
+                        <div alt="lokalen player öffnen">
                             <md-icon>radio</md-icon>
                             <md-tooltip :md-delay="300">Öffne lokalen Player</md-tooltip>
                         </div>
@@ -95,14 +96,14 @@
                         </li>
                     </ul>
                 </section>
-                <section class="drawer-trigger" @click="toggleDrawer()">
+                <VolumeControl class="volume-control-resp" />
+                <section class="burger-menu" @click="toggleDrawer()">
                     <md-icon>menu</md-icon>
                 </section>
             </div>
-        </div>
+        </nav>
         <el-drawer
             class="drawer"
-            title="Coaching Airline Radio"
             :visible.sync="showDrawer"
             direction="rtl"
         >
@@ -164,9 +165,9 @@
             <section class="title" slot="title">
                 <div>
                     <!-- <span class="logo-grp"> -->
-                        <!-- <img src="@/assets/images/logo-cropped.png" class="logo" alt="" /> -->
+                    <!-- <img src="@/assets/images/logo-cropped.png" class="logo" alt="" /> -->
                     <!-- </span> -->
-                        <md-icon class="login-icon">manage_accounts</md-icon>
+                    <md-icon class="login-icon">manage_accounts</md-icon>
                     <span>
                         <span class="bold">
                             mod-portal

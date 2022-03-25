@@ -2,27 +2,30 @@
 
 #Schedule {
     display: grid;
-    gap: 1em;
-    grid-row-start: 2;
-    grid-template-rows: auto 175px;
+    grid-area: view;
+    grid-template-areas:
+        "main main"
+        "footer footer";
+    grid-template-rows: 1fr 200px;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
     width: 100%;
-    padding-right: 1em;
 
-    .main-container {
+    main {
         background-color: $purple-t;
-        border-radius: 3px;
-        grid-column-end: 3;
-        grid-column-start: 1;
+        border-radius: 0 0 3px 3px;
+        border: 1px solid $purple-t;
+        border-top: 0;
         height: 100%;
         padding: 2em;
         width: 100%;
+        grid-area: main;
 
         .header {
             align-items: center;
+            justify-content: space-between;
             display: flex;
             margin-bottom: 1em;
 
@@ -30,16 +33,31 @@
                 color: $white;
                 font-size: 16pt;
             }
+
             .week-pagination {
-                margin-left: auto;
-            }
+                display: flex;
+                align-items: center;
 
-            .el-button-group {
-                .el-button {
-                    border: none;
+                label[for="weekpicker"] {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: right;
+                    margin-right: 1em;
+                    color: $white;
+                }
 
-                    + .el-button {
-                        margin-left: 2px;
+                .el-date-editor {
+                    margin-right: 1em;
+                }
+
+                .el-button-group {
+                    .el-button {
+                        height: 40px;
+                        border: none;
+
+                        + .el-button {
+                            margin-left: 2px;
+                        }
                     }
                 }
             }
@@ -49,8 +67,8 @@
             align-content: flex-start;
             display: flex;
             flex-wrap: wrap;
-            height: 100%;
-            overflow-y: auto;
+            overflow: hidden;
+            border-radius: 24px;
 
             table {
                 color: $white;
@@ -58,6 +76,7 @@
                 text-transform: uppercase;
                 width: 100%;
                 border-spacing: 0;
+                position: relative;
 
                 td,
                 th {
@@ -77,6 +96,23 @@
                         object-fit: cover;
                         width: 100%;
                     }
+
+                    // &.streamer {
+                    //     transition: transform 200ms ease-in-out;
+                    //     border-radius: 10px;
+
+                    //     &:hover {
+                    //         transform: scale(1.25);
+                    //     }
+                    // }
+                }
+
+                th.today {
+                    background-color: $purple-hover !important;
+                }
+
+                td.today {
+                    background-color: $white-t2 !important;
                 }
 
                 .date {
@@ -127,6 +163,7 @@
 
 [id*="el-tooltip"] {
     max-width: 300px;
+    min-width: 150px !important;
 
     .content {
         display: flex;
@@ -140,8 +177,11 @@
 
         .time {
             color: $white;
-            margin-top: 0.25em;
+            margin: 0.25em 0 0.5em;
             opacity: 0.75;
+        }
+
+        .tags {
         }
 
         .theme {

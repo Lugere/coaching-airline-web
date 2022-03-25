@@ -268,10 +268,72 @@ const store = new Vuex.Store({
                     start: "1800",
                     end: "2000",
                 },
-                date: 1643475600,
+                date: "29. 01. 2022",
                 streamerId: 1,
-                desc: "DESC",
-                theme: "THEME",
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "",
+                desc: "",
+            },
+            {
+                time: {
+                    start: "1800",
+                    end: "2000",
+                },
+                date: "05. 03. 2022",
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "",
+                desc: "",
+            },
+            {
+                time: {
+                    start: "2000",
+                    end: "2200",
+                },
+                date: "05. 03. 2022",
+                streamerId: 6,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "",
+                desc: "",
+            },
+        ],
+        recurringSchedule: [
+            {
+                day: 0,
+                firstDate: "21. 03. 2022",
+                lastDate: "31. 12. 2022",
+                time: {
+                    start: "1800",
+                    end: "1900",
+                },
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Podcast",
+                        type: "success",
+                        icon: "podcasts",
+                    },
+                ],
+                theme: "Sag nicht Ja wenn du Nein sagen willst",
+                desc: "Die Sache mit dem 'NEIN' und die 29 toxischen Terrortypen",
             },
         ],
     },

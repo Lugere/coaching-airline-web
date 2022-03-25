@@ -1,13 +1,13 @@
 <template>
     <footer id="Footer">
         <div class="content">
-            <section class="contact">
+            <section title="Kontaktinformationen" class="contact">
                 <span class="title">
                     <span>
                         Coaching Airline® Radio
                     </span>
                     <span class="rights">
-                        ©2022 coachingairlineradio.de &mdash; Alle Rechte vorbehalten
+                        ©2022 Coaching Airline &mdash; Alle Rechte vorbehalten
                     </span>
                 </span>
                 <div class="options">
@@ -39,16 +39,16 @@
                     </div>
                 </div>
             </section>
-            <section class="mod-portal">
-                <div class="title">
+            <section aria-labelledby="mod-portal-title" class="mod-portal">
+                <div id="mod-portal-title" class="title">
                     Mod-Portal
                 </div>
-                <el-button type="primary" class="el-button--accent" @click="openLogin()">
-                    Anmelden
+                <el-button disabled type="primary" class="el-button--accent" @click="openLogin()">
+                    Coming Soon
                 </el-button>
             </section>
-            <section class="social-media">
-                <div class="title">Social Media</div>
+            <section aria-labelledby="social-media-title" class="social-media">
+                <div id="social-media-title" class="title">Social Media</div>
                 <div class="links">
                     <div class="link">
                         <a href="https://www.xing.com/profile/Andrea_Hohmann17/cv" target="_blank">
@@ -95,8 +95,8 @@
                     </div>
                 </div>
             </section>
-            <section class="other-info">
-                <div class="title">Links</div>
+            <section aria-labelledby="links-title" class="other-info">
+                <div id="links-title" class="title">Links</div>
                 <div class="imprint info">
                     <router-link to="Impressum">
                         Impressum

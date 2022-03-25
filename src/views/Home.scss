@@ -1,14 +1,20 @@
 @import "@/utilities/variables.scss";
 
+@media only screen and (max-width: 1660px) {
+    #Home main .panel {
+        border-radius: 0 3px 3px 0 !important;
+    }
+}
 @media only screen and (max-width: 1036px) {
     #Home {
         grid-template-columns: 1fr !important;
+        row-gap: 1em;
         grid-template-areas:
             "sidebar"
             "main"
             "footer" !important;
 
-        .side-container .panel {
+        aside .panel {
             .social-media {
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
                 height: 80px !important;
@@ -34,7 +40,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-    #Home .main-container .panel.welcome-panel {
+    #Home main .panel.welcome-panel {
         .title {
             width: 100% !important;
         }
@@ -61,7 +67,7 @@
             "main"
             "footer" !important;
 
-        .side-container .panel {
+        aside .panel {
             .infos {
                 grid-template-columns: 1fr 1fr !important;
                 grid-template-areas:
@@ -88,7 +94,7 @@
 
 @media only screen and (max-width: 730px) {
     #Home {
-        .main-container .panel.news-panel .content {
+        main .panel.news-panel .content {
             grid-template-columns: 1fr !important;
             grid-template-rows: 50px auto 50px;
             row-gap: 10px;
@@ -113,7 +119,7 @@
 }
 
 @media only screen and (max-width: 550px) {
-    #Home .side-container .panel .infos {
+    #Home aside .panel .infos {
         grid-template-columns: 1fr !important;
         grid-template-areas:
             "moderator"
@@ -129,27 +135,25 @@
 }
 
 #Home {
+    column-gap: 1em;
     display: grid;
-    gap: 1em;
-    grid-row-start: 2;
+    grid-area: view;
+    grid-template-areas:
+        "main sidebar"
+        "footer footer";
     grid-template-columns: auto 20%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
     width: 100%;
-    padding-right: 1em;
-    grid-template-areas:
-        "main sidebar"
-        "footer footer";
 
-    .main-container {
-        height: 100%;
-        grid-row-start: 1;
+    main {
         grid-area: main;
 
         .panel {
             background-color: $purple-t;
+            border: 1px solid $purple-t;
             border-radius: 3px;
             color: $white;
             padding: 2em;
@@ -185,6 +189,8 @@
 
             &.welcome-panel {
                 overflow: hidden;
+                border-top: 0;
+                border-radius: 0 0 3px 3px;
 
                 .title {
                     width: 70%;
@@ -210,7 +216,6 @@
                 }
 
                 .image {
-                    border-radius: 0 3px 3px 0;
                     bottom: 0;
                     position: absolute;
                     right: 0;
@@ -218,11 +223,42 @@
                     width: 30%;
 
                     img {
-                        border-radius: 30px 3px 3px 30px;
+                        border-radius: 0 0 3px 100px;
                         height: 100%;
                         object-fit: cover;
                         // object-position: -15px 50%;
                         width: 100%;
+                    }
+                }
+            }
+
+            &.podcast-panel {
+                .image img {
+                    width: 100%;
+                    border-radius: 10px;
+                }
+            }
+
+            &.weekend-panel {
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                }
+            }
+
+            &.trailer-panel {
+                position: relative;
+                grid-area: trailer;
+
+                .content {
+                    background-color: black;
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    video {
+                        width: 100%;
+                        max-height: 600px;
+                        display: block;
                     }
                 }
             }
@@ -306,216 +342,198 @@
                     }
                 }
             }
-
-            &.trailer-panel {
-                position: relative;
-                grid-area: trailer;
-
-                .content {
-                    background-color: black;
-                    border-radius: 10px;
-                    overflow: hidden;
-
-                    video {
-                        width: 100%;
-                        max-height: 600px;
-                        display: block;
-                    }
-                }
-            }
         }
 
         .image .placeholder {
         }
     }
 
-    .side-container {
-        height: 100%;
+    aside {
+        background-color: $purple-t;
+        border: 1px solid $purple-t;
+        border-top: 0;
+        border-radius: 0 0 3px 3px;
+        color: $white;
         grid-area: sidebar;
+        height: 100%;
+        height: 100%;
+        position: relative;
 
-        .panel {
-            background-color: $purple-t;
-            color: $white;
-            border-radius: 3px;
-            height: 100%;
-            position: relative;
+        .social-media {
+            border-radius: 0 0 20px 20px;
+            display: grid;
+            height: 150px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "xing facebook twitter"
+                "linkedin telegram instagram";
+            left: 0;
+            overflow: hidden;
+            right: 0;
+            top: 0;
 
-            .social-media {
-                border-radius: 3px 3px 20px 20px;
-                display: grid;
-                height: 150px;
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-template-areas:
-                    "xing facebook twitter"
-                    "linkedin telegram instagram";
-                left: 0;
-                overflow: hidden;
-                right: 0;
-                top: 0;
+            .sm {
+                align-items: center;
+                display: flex;
+                font-size: 24pt;
+                height: 100%;
+                transition: background-color ease-in-out 200ms;
 
-                .sm {
-                    align-items: center;
-                    display: flex;
-                    font-size: 24pt;
+                a {
                     height: 100%;
-                    transition: background-color ease-in-out 200ms;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                }
 
-                    a {
-                        height: 100%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 100%;
+                i {
+                    transition: color ease-in-out 200ms;
+                    color: $white;
+                }
+
+                &.xing {
+                    grid-area: xing;
+                    background-color: $purple;
+
+                    &:hover {
+                        background-color: $purple-hover;
                     }
 
-                    i {
-                        transition: color ease-in-out 200ms;
-                        color: $white;
+                    &:active {
+                        background-color: $purple-active;
+                    }
+                }
+                &.facebook {
+                    grid-area: facebook;
+                    background-color: $pm1;
+
+                    &:hover {
+                        background-color: $pm1-hover;
                     }
 
-                    &.xing {
-                        grid-area: xing;
-                        background-color: $purple;
-
-                        &:hover {
-                            background-color: $purple-hover;
-                        }
-
-                        &:active {
-                            background-color: $purple-active;
-                        }
+                    &:active {
+                        background-color: $pm1-active;
                     }
-                    &.facebook {
-                        grid-area: facebook;
-                        background-color: $pm1;
+                }
+                &.twitter {
+                    grid-area: twitter;
+                    background-color: $pm2;
 
-                        &:hover {
-                            background-color: $pm1-hover;
-                        }
-
-                        &:active {
-                            background-color: $pm1-active;
-                        }
+                    &:hover {
+                        background-color: $pm2-hover;
                     }
-                    &.twitter {
-                        grid-area: twitter;
-                        background-color: $pm2;
 
-                        &:hover {
-                            background-color: $pm2-hover;
-                        }
-
-                        &:active {
-                            background-color: $pm2-active;
-                        }
+                    &:active {
+                        background-color: $pm2-active;
                     }
-                    &.linkedin {
-                        grid-area: linkedin;
-                        background-color: $pm3;
+                }
+                &.linkedin {
+                    grid-area: linkedin;
+                    background-color: $pm3;
 
-                        &:hover {
-                            background-color: $pm3-hover;
-                        }
-
-                        &:active {
-                            background-color: $pm3-active;
-                        }
+                    &:hover {
+                        background-color: $pm3-hover;
                     }
-                    &.telegram {
-                        grid-area: telegram;
-                        background-color: $pm4;
 
-                        &:hover {
-                            background-color: $pm4-hover;
-                        }
-
-                        &:active {
-                            background-color: $pm4-active;
-                        }
+                    &:active {
+                        background-color: $pm3-active;
                     }
-                    &.instagram {
-                        grid-area: instagram;
-                        background-color: $pm5;
+                }
+                &.telegram {
+                    grid-area: telegram;
+                    background-color: $pm4;
 
-                        &:hover {
-                            background-color: $pm5-hover;
-                        }
+                    &:hover {
+                        background-color: $pm4-hover;
+                    }
 
-                        &:active {
-                            background-color: $pm5-active;
-                        }
+                    &:active {
+                        background-color: $pm4-active;
+                    }
+                }
+                &.instagram {
+                    grid-area: instagram;
+                    background-color: $pm5;
+
+                    &:hover {
+                        background-color: $pm5-hover;
+                    }
+
+                    &:active {
+                        background-color: $pm5-active;
                     }
                 }
             }
+        }
 
-            .infos {
-                margin: 2em 1em 0 1em;
-                display: grid;
-                grid-template-areas:
-                    "moderator"
-                    "guestbook"
-                    "wishes";
+        .infos {
+            margin: 2em 1em 0 1em;
+            display: grid;
+            grid-template-areas:
+                "moderator"
+                "guestbook"
+                "wishes";
 
-                .entry {
-                    border-bottom: 1px solid $white-t;
-                    padding-bottom: 1em;
-                    margin-bottom: 1em;
+            .entry {
+                border-bottom: 1px solid $white-t;
+                padding-bottom: 1em;
+                margin-bottom: 1em;
 
-                    .title {
-                        font-size: 12pt;
+                .title {
+                    font-size: 12pt;
+                    font-family: "Roboto Black";
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+
+                    .md-icon {
+                        margin: 0 10px 0 0;
+                        color: $white;
+                    }
+                }
+
+                .subtitle {
+                    margin-top: 5px;
+                    font-size: 11pt;
+                    color: $magenta;
+                }
+
+                .el-button {
+                    width: 100%;
+                    margin-top: 5px;
+                }
+
+                .desc {
+                    margin-top: 5px;
+                    font-family: "Roboto Light";
+
+                    .highlight {
                         font-family: "Roboto Black";
-                        text-transform: uppercase;
-                        display: flex;
-                        align-items: center;
-                        justify-content: left;
+                    }
+                }
 
-                        .md-icon {
-                            margin: 0 10px 0 0;
+                &.moderator {
+                    grid-area: moderator;
+
+                    .subtitle {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .time {
+                            font-size: 10pt;
                             color: $white;
                         }
                     }
+                }
 
-                    .subtitle {
-                        margin-top: 5px;
-                        font-size: 11pt;
-                        color: $magenta;
-                    }
+                &.guestbook {
+                    grid-area: guestbook;
+                }
 
-                    .el-button {
-                        width: 100%;
-                        margin-top: 5px;
-                    }
-
-                    .desc {
-                        margin-top: 5px;
-                        font-family: "Roboto Light";
-
-                        .highlight {
-                            font-family: "Roboto Black";
-                        }
-                    }
-
-                    &.moderator {
-                        grid-area: moderator;
-
-                        .subtitle {
-                            display: flex;
-                            justify-content: space-between;
-
-                            .time {
-                                font-size: 10pt;
-                                color: $white;
-                            }
-                        }
-                    }
-
-                    &.guestbook {
-                        grid-area: guestbook;
-                    }
-
-                    &.wishes {
-                        grid-area: wishes;
-                    }
+                &.wishes {
+                    grid-area: wishes;
                 }
             }
         }

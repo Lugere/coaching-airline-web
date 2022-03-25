@@ -1,13 +1,13 @@
 <template>
     <div id="Home">
-        <div class="main-container">
-            <div class="panel welcome-panel">
-                <section class="title">
+        <main>
+            <section id="welcome" class="panel welcome-panel">
+                <div class="title">
                     Warum
                     <span class="highlight-text">Coaching Airline Radio</span>
                     hören?
-                </section>
-                <section class="content">
+                </div>
+                <div class="content">
                     <div class="text">
                         <p>
                             Coaching Airline Radio ist ein nicht kommerzielles Webradio der Marke
@@ -43,12 +43,23 @@
                             <img src="@/assets/images/signature.png" alt="signature" />
                         </div>
                     </div>
-                </section>
+                </div>
                 <div class="image">
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
                 </div>
-            </div>
-            <div class="panel trailer-panel">
+            </section>
+            <section id="podcast" class="panel podcast-panel">
+                <div class="title">
+                    <span> Radio </span>
+                    <span class="highlight-text"> podcast </span>
+                </div>
+                <div class="content">
+                    <div class="image">
+                        <img src="@/assets/images/radiopodcast.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+            <section id="trailer" class="panel trailer-panel">
                 <div class="title">
                     Unsere
                     <span class="highlight-text">Crew</span>
@@ -59,8 +70,8 @@
                         <source src="@/assets/videos/crew.mp4" type="video/mp4" />
                     </video>
                 </div>
-            </div>
-            <div class="panel news-panel">
+            </section>
+            <section id="news" class="panel news-panel">
                 <section class="title">
                     Aktuelle
                     <span class="highlight-text">News</span>
@@ -94,7 +105,9 @@
                                 </el-image>
                             </div>
                             <div class="text">
-                                <div class="date">{{ convertToDate(article.date) }}</div>
+                                <time :datetime="convertToDate(article.date)" class="date">
+                                    {{ convertToDate(article.date) }}
+                                </time>
                                 <div class="title">{{ article.title }}</div>
                                 <div v-html="article.content" />
                             </div>
@@ -104,99 +117,94 @@
                         <md-icon>arrow_forward</md-icon>
                     </el-button>
                 </section>
-            </div>
-        </div>
-        <div class="side-container">
-            <div class="panel">
-                <section class="social-media">
-                    <div class="sm xing">
-                        <a href="https://www.xing.com/profile/Andrea_Hohmann17/cv" target="_blank">
-                            <i class="fab fa-xing" />
-                        </a>
+            </section>
+        </main>
+        <aside>
+            <section title="Social Media Links" class="social-media">
+                <div class="sm xing">
+                    <a href="https://www.xing.com/profile/Andrea_Hohmann17/cv" target="_blank">
+                        <i class="fab fa-xing" />
+                    </a>
+                </div>
+                <div class="sm facebook">
+                    <a href="https://www.facebook.com/coachingirlineradio/" target="_blank">
+                        <i class="fab fa-facebook" />
+                    </a>
+                </div>
+                <div class="sm twitter">
+                    <a href="https://twitter.com/AirlineCoaching" target="_blank">
+                        <i class="fab fa-twitter" />
+                    </a>
+                </div>
+                <div class="sm linkedin">
+                    <a href="https://www.linkedin.com/in/andrea-hohmann-0b558236/" target="_blank">
+                        <i class="fab fa-linkedin" />
+                    </a>
+                </div>
+                <div class="sm telegram">
+                    <a href="https://t.me/RadioCoachingAirline" target="_blank">
+                        <i class="fab fa-telegram-plane" />
+                    </a>
+                </div>
+                <div class="sm instagram">
+                    <a href="https://www.instagram.com/coachingairline/" target="_blank">
+                        <i class="fab fa-instagram" />
+                    </a>
+                </div>
+            </section>
+            <section title="Zusätzliche Informationen" class="infos">
+                <section aria-labelledby="moderator-title" class="entry moderator">
+                    <div id="moderator-title" class="title">
+                        <md-icon>person</md-icon>
+                        <div>
+                            Aktueller Moderator
+                        </div>
                     </div>
-                    <div class="sm facebook">
-                        <a href="https://www.facebook.com/coachingirlineradio/" target="_blank">
-                            <i class="fab fa-facebook" />
-                        </a>
+                    <div class="subtitle">
+                        <span v-if="isLive">{{ streamerName }}</span>
+                        <span v-else-if="isOnline">AUTO-DJ</span>
+                        <span v-else>Stream ist Offline</span>
+                        <span class="time" v-if="isOnline">
+                            {{ plannedTime }}
+                        </span>
+                        <span class="time" v-else>-/-</span>
                     </div>
-                    <div class="sm twitter">
-                        <a href="https://twitter.com/AirlineCoaching" target="_blank">
-                            <i class="fab fa-twitter" />
-                        </a>
-                    </div>
-                    <div class="sm linkedin">
-                        <a
-                            href="https://www.linkedin.com/in/andrea-hohmann-0b558236/"
-                            target="_blank"
-                        >
-                            <i class="fab fa-linkedin" />
-                        </a>
-                    </div>
-                    <div class="sm telegram">
-                        <a href="https://t.me/RadioCoachingAirline" target="_blank">
-                            <i class="fab fa-telegram-plane" />
-                        </a>
-                    </div>
-                    <div class="sm instagram">
-                        <a href="https://www.instagram.com/coachingairline/" target="_blank">
-                            <i class="fab fa-instagram" />
-                        </a>
+                    <div class="desc">
+                        <span class="highlight" v-if="isLive">
+                            Alles von Abba bis Zappa
+                        </span>
                     </div>
                 </section>
-                <section class="infos">
-                    <div class="entry moderator">
-                        <div class="title">
-                            <md-icon>person</md-icon>
-                            <div>
-                                Aktueller Moderator
-                            </div>
-                        </div>
-                        <div class="subtitle">
-                            <span v-if="isLive">{{ streamerName }}</span>
-                            <span v-else-if="isOnline">AUTO-DJ</span>
-                            <span v-else>Stream ist Offline</span>
-                            <span class="time" v-if="isOnline">
-                                {{ plannedTime }}
-                            </span>
-                            <span class="time" v-else>-/-</span>
-                        </div>
-                        <div class="desc">
-                            <span class="highlight" v-if="isLive">
-                                Alles von Abba bis Zappa
-                            </span>
+                <section aria-labelledby="guestbook-title" class="entry guestbook">
+                    <div id="guestbook-title" class="title">
+                        <md-icon>menu_book</md-icon>
+                        <div>
+                            Gästebuch
                         </div>
                     </div>
-                    <div class="entry guestbook">
-                        <div class="title">
-                            <md-icon>menu_book</md-icon>
-                            <div>
-                                Gästebuch
-                            </div>
-                        </div>
-                        <div class="desc">
-                            Hier könnt ihr eure Grüße schreiben
-                        </div>
-                        <el-button type="primary" disabled>
-                            Cooming Soon
-                        </el-button>
+                    <div class="desc">
+                        Hier könnt ihr eure Grüße schreiben
                     </div>
-                    <div class="entry wishes">
-                        <div class="title">
-                            <md-icon>auto_awesome</md-icon>
-                            <div>
-                                Wunschbox
-                            </div>
-                        </div>
-                        <div class="desc">
-                            Du willst etwas bestimmtes hören? Dann kannst du dir hier was wünschen!
-                        </div>
-                        <el-button type="primary" disabled>
-                            Cooming Soon
-                        </el-button>
-                    </div>
+                    <el-button type="primary" disabled>
+                        Cooming Soon
+                    </el-button>
                 </section>
-            </div>
-        </div>
+                <section aria-labelledby="wishes-title" class="entry wishes">
+                    <div id="wishes-title" class="title">
+                        <md-icon>auto_awesome</md-icon>
+                        <div>
+                            Wunschbox
+                        </div>
+                    </div>
+                    <div class="desc">
+                        Du willst etwas bestimmtes hören? Dann kannst du dir hier was wünschen!
+                    </div>
+                    <el-button type="primary" disabled>
+                        Cooming Soon
+                    </el-button>
+                </section>
+            </section>
+        </aside>
         <Footer />
     </div>
 </template>

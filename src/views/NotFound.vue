@@ -1,25 +1,24 @@
 <template>
     <div id="not-found">
-        <div class="main-container">
+        <main>
             <router-link to="Home" class="logo">
                 <img src="@/assets/images/logo.png" />
             </router-link>
-            <div class="title">404</div>
-            <div class="subtitle">
-                    Ups! Da ist was schiefgelaufen!</div>
-            <section class="desc">
-                <div>
-                    Die von Ihnen gesuchte Seite wurde nicht gefunden!
-                </div>
-            </section>
-            <section class="return-home">
-                <span>
-                    <el-button @click="$router.push('Home')" type="primary">
+            <section class="split-section">
+                <div class="title">404</div>
+                <div class="right-side">
+                    <div class="subtitle">
+                        Ups! Da ist was schiefgelaufen!
+                    </div>
+                    <div class="desc">
+                        Die von Ihnen gesuchte Seite wurde nicht gefunden!
+                    </div>
+                    <el-button class="return-home" @click="$router.push('Home')" type="primary">
                         Hier gehts zurück zur Startseite!
                     </el-button>
-                </span>
+                </div>
             </section>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>

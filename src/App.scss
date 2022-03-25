@@ -25,6 +25,7 @@
 
 #app {
     background-attachment: fixed;
+    background-color: $purple-dark;
     background-image: linear-gradient(to top, #170048ce, #170048ce),
         url("assets/images/background.jpg");
     background-position: bottom center;
@@ -73,13 +74,13 @@
 
     /* Selection Color */
 
-    ::-moz-selection {
+    *::-moz-selection {
         /* Code for Firefox */
         color: $purple;
         background: $white;
     }
 
-    ::selection {
+    *::selection {
         color: $purple;
         background: $white;
     }

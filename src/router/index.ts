@@ -100,7 +100,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.meta) document.title = `Coaching Airline Radio | ${to.meta.breadcrumb}`;
+
+    if (to.meta) document.title = `${to.meta.breadcrumb} \u2014 Coaching Airline Radio`;
     else document.title = "Coaching Airline Radio";
     next();
 });

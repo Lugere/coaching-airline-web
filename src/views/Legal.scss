@@ -2,25 +2,24 @@
 
 #Legal {
     display: grid;
-    gap: 1em;
-    grid-row-start: 2;
+    grid-area: view;
     grid-template-rows: auto 175px;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-    width: 100%;
-    padding-right: 1em;
+    grid-template-areas:
+        "main main"
+        "footer footer";
 
-    .main-container {
+    main {
         background-color: $purple-t;
-        border-radius: 3px;
-        grid-column-end: 3;
-        grid-column-start: 1;
-        height: 100%;
+        border-radius: 0 0 3px 3px;
+        border: 1px solid $purple-t;
+        border-top: 0;
+        color: $white;
+        grid-area: main;
         padding: 2em;
         width: 100%;
-        color: $white;
 
         .el-tabs__item:not(.is-active) {
             color: $white !important;

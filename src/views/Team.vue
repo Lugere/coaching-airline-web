@@ -1,6 +1,6 @@
 <template>
     <div id="Team">
-        <div class="main-container">
+        <main>
             <section class="header">
                 <span class="title">Unser Team</span>
                 <el-button type="primary" class="contact-btn" @click="$router.push('Kontakt')">
@@ -47,7 +47,7 @@
                     </section>
                 </div>
             </section>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>

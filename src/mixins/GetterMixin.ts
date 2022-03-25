@@ -14,6 +14,7 @@ moment.locale("de");
             "isPlaying",
             "news",
             "schedule",
+            "recurringSchedule",
             "showLogin",
             "song",
             "songLength",
@@ -32,6 +33,7 @@ export default class GetterMixin extends Vue {
     public isPlaying!: any;
     public news!: any;
     public schedule!: any;
+    public recurringSchedule!: any;
     public song!: any;
     public songLength!: any;
     public songPlayed!: any;
@@ -39,6 +41,10 @@ export default class GetterMixin extends Vue {
     public streamerName!: any;
     public team!: any;
     public volume!: any;
+
+    public sleep(ms: number) {
+        return new Promise(r => setTimeout(r, ms));
+    }
 
     public convertToDate(timestamp: number): string {
         const DATE = new Date(timestamp * 1000);

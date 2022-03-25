@@ -1,6 +1,6 @@
 <template>
     <div id="Legal">
-        <div class="main-container">
+        <main>
             <el-tabs v-model="currentPage" tab-position="left" stretch>
                 <el-tab-pane label="IMPRESSUM" name="imprint">
                     <h1>Impressum</h1>
@@ -34,7 +34,7 @@
                         Haftungsausschluss
                     </h2>
                     <br />
-                    <h3>
+                    <h3 id="onlineangebot">
                         1. Inhalt des Onlineangebotes
                     </h3>
                     <p>
@@ -276,7 +276,7 @@
 
                     <!-- Kontaktformulare -->
 
-                    <h2>
+                    <h2 id="cookies">
                         Cookies
                     </h2>
                     <br />
@@ -485,7 +485,7 @@
                     </p>
                 </el-tab-pane> -->
             </el-tabs>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>

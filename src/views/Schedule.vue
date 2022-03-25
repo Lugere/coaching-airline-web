@@ -1,48 +1,109 @@
 <template>
     <div id="Schedule">
-        <div class="main-container">
+        <main>
             <section class="header">
                 <div class="title">Unser Sendeplan</div>
                 <div class="week-pagination">
+                    <label for="weekpicker">
+                        <span> Kalenderwoche </span>
+                        <span> auswählen </span>
+                    </label>
+                    <el-date-picker
+                        v-model="selectedWeek"
+                        @change="onWeekPicked()"
+                        format="[KW] WW - yyyy"
+                        name="weekpicker"
+                        :clearable="false"
+                        type="week"
+                        :picker-options="{
+                            firstDayOfWeek: 1,
+                        }"
+                    />
                     <el-button-group>
-                        <el-button type="primary" @click="updateWeek('decr')">Letzte Woche</el-button>
-                        <el-button type="primary" @click="updateWeek()">Heute</el-button>
-                        <el-button type="primary" @click="updateWeek('incr')">Nächste Woche</el-button>
+                        <el-button type="primary" @click="updateWeek('decr')">
+                            Letzte Woche
+                        </el-button>
+                        <el-button type="primary" @click="updateWeek()">
+                            Heute
+                        </el-button>
+                        <el-button type="primary" @click="updateWeek('incr')">
+                            Nächste Woche
+                        </el-button>
                     </el-button-group>
                 </div>
             </section>
             <!-- <el-calendar /> -->
             <section class="sub-container">
-                <table>
+                <table v-loading="isTableLoading">
                     <tr class="days">
                         <th class="corner">
                             <span class="year"> {{ currYear }} </span>
-                            <span> KW {{ calendarWeek }} </span>
+                            <span> KW {{ currWeek }} </span>
                         </th>
-                        <th v-for="(day, index) in days" :key="index">
-                            <div class="date">{{ day.date }}</div>
+                        <th
+                            :class="{ today: isCellToday(day.date) }"
+                            v-for="(day, index) in days"
+                            :key="index"
+                        >
+                            <div class="date">{{ day.date.substr(0, 7) }}</div>
                             <div>{{ day.weekDay }}</div>
                         </th>
                     </tr>
                     <tr class="times" v-for="(time, timeIndex) in times" :key="timeIndex">
                         <th>{{ getTableTime(timeIndex) }}</th>
-                        <td v-for="(day, dayIndex) in days" :key="dayIndex">
+                        <td
+                            v-for="(day, dayIndex) in days"
+                            :key="dayIndex"
+                            :class="{ today: isCellToday(day.date) }"
+                        >
                             <el-tooltip
                                 :open-delay="300"
                                 placement="bottom"
-                                v-if="isStreamerPlanned(day, time)"
+                                v-if="isStreamerPlanned(day.date, time)"
                             >
-                                <img :src="getImageUrl(currStreamer.imageUrl, 'team')" alt="" />
+                                <img
+                                    class="streamer"
+                                    :src="
+                                        getImageUrl(
+                                            getCurrStreamer(day.date, time).imageUrl,
+                                            'team',
+                                        )
+                                    "
+                                    alt=""
+                                />
                                 <div slot="content" class="content">
                                     <div class="title">
-                                        {{ currStreamer.name }}
+                                        <span
+                                            v-if="
+                                                getCurrStreamer(day.date, time).modName.length > 0
+                                            "
+                                        >
+                                            {{ getCurrStreamer(day.date, time).modName }}
+                                        </span>
+                                        <span v-else>
+                                            {{ getCurrStreamer(day.date, time).name }}
+                                        </span>
                                     </div>
-                                    <div class="time">{{ getTableTime(timeIndex) }}</div>
-                                    <div class="theme">{{ currEventData.theme }}</div>
+                                    <div class="time">{{ getStreamerTime(getCurrEventData(day.date, time).time) }}</div>
+                                    <div class="tags">
+                                        <el-tag
+                                            v-for="(tag, index) in getCurrEventData(day.date, time)
+                                                .tags"
+                                            :key="index"
+                                            :type="tag.type"
+                                            effect="dark"
+                                            size="mini"
+                                        >
+                                            <span class="label"> {{ tag.label }} </span>
+                                        </el-tag>
+                                    </div>
+                                    <div class="theme">
+                                        {{ getCurrEventData(day.date, time).theme }}
+                                    </div>
                                     <div class="desc">
-                                        {{ truncateString(currEventData.desc) }}
+                                        {{ truncateString(getCurrEventData(day.date, time).desc) }}
                                     </div>
-                                    <!-- <el-button disabled class="more-info-btn" size="mini" type="primary">
+                                    <!-- <el-button class="more-info-btn" size="mini" type="primary">
                                         Mehr erfahren
                                     </el-button> -->
                                 </div>
@@ -58,7 +119,7 @@
                     </tr>
                 </table>
             </section>
-        </div>
+        </main>
         <Footer />
     </div>
 </template>

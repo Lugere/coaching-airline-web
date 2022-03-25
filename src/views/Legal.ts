@@ -17,8 +17,11 @@ export default class Legal extends GetterMixin {
             case "/Datenschutz":
                 this.currentPage = "privacy";
                 break;
+            case "/AGB":
+                this.currentPage = "privacy";
+                break;
             default:
-                this.currentPage = "agb";
+                this.currentPage = "";
                 break;
         }
     }

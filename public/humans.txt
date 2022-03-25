@@ -3,17 +3,18 @@
  L  This Website was designed and created by Robin Leber         H
  L                                                               E
  O  My Website: robinleber.de;                                   L
- *  Find me on Xing: https://www.xing.com/profile/Robin_Leber2/; L
- *  Contact me: robin@robinleber.de;                             O
- W                                                               *
- O  Latest Update: 28th of October 2021, 23:29;                  *
- R                                                               W
- L  Standards: HTML5, CSS3, ES6;                                 O
- D  Framework: VueJS ;                                           R
- *  Components: VueMaterial, ElementUI, FontAwesome;             L
- *  Software: Visual Studio Code, Figma;                         D
- H                                                               *
- E L L O * * W O R L D * * H E L L O * * W O R L D * * H E L L O *
+ *  Find me on Xing: /profile/Robin_Leber2/;                     L
+ *  Find me on LinkedIn /in/robin-leber-b14987221/               O
+ W  Contact me: robin@robinleber.de;                             *
+ O                                                               *
+ R  Latest Update: 28th of February 2022, 14:51;                 W
+ L                                                               O
+ D  Standards: HTML5, CSS3, ES6;                                 R
+ *  Framework: VueJS;                                            L
+ *  Libraries: VueMaterial, ElementUI, FontAwesome;              D
+ H  Used Software: Visual Studio Code, Figma;                    *
+ E                                                               *
+ L L O * * W O R L D * * H E L L O * * W O R L D * * H E L L O * *
 
 
 
