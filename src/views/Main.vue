@@ -102,11 +102,7 @@
                 </section>
             </div>
         </nav>
-        <el-drawer
-            class="drawer"
-            :visible.sync="showDrawer"
-            direction="rtl"
-        >
+        <el-drawer class="drawer" :visible.sync="showDrawer" direction="rtl">
             <ul class="list">
                 <router-link to="Home" class="link">
                     <li
@@ -158,29 +154,29 @@
             @close="handleLoginClose()"
             @open="handleLoginOpen()"
             :modal="true"
+            v-if="false"
         >
             <section class="side-image">
                 <img src="@/assets/images/kassetten.jpg" alt="" />
             </section>
-            <section class="title" slot="title">
-                <div>
-                    <!-- <span class="logo-grp"> -->
-                    <!-- <img src="@/assets/images/logo-cropped.png" class="logo" alt="" /> -->
-                    <!-- </span> -->
-                    <md-icon class="login-icon">manage_accounts</md-icon>
-                    <span>
-                        <span class="bold">
-                            mod-portal
-                        </span>
+            <section class="header" slot="title">
+                <!-- <md-icon class="login-icon">face</md-icon> -->
+                <div class="title">
+                    <span class="bold">
+                        <span class="highlight-text">login</span>
+                        mod-portal
+                    </span>
+                    <span class="subtitle">
+                        Zugriff nur für Moderatoren!
                     </span>
                 </div>
             </section>
-            <el-form class="form" :model="login">
-                <el-form-item label="E-Mail">
-                    <el-input v-model="login.email" auto-complete="email" />
+            <el-form :hide-required-asterisk="true" class="form" :rules="loginRules" ref="login-form" :model="loginForm">
+                <el-form-item label="E-Mail" prop="email">
+                    <el-input v-model="loginForm.email" auto-complete="email" />
                 </el-form-item>
-                <el-form-item label="Password">
-                    <el-input v-model="login.password" show-password />
+                <el-form-item label="Password" prop="password">
+                    <el-input v-model="loginForm.password" show-password />
                 </el-form-item>
                 <div class="links">
                     <router-link to="" class="forgot-password">Password vergessen?</router-link>
@@ -190,23 +186,9 @@
                 <el-button class="cancel-button" type="info" @click="handleLoginClose()">
                     Abbrechen
                 </el-button>
-                <el-button
-                    type="primary"
-                    v-if="activeStep == 2 && activeTab == 'signup'"
-                    @click="activeStep = 1"
-                >
-                    Zurück
+                <el-button :loading="isLoginLoading" class="submit-button" type="success" @click="loginUser()">
+                    {{ isLoginLoading ? "Melde an" : "Anmelden" }}
                 </el-button>
-                <el-button
-                    v-if="activeTab == 'login'"
-                    class="submit-button"
-                    type="success"
-                    @click="activeStep = 2"
-                    >{{ "Anmelden" }}</el-button
-                >
-                <el-button v-else class="submit-button" type="primary" @click="activeStep = 2">{{
-                    activeStep == 2 ? "Registrieren" : "Weiter"
-                }}</el-button>
             </div>
         </el-dialog>
         <router-view />

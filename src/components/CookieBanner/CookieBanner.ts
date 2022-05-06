@@ -1,10 +1,8 @@
 import { Component } from "vue-property-decorator";
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 
 @Component
-export default class CookieBanner extends GetterMixin {
-    $refs: any;
-
+export default class CookieBanner extends MainMixin {
     public setCookieAgreement() {
         this.$refs["cookie-banner"].classList.add("hide");
 

@@ -34,7 +34,7 @@
             </section>
             <!-- <el-calendar /> -->
             <section class="sub-container">
-                <table v-loading="isTableLoading">
+                <table ref="schedule-table" v-loading="isTableLoading">
                     <tr class="days">
                         <th class="corner">
                             <span class="year"> {{ currYear }} </span>
@@ -72,47 +72,67 @@
                                     alt=""
                                 />
                                 <div slot="content" class="content">
-                                    <div class="title">
-                                        <span
-                                            v-if="
-                                                getCurrStreamer(day.date, time).modName.length > 0
+                                    <div class="header">
+                                        <div class="streamer">
+                                            <span
+                                                v-if="
+                                                    getCurrStreamer(day.date, time).modName.length >
+                                                        0
+                                                "
+                                            >
+                                                {{ getCurrStreamer(day.date, time).modName }}
+                                            </span>
+                                            <span v-else>
+                                                {{ getCurrStreamer(day.date, time).name }}
+                                            </span>
+                                        </div>
+                                        <div class="time">
+                                            {{
+                                                getStreamerTime(
+                                                    getCurrEventData(day.date, time).time,
+                                                )
+                                            }}
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <div class="theme">
+                                            {{ getCurrEventData(day.date, time).theme }}
+                                        </div>
+                                        <div
+                                            class="desc"
+                                            v-html="
+                                                truncateString(
+                                                    getCurrEventData(day.date, time).desc,
+                                                )
                                             "
-                                        >
-                                            {{ getCurrStreamer(day.date, time).modName }}
-                                        </span>
-                                        <span v-else>
-                                            {{ getCurrStreamer(day.date, time).name }}
-                                        </span>
-                                    </div>
-                                    <div class="time">{{ getStreamerTime(getCurrEventData(day.date, time).time) }}</div>
-                                    <div class="tags">
-                                        <el-tag
-                                            v-for="(tag, index) in getCurrEventData(day.date, time)
-                                                .tags"
-                                            :key="index"
-                                            :type="tag.type"
-                                            effect="dark"
-                                            size="mini"
-                                        >
-                                            <span class="label"> {{ tag.label }} </span>
-                                        </el-tag>
-                                    </div>
-                                    <div class="theme">
-                                        {{ getCurrEventData(day.date, time).theme }}
-                                    </div>
-                                    <div class="desc">
-                                        {{ truncateString(getCurrEventData(day.date, time).desc) }}
-                                    </div>
-                                    <!-- <el-button class="more-info-btn" size="mini" type="primary">
+                                        ></div>
+                                        <!-- <el-button class="more-info-btn" size="mini" type="primary">
                                         Mehr erfahren
                                     </el-button> -->
+                                        <div class="tags">
+                                            <el-tag
+                                                v-for="(tag, index) in getCurrEventData(
+                                                    day.date,
+                                                    time,
+                                                ).tags"
+                                                :key="index"
+                                                :type="tag.type"
+                                                effect="dark"
+                                                size="mini"
+                                            >
+                                                <span class="label"> {{ tag.label }} </span>
+                                            </el-tag>
+                                        </div>
+                                    </div>
                                 </div>
                             </el-tooltip>
                             <el-tooltip :open-delay="300" placement="bottom" v-else>
                                 <img src="@/assets/images/default-profile.png" alt="" />
                                 <div slot="content" class="content">
-                                    <div class="title">Auto-DJ</div>
-                                    <div class="time">{{ getTableTime(timeIndex) }}</div>
+                                    <div class="header">
+                                        <div class="title">Auto-DJ</div>
+                                        <div class="time">{{ getTableTime(timeIndex) }}</div>
+                                    </div>
                                 </div>
                             </el-tooltip>
                         </td>

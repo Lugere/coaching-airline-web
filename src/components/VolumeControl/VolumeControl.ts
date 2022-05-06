@@ -1,9 +1,9 @@
 import { Component } from "vue-property-decorator";
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 import store from "@/store";
 
 @Component
-export default class VolumeControl extends GetterMixin {
+export default class VolumeControl extends MainMixin {
     public toggleIsMute(): void {
         store.dispatch("toggleIsMute", !this.isMute);
         this.$cookies.set("isMute", !this.isMute);

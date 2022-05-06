@@ -1,11 +1,11 @@
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 import { Component, Watch } from "vue-property-decorator";
 import Footer from "@/components/Footer/Footer.vue";
 import moment from "moment";
 moment.locale("de-de");
 
 @Component({ components: { Footer } })
-export default class Schedule extends GetterMixin {
+export default class Schedule extends MainMixin {
     public noentry = "---";
     public times = [
         {
@@ -141,6 +141,10 @@ export default class Schedule extends GetterMixin {
         });
 
         return currStreamer;
+    }
+
+    public animateTable(): void {
+        return;
     }
 
     public getCurrEventData(day, time) {

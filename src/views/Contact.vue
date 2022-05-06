@@ -26,8 +26,14 @@
                         />
                     </el-form-item>
                     <el-form-item class="submit-btn">
-                        <el-button disabled type="primary" @click="sendEmail()">
-                            Coming soon
+                        <el-button
+                            disabled
+                            :loading="isSendEmailLoading"
+                            type="primary"
+                            @click="sendEmail()"
+                        >
+                            <!-- Absenden -->
+                            Coming Soon
                         </el-button>
                     </el-form-item>
                 </el-form>

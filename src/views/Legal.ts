@@ -1,10 +1,10 @@
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 import { Component, Watch } from "vue-property-decorator";
 import Footer from "@/components/Footer/Footer.vue";
 import router from "@/router";
 
 @Component({ components: { Footer } })
-export default class Legal extends GetterMixin {
+export default class Legal extends MainMixin {
     public currentPage = "imprint";
 
     @Watch("$route", { immediate: true, deep: true })

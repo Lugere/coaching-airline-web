@@ -158,6 +158,16 @@
                     margin-top: 10px;
                     width: 200px;
                 }
+
+                #mod-portal-title {
+                    margin: 0 !important;
+                }
+
+                .mod-portal-subtitle {
+                    font-size: 10pt;
+                    color: $magenta-disabled;
+                    font-style: italic;
+                }
             }
 
             &.other-info {

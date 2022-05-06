@@ -48,6 +48,48 @@
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
                 </div>
             </section>
+            <section class="panel rosenthal-panel">
+                <div class="title">
+                    Zu Ehren von
+                    <span class="highlight-text">
+                        Hans Rosenthal
+                    </span>
+                    &mdash; 50 Jahre
+                    <span class="highlight-text">
+                        Dalli Dalli
+                    </span>
+                </div>
+                <div class="content">
+                    <video height="200" controls>
+                        <source src="@/assets/videos/rosental.mp4" />
+                    </video>
+                </div>
+            </section>
+            <div class="panel-group">
+                <section class="panel radioshow-panel">
+                    <div class="title">
+                        <span class="highlight-text"> Alkoholismus</span>,
+                        <span class="highlight-text"> Sucht </span> und sein
+                        <span class="highlight-text"> Umfeld </span>
+                    </div>
+                    <div class="content">
+                        <video autoplay muted>
+                            <source src="@/assets/videos/alkoholismus.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </section>
+                <section class="panel alcoholism-panel">
+                    <div class="title">
+                        Radioshow mit
+                        <span class="highlight-text"> Herbert </span>
+                    </div>
+                    <div class="content">
+                        <video controls>
+                            <source src="@/assets/videos/radioshow.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </section>
+            </div>
             <section id="podcast" class="panel podcast-panel">
                 <div class="title">
                     <span> Radio </span>
@@ -55,14 +97,14 @@
                 </div>
                 <div class="content">
                     <div class="image">
-                        <img src="@/assets/images/radiopodcast.jpg" alt="">
+                        <img src="@/assets/images/mondaypodcast.png" alt="" />
                     </div>
                 </div>
             </section>
-            <section id="trailer" class="panel trailer-panel">
+            <section v-if="false" id="trailer" class="panel trailer-panel">
                 <div class="title">
                     Unsere
-                    <span class="highlight-text">Crew</span>
+                    <span class="highlight-text"> Crew </span>
                     vorgestellt
                 </div>
                 <div class="content">

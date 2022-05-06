@@ -40,21 +40,27 @@
 }
 
 @media only screen and (max-width: 800px) {
-    #Home main .panel.welcome-panel {
-        .title {
-            width: 100% !important;
+    #Home main {
+        .panel-group {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr 1fr;
         }
-
-        .content {
-            width: 100% !important;
-
-            .text .signature img {
-                margin-left: auto !important;
+        .panel.welcome-panel {
+            .title {
+                width: 100% !important;
             }
-        }
 
-        .image {
-            display: none;
+            .content {
+                width: 100% !important;
+
+                .text .signature img {
+                    margin-left: auto !important;
+                }
+            }
+
+            .image {
+                display: none;
+            }
         }
     }
 }
@@ -151,6 +157,17 @@
     main {
         grid-area: main;
 
+        .panel-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            margin: 1em 0;
+
+            .panel + .panel {
+                margin: 0;
+            }
+        }
+
         .panel {
             background-color: $purple-t;
             border: 1px solid $purple-t;
@@ -229,6 +246,16 @@
                         // object-position: -15px 50%;
                         width: 100%;
                     }
+                }
+            }
+
+            &.easter-panel, &.alcoholism-panel, &.rosenthal-panel {
+                max-height: 600px;
+
+                video {
+                    max-height: 500px;
+                    width: 100%;
+                    background-color: black;
                 }
             }
 

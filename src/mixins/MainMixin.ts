@@ -1,8 +1,7 @@
 import { Vue, Component } from "vue-property-decorator";
-import store from "@/store";
 import moment from "moment";
-import { mapState, mapGetters } from "vuex";
-import * as firebase from "firebase/app";
+import { mapState } from "vuex";
+// import * as firebase from "firebase/app";
 moment.locale("de");
 
 @Component({
@@ -26,7 +25,9 @@ moment.locale("de");
         ]),
     },
 })
-export default class GetterMixin extends Vue {
+export default class MainMixin extends Vue {
+    $refs;
+
     public isLive!: any;
     public isMute!: any;
     public isOnline!: any;
@@ -44,6 +45,15 @@ export default class GetterMixin extends Vue {
 
     public sleep(ms: number) {
         return new Promise(r => setTimeout(r, ms));
+    }
+
+    public isFormValid(form): boolean {
+        let isValid = false;
+        this.$refs[form].validate((valid: boolean) => {
+            isValid = valid;
+            if (!valid) return false;
+        });
+        return isValid;
     }
 
     public convertToDate(timestamp: number): string {

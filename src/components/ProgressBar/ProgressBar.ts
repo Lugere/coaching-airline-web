@@ -1,8 +1,8 @@
 import { Component, Prop } from "vue-property-decorator";
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 
 @Component
-export default class ProgressBar extends GetterMixin {
+export default class ProgressBar extends MainMixin {
     // song-bar length
     public length = 0;
 

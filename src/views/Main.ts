@@ -1,5 +1,5 @@
 import { Component, Vue, Watch } from "vue-property-decorator";
-import GetterMixin from "@/mixins/GetterMixin";
+import MainMixin from "@/mixins/MainMixin";
 import store from "@/store";
 // Components
 import ProgressBar from "@/components/ProgressBar/ProgressBar.vue";
@@ -13,33 +13,53 @@ import CookieBanner from "@/components/CookieBanner/CookieBanner.vue";
         CookieBanner,
     },
 })
-export default class Main extends GetterMixin {
+export default class Main extends MainMixin {
     public showDrawer = false;
     public isLoading = false;
+    public isLoginLoading = false;
 
     // mod-portal
-    public login = {
+    public loginForm = {
         email: "",
         password: "",
-        passwordRepeat: "",
-        name: "",
     };
-    public activeTab = "login";
-    public activeStep = 1;
-    // public showLogin = false;
+    public loginRules = {
+        email: [
+            {
+                required: true,
+                message: "Bitte E-Mail eingeben!",
+                trigger: "blur",
+            },
+            {
+                type: "email",
+                message: "Diese E-Mail ist leider ungültig!",
+                trigger: "blur",
+            },
+        ],
+        password: [
+            {
+                required: true,
+                message: "Bitte Passwort eingeben!",
+                trigger: "blur",
+            },
+        ],
+    };
+
+    public async loginUser(): Promise<void> {
+        this.isLoginLoading = true;
+        // await this.sleep(1000);
+        if (this.isFormValid("login-form")) console.log("login...");
+        this.isLoginLoading = false;
+    }
 
     public handleLoginClose(): void {
         store.dispatch("toggleLogin", false);
-    } 
-
-    public handleLoginOpen(): void {
-        this.login.email = "";
-        this.login.password = "";
+        this.$refs["login-form"].resetFields();
     }
 
-    public loginUser(): void {
-        // firebase.auth();
-        return;
+    public handleLoginOpen(): void {
+        this.loginForm.email = "";
+        this.loginForm.password = "";
     }
 
     // audio-player

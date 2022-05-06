@@ -40,11 +40,14 @@
                 </div>
             </section>
             <section aria-labelledby="mod-portal-title" class="mod-portal">
-                <div id="mod-portal-title" class="title">
+                <span id="mod-portal-title" class="title">
                     Mod-Portal
-                </div>
+                </span>
+                <span class="mod-portal-subtitle">
+                    Zugriff nur für Moderatoren!
+                </span>
                 <el-button disabled type="primary" class="el-button--accent" @click="openLogin()">
-                    Coming Soon
+                    Coming soon
                 </el-button>
             </section>
             <section aria-labelledby="social-media-title" class="social-media">

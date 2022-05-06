@@ -97,6 +97,13 @@
     }
 }
 
+@media only screen and (max-width: 455px) {
+    #Main .el-dialog {
+        height: 100%;
+        border-radius: 0 !important;
+    }
+}
+
 #Main {
     display: grid;
     grid-template-rows: 80px 1fr;
@@ -389,29 +396,42 @@
                 }
             }
 
-            .title {
+            .header {
                 font-size: 16pt;
                 font-family: "Roboto Regular";
                 text-transform: uppercase;
+                display: flex;
                 margin-left: 50px;
+                justify-content: left;
+                align-items: center;
+
+                .title {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .subtitle {
+                    font-size: 10pt;
+                    color: $magenta-disabled;
+                    text-transform: initial;
+                    font-style: italic;
+                }
 
                 .bold {
                     font-family: "Roboto Black";
-                    margin-right: 10px;
+
+                    .highlight-text {
+                        color: $magenta;
+                        font-family: "Roboto Regular";
+                        margin-right: 5px;
+                    }
                 }
 
                 .login-icon {
                     color: $white;
-                    margin-left: 23px;
-                    transform: scale(2) translateX(-30%);
-                }
-
-                .subtitle {
-                    font-size: 11pt;
-                    margin-left: 66px;
-                    color: $magenta;
-                    margin-top: -5px;
-                    text-transform: uppercase;
+                    font-size: 38pt !important;
+                    width: 50px !important;
+                    margin: 0 15px 0 0;
                 }
             }
 

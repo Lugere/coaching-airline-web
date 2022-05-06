@@ -141,25 +141,25 @@ const store = new Vuex.Store({
                        penatibus et magnis dis parturient
                        montes, nascetur ridiculus mus.`,
             },
-            {
-                id: 3,
-                name: "Berni Schroeter",
-                modName: "",
-                role: "Moderator",
-                imageUrl: "berni_schroeter.jpg",
-                socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
-            },
+            // {
+            //     id: 3,
+            //     name: "Berni Schroeter",
+            //     modName: "",
+            //     role: "Moderator",
+            //     imageUrl: "berni_schroeter.jpg",
+            //     socialMedia: [],
+            //     desc: `Lorem ipsum dolor sit amet,
+            //            consectetuer adipiscing elit.
+            //            Aenean commodo ligula eget dolor.
+            //            Aenean massa. Cum sociis natoque
+            //            penatibus et magnis dis parturient
+            //            montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
+            //            consectetuer adipiscing elit.
+            //            Aenean commodo ligula eget dolor.
+            //            Aenean massa. Cum sociis natoque
+            //            penatibus et magnis dis parturient
+            //            montes, nascetur ridiculus mus.`,
+            // },
             {
                 id: 4,
                 name: "Alexandra Speder",
@@ -282,6 +282,23 @@ const store = new Vuex.Store({
             },
             {
                 time: {
+                    start: "2000",
+                    end: "2200",
+                },
+                date: "06. 05. 2022",
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "50 Jahre Dalli Dalli",
+                desc: "35-Jähriger Todestag von Hans Rosenthal.<br /> Live am Mikrofon sind Andrea und Constance",
+            },
+            {
+                time: {
                     start: "1800",
                     end: "2000",
                 },
@@ -332,8 +349,8 @@ const store = new Vuex.Store({
                         icon: "podcasts",
                     },
                 ],
-                theme: "Sag nicht Ja wenn du Nein sagen willst",
-                desc: "Die Sache mit dem 'NEIN' und die 29 toxischen Terrortypen",
+                theme: "Monday Podcast",
+                desc: "Mit Andrea Hohmann und Musik vom Feinsten",
             },
         ],
     },
