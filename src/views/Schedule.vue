@@ -107,8 +107,8 @@
                                             "
                                         ></div>
                                         <!-- <el-button class="more-info-btn" size="mini" type="primary">
-                                        Mehr erfahren
-                                    </el-button> -->
+                                            Mehr erfahren
+                                        </el-button> -->
                                         <div class="tags">
                                             <el-tag
                                                 v-for="(tag, index) in getCurrEventData(

@@ -60,7 +60,7 @@
                     </span>
                 </div>
                 <div class="content">
-                    <video height="200" controls>
+                    <video height="200" controls data-volume="12.5">
                         <source src="@/assets/videos/rosental.mp4" />
                     </video>
                 </div>
@@ -84,7 +84,7 @@
                         <span class="highlight-text"> Herbert </span>
                     </div>
                     <div class="content">
-                        <video controls>
+                        <video controls data-volume="30">
                             <source src="@/assets/videos/radioshow.mp4" type="video/mp4" />
                         </video>
                     </div>

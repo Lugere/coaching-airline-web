@@ -20,4 +20,13 @@ export default class Home extends MainMixin {
     public nextSlide(): void {
         this.$refs["news-carousel"].next();
     }
+
+    mounted() {
+        // Set Volume for each Video with data-volume attribute
+        const VIDS = document.getElementsByTagName("video");
+        for (const VID of VIDS) {
+                const VOL = parseInt(VID.getAttribute("data-volume")!);
+                VID.volume = isNaN(VOL) ? 0.5 : VOL / 100;
+        }
+    }
 }
