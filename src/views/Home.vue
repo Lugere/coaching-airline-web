@@ -245,6 +245,21 @@
                         Cooming Soon
                     </el-button>
                 </section>
+                <section aria-labelledby="radio-title" class="entry radio-service">
+                    <div id="radio-service-title" class="title">
+                        <md-icon>play_circle_filled</md-icon>
+                        Radiodienste.de
+                    </div>
+                    <div class="desc">
+                        <img src="@/assets/images/radiodienste_logo.png" alt="" />
+                        <div>
+                            <span>
+                                Wir werden in Kürze auch auf
+                                <a href="radiodienste.de"> Radiodienste.de</a> zu finden sein.
+                            </span>
+                        </div>
+                    </div>
+                </section>
             </section>
         </aside>
         <Footer />

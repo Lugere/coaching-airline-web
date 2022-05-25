@@ -27,6 +27,8 @@ Allow: /
 Disallow: /404
 Disallow: /fonts
 Disallow: /videos
+Disallow: /impressum
+Disallow: /datenschutz
 
 User-agent: Facebot
 User-agent: Yahoo Pipes 1.0

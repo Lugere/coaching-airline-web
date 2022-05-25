@@ -5,6 +5,7 @@
         border-radius: 0 3px 3px 0 !important;
     }
 }
+
 @media only screen and (max-width: 1036px) {
     #Home {
         grid-template-columns: 1fr !important;
@@ -249,7 +250,9 @@
                 }
             }
 
-            &.easter-panel, &.alcoholism-panel, &.rosenthal-panel {
+            &.easter-panel,
+            &.alcoholism-panel,
+            &.rosenthal-panel {
                 max-height: 600px;
 
                 video {
@@ -561,6 +564,18 @@
 
                 &.wishes {
                     grid-area: wishes;
+                }
+
+                &.radio-service {
+                    .desc {
+                        display: grid;
+                        grid-template-columns: 50px 1fr;
+                        column-gap: 10px;
+
+                        img {
+                            max-height: 50px;
+                        }
+                    }
                 }
             }
         }
