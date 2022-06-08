@@ -1,8 +1,14 @@
 import MainMixin from "@/mixins/MainMixin";
 import { Component } from "vue-property-decorator";
 import Footer from "@/components/Footer/Footer.vue";
+import MusicPlayer from "@/components/MusicPlayer/MusicPlayer.vue";
 
-@Component({ components: { Footer } })
+@Component({
+    components: {
+        Footer,
+        MusicPlayer
+    },
+})
 export default class Home extends MainMixin {
     public get plannedTime(): string {
         return "";
@@ -25,8 +31,8 @@ export default class Home extends MainMixin {
         // Set Volume for each Video with data-volume attribute
         const VIDS = document.getElementsByTagName("video");
         for (const VID of VIDS) {
-                const VOL = parseInt(VID.getAttribute("data-volume")!);
-                VID.volume = isNaN(VOL) ? 0.5 : VOL / 100;
+            const VOL = parseInt(VID.getAttribute("data-volume")!);
+            VID.volume = isNaN(VOL) ? 0.5 : VOL / 100;
         }
     }
 }

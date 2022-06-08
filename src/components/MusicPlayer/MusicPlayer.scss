@@ -1,0 +1,74 @@
+@import "@/utilities/variables.scss";
+
+#MusicPlayer {
+    align-items: center;
+    color: white;
+    column-gap: 2em;
+    display: grid;
+    font-family: "Roboto Light";
+    grid-area: player;
+    grid-template-areas: "playbutton playergroup openplayer volumecontrol";
+    grid-template-columns: 24px 1fr 24px 145px;
+    height: 100%;
+
+    .md-icon {
+        color: white;
+        font-size: 24pt !important;
+    }
+
+    .play-button {
+        cursor: pointer;
+        grid-area: playbutton;
+    }
+
+    .player-group {
+        display: flex;
+        flex-direction: column;
+        grid-area: playergroup;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+
+        .on-air-indicator {
+            border-radius: 5px;
+            padding: 2px 5px;
+            position: absolute;
+            right: 0;
+            top: -4px;
+
+            &.live {
+                background-color: $red;
+            }
+
+            &.online {
+                background-color: $magenta;
+            }
+
+            &.offline {
+                background-color: $white-t;
+            }
+        }
+
+        .song {
+            font-size: 12pt;
+        }
+
+        .info {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .seperation-bar {
+        background-color: $white;
+        border-radius: 3px;
+        height: 2px;
+        margin: 7px 0;
+        width: 100%;
+    }
+
+    .open-player-button {
+        grid-area: openplayer;
+    }
+}

@@ -1,16 +1,18 @@
-import { Component, Vue, Watch } from "vue-property-decorator";
 import MainMixin from "@/mixins/MainMixin";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import store from "@/store";
 // Components
 import ProgressBar from "@/components/ProgressBar/ProgressBar.vue";
 import VolumeControl from "@/components/VolumeControl/VolumeControl.vue";
 import CookieBanner from "@/components/CookieBanner/CookieBanner.vue";
+import MusicPlayer from "@/components/MusicPlayer/MusicPlayer.vue";
 
 @Component({
     components: {
         ProgressBar,
         VolumeControl,
         CookieBanner,
+        MusicPlayer,
     },
 })
 export default class Main extends MainMixin {

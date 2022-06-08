@@ -48,20 +48,16 @@
                     <img src="@/assets/images/profile-1.jpg" alt="andrea hohmann profil" />
                 </div>
             </section>
-            <section class="panel rosenthal-panel">
+            <section id="trailer" class="panel trailer-panel">
                 <div class="title">
-                    Zu Ehren von
-                    <span class="highlight-text">
-                        Hans Rosenthal
-                    </span>
-                    &mdash; 50 Jahre
-                    <span class="highlight-text">
-                        Dalli Dalli
-                    </span>
+                    Von
+                    <span class="highlight-text"> Herzensmenschen </span>
+                    für
+                    <span class="highlight-text"> Herzensmenschen </span>
                 </div>
                 <div class="content">
-                    <video height="200" controls data-volume="12.5">
-                        <source src="@/assets/videos/rosental.mp4" />
+                    <video controls data-volume="30">
+                        <source src="@/assets/videos/trailer.mp4" type="video/mp4" />
                     </video>
                 </div>
             </section>
@@ -99,18 +95,6 @@
                     <div class="image">
                         <img src="@/assets/images/mondaypodcast.png" alt="" />
                     </div>
-                </div>
-            </section>
-            <section v-if="false" id="trailer" class="panel trailer-panel">
-                <div class="title">
-                    Unsere
-                    <span class="highlight-text"> Crew </span>
-                    vorgestellt
-                </div>
-                <div class="content">
-                    <video controls>
-                        <source src="@/assets/videos/crew.mp4" type="video/mp4" />
-                    </video>
                 </div>
             </section>
             <section id="news" class="panel news-panel">
@@ -255,11 +239,16 @@
                         <div>
                             <span>
                                 Wir werden in Kürze auch auf
-                                <a href="radiodienste.de"> Radiodienste.de</a> zu finden sein.
+                                <a href="https://www.radiodienste.de/" target="_blank">
+                                    Radiodienste.de</a
+                                >
+                                zu finden sein.
                             </span>
                         </div>
                     </div>
                 </section>
+            </section>
+            <section aria-labelledby="player-title" class="music-player">
             </section>
         </aside>
         <Footer />

@@ -2,19 +2,58 @@
 
 @keyframes animateout {
     50% {
-        transform: translateX(4em);
+        left: 4em;
     }
     100% {
-        transform: translateX(-600px);
+        left: -600px;
     }
 }
 
 @keyframes animatein {
     50% {
-        transform: translateX(calc(600px + 4em));
+        left: 4em;
     }
     100% {
-        transform: translateX(calc(600px + 2em));
+        left: 2em;
+    }
+}
+
+@media screen and (max-width: 565px) {
+    @keyframes animateout-resp-565 {
+        50% {
+            bottom: 4em;
+        }
+        100% {
+            bottom: -600px;
+        }
+    }
+
+    @keyframes animatein-resp-565 {
+        50% {
+            bottom: 4em;
+        }
+        100% {
+            bottom: 0;
+        }
+    }
+
+    #CookieBanner {
+        -webkit-animation: animatein-resp-565 1000ms ease 2000ms !important;
+        animation: animatein-resp-565 1000ms ease 2000ms !important;
+        border-radius: 0 !important;
+        border-top: 1px solid $purple-t;
+        bottom: -500px !important;
+        left: 0 !important;
+        width: 100% !important;
+
+        &.hide {
+            -webkit-animation: animateout-resp-565 1000ms !important;
+            animation: animateout-resp-565 1000ms !important;
+        }
+
+        &.show {
+            bottom: 0 !important;
+        }
     }
 }
 
@@ -32,7 +71,7 @@
     left: -600px;
     line-height: 16pt;
     padding: 1em 2em;
-    position: fixed;
+    position: absolute;
     width: 500px;
     z-index: 999;
 
@@ -42,7 +81,7 @@
     }
 
     &.show {
-        transform: translateX(calc(600px + 2em));
+        left: 2em;
     }
 
     .title {

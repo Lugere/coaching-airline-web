@@ -96,12 +96,12 @@
                         </li>
                     </ul>
                 </section>
-                <VolumeControl class="volume-control-resp" />
                 <section class="burger-menu" @click="toggleDrawer()">
                     <md-icon>menu</md-icon>
                 </section>
             </div>
         </nav>
+        <MusicPlayer class="player-resp" />
         <el-drawer class="drawer" :visible.sync="showDrawer" direction="rtl">
             <ul class="list">
                 <router-link to="Home" class="link">
@@ -171,7 +171,13 @@
                     </span>
                 </div>
             </section>
-            <el-form :hide-required-asterisk="true" class="form" :rules="loginRules" ref="login-form" :model="loginForm">
+            <el-form
+                :hide-required-asterisk="true"
+                class="form"
+                :rules="loginRules"
+                ref="login-form"
+                :model="loginForm"
+            >
                 <el-form-item label="E-Mail" prop="email">
                     <el-input v-model="loginForm.email" auto-complete="email" />
                 </el-form-item>
@@ -186,7 +192,12 @@
                 <el-button class="cancel-button" type="info" @click="handleLoginClose()">
                     Abbrechen
                 </el-button>
-                <el-button :loading="isLoginLoading" class="submit-button" type="success" @click="loginUser()">
+                <el-button
+                    :loading="isLoginLoading"
+                    class="submit-button"
+                    type="success"
+                    @click="loginUser()"
+                >
                     {{ isLoginLoading ? "Melde an" : "Anmelden" }}
                 </el-button>
             </div>
