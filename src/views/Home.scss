@@ -36,6 +36,9 @@
                     }
                 }
             }
+
+            .partners {
+            }
         }
     }
 }
@@ -233,23 +236,21 @@
                         .signature img {
                             height: 100px;
                             margin: 1em 0 0 2em;
-                            transform: rotate(-15deg);
                         }
                     }
                 }
 
                 .image {
-                    bottom: 0;
+                    bottom: 5em;
                     position: absolute;
-                    right: 0;
+                    right: 2em;
                     top: 0;
-                    width: 30%;
+                    width: 25%;
 
                     img {
-                        border-radius: 0 0 3px 100px;
+                        border-radius: 0 0 50px 50px;
                         height: 100%;
                         object-fit: cover;
-                        // object-position: -15px 50%;
                         width: 100%;
                     }
                 }
@@ -502,12 +503,12 @@
         }
 
         .infos {
-            margin: 2em 1em 0 1em;
             display: grid;
             grid-template-areas:
                 "moderator"
                 "guestbook"
                 "wishes";
+            margin: 2em 1em 0 1em;
 
             .entry {
                 padding: 1em 0;
@@ -517,33 +518,35 @@
                 }
 
                 .title {
-                    font-size: 12pt;
-                    font-family: "Roboto Black";
-                    text-transform: uppercase;
-                    display: flex;
                     align-items: center;
+                    display: flex;
+                    font-family: "Roboto Black";
+                    font-size: 12pt;
                     justify-content: left;
+                    margin-bottom: 1em;
+                    text-transform: uppercase;
 
                     .md-icon {
-                        margin: 0 10px 0 0;
                         color: $white;
+                        font-size: 24pt !important;
+                        margin: 0 15px 0 0;
                     }
                 }
 
                 .subtitle {
-                    margin-top: 5px;
-                    font-size: 11pt;
                     color: $magenta;
+                    font-size: 11pt;
+                    margin-top: 5px;
                 }
 
                 .el-button {
-                    width: 100%;
                     margin-top: 5px;
+                    width: 100%;
                 }
 
                 .desc {
-                    margin-top: 5px;
                     font-family: "Roboto Light";
+                    margin-top: 5px;
 
                     .highlight {
                         font-family: "Roboto Black";
@@ -558,8 +561,8 @@
                         justify-content: space-between;
 
                         .time {
-                            font-size: 10pt;
                             color: $white;
+                            font-size: 10pt;
                         }
                     }
                 }
@@ -574,12 +577,50 @@
 
                 &.radio-service {
                     .desc {
+                        column-gap: 10px;
                         display: grid;
                         grid-template-columns: 50px 1fr;
-                        column-gap: 10px;
 
                         img {
                             max-height: 50px;
+                        }
+                    }
+                }
+
+                &.partners {
+                    .partner {
+                        list-style: none;
+
+                        + li {
+                            margin-top: 1em;
+                        }
+
+                        .partner-name {
+                            font-size: 12pt;
+                        }
+
+                        a {
+                            display: block;
+                            margin-top: 5px;
+                            position: relative;
+
+                            img {
+                                border: 1px solid $magenta;
+                                border-radius: 8px;
+                            }
+
+                            .open-in-new {
+                                background-color: $magenta;
+                                border-radius: 8px 0 8px 0;
+                                bottom: 0;
+                                padding: 5px 5px 3px 5px;
+                                position: absolute;
+                                right: 0;
+
+                                .md-icon {
+                                    color: $white;
+                                }
+                            }
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 <template>
-    <div id="volume-control">
+    <div class="VolumeControl">
         <div class="volume-icon" @click="toggleIsMute()">
             <md-icon v-if="isMute">volume_off</md-icon>
             <md-icon v-else-if="volume <= 10">volume_mute</md-icon>
@@ -12,13 +12,12 @@
                 type="range"
                 name="volume-slider"
                 :value="isMute ? 0 : volume"
-                id="volume-slider-js"
                 class="volume-slider"
-                @input="updateVolume()"
+                @input="updateVolume($event)"
                 @change="updateVolumeCookie()"
             />
             <div :style="`width: ${isMute ? 0 : volume}%; !important`" class="bar">&nbsp;</div>
-            <md-tooltip>{{ `${volume}%` }}</md-tooltip>
+            <md-tooltip>{{ getVolumeTooltip() }}</md-tooltip>
         </div>
     </div>
 </template>

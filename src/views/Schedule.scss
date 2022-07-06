@@ -114,12 +114,17 @@
                     // }
                 }
 
-                th.today {
-                    background-color: $purple-hover !important;
-                }
-
                 td.today {
                     background-color: $white-t2 !important;
+                }
+
+                td.now {
+                    background-color: $white-t2 !important;
+                }
+
+                td.now.today {
+                    background-color: $magenta-t !important;
+                    border: 1px solid $white-t2;
                 }
 
                 .date {

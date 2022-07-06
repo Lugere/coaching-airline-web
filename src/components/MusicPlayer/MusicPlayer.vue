@@ -1,5 +1,5 @@
 <template>
-    <div id="MusicPlayer">
+    <div class="MusicPlayer">
         <div
             class="play-button"
             @click="onPlayClicked()"
@@ -18,21 +18,25 @@
                                 {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
                             >
                         </div> -->
-            <div class="on-air-indicator" :class="onAirStatus">
-                <span v-if="isLive">ON-AIR</span>
-                <span v-else-if="!isLive && isOnline">ONLINE</span>
-                <span v-else>OFFLINE</span>
-            </div>
-            <span class="song">
-                <span v-if="!isOnline">Stream ist offline</span>
-                <span v-else-if="isOnline && nowPlayingText.length > 0">
-                    {{ nowPlayingText }}
+            <div class="top-line">
+                <span class="song">
+                    <span v-if="!isOnline">Stream ist offline</span>
+                    <span v-else-if="isOnline && nowPlayingText.length > 0">
+                        <v-clamp autoresize :max-lines="1">
+                            {{ nowPlayingText }}
+                        </v-clamp>
+                    </span>
+                    <span v-else>&lt;Songtitel nicht verfügbar&gt;</span>
                     <md-tooltip md-delay="300" v-if="nowPlayingText.length > 30">
                         {{ `${song.artist} — ${song.title}` }}
                     </md-tooltip>
                 </span>
-                <span v-else>&lt;Songtitel nicht verfügbar&gt;</span>
-            </span>
+                <div class="on-air-indicator" :class="onAirStatus">
+                    <span v-if="isLive">ON-AIR</span>
+                    <span v-else-if="!isLive && isOnline">ONLINE</span>
+                    <span v-else>OFFLINE</span>
+                </div>
+            </div>
             <div class="seperation-bar"></div>
             <div class="info">
                 <div class="moderator">
@@ -55,9 +59,8 @@
                 <md-tooltip :md-delay="300">Öffne lokalen Player</md-tooltip>
             </div>
         </a>
-        <VolumeControl />
     </div>
 </template>
 
 <script src="./MusicPlayer.ts" lang="ts"></script>
-<script src="./MusicPlayer.scss" lang="scss"></script>
+<style src="./MusicPlayer.scss" lang="scss"></style>

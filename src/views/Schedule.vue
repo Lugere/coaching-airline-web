@@ -41,7 +41,6 @@
                             <span> KW {{ currWeek }} </span>
                         </th>
                         <th
-                            :class="{ today: isCellToday(day.date) }"
                             v-for="(day, index) in days"
                             :key="index"
                         >
@@ -54,7 +53,7 @@
                         <td
                             v-for="(day, dayIndex) in days"
                             :key="dayIndex"
-                            :class="{ today: isCellToday(day.date) }"
+                            :class="{ today: isCellToday(day.date), now: isNow(time) }"
                         >
                             <el-tooltip
                                 :open-delay="300"

@@ -1,18 +1,18 @@
 @import "@/utilities/variables.scss";
 
-#MusicPlayer {
+.MusicPlayer {
     align-items: center;
     color: white;
     column-gap: 2em;
     display: grid;
     font-family: "Roboto Light";
-    grid-area: player;
-    grid-template-areas: "playbutton playergroup openplayer volumecontrol";
-    grid-template-columns: 24px 1fr 24px 145px;
+    grid-area: musicplayer;
+    grid-template-areas: "playbutton playergroup openplayer";
+    grid-template-columns: 24px 1fr 24px;
     height: 100%;
 
     .md-icon {
-        color: white;
+        color: white !important;
         font-size: 24pt !important;
     }
 
@@ -29,29 +29,36 @@
         position: relative;
         width: 100%;
 
-        .on-air-indicator {
-            border-radius: 5px;
-            padding: 2px 5px;
-            position: absolute;
-            right: 0;
-            top: -4px;
+        .top-line {
+            display: grid;
+            grid-template-columns: 1fr 67px;
+            column-gap: 1em;
 
-            &.live {
-                background-color: $red;
+            .song {
+                font-size: 12pt;
             }
 
-            &.online {
-                background-color: $magenta;
+            .on-air-indicator {
+                height: 24px;
+                border-radius: 5px;
+                padding: 2px 5px;
+                text-align: center;
+    
+                &.live {
+                    background-color: $red;
+                }
+    
+                &.online {
+                    background-color: $magenta;
+                }
+    
+                &.offline {
+                    background-color: $white-t;
+                }
             }
 
-            &.offline {
-                background-color: $white-t;
-            }
         }
 
-        .song {
-            font-size: 12pt;
-        }
 
         .info {
             color: white;

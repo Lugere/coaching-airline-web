@@ -102,7 +102,14 @@ export default class Schedule extends MainMixin {
     }
 
     public isCellToday(date: string): boolean {
+        console.log(date);
         return date == moment().format("DD. MM. yyyy");
+    }
+
+    public isNow(time) {
+        const { end, start } = time;
+        console.log(moment().format("HHmm"));
+        return (end >= moment().format("HHmm") && start <= moment().format("HHmm"));
     }
 
     public isStreamerPlanned(day, time): boolean {
@@ -111,8 +118,10 @@ export default class Schedule extends MainMixin {
         this.recurringSchedule.map(event => {
             if (
                 moment(day, "DD. MM. yyyy").weekday() == event.day &&
-                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
-                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() >=
+                    moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <=
+                    moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
                 time.start == event.time.start
             )
                 isPlanned = true;
@@ -133,8 +142,10 @@ export default class Schedule extends MainMixin {
         this.recurringSchedule.map(event => {
             if (
                 moment(day, "DD. MM. yyyy").weekday() == event.day &&
-                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
-                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() >=
+                    moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <=
+                    moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
                 time.start == event.time.start
             )
                 currStreamer = this.team.find(member => member.id == event.streamerId);
@@ -155,8 +166,10 @@ export default class Schedule extends MainMixin {
         this.recurringSchedule.map(event => {
             if (
                 moment(day, "DD. MM. yyyy").weekday() == event.day &&
-                moment(day, "DD. MM. yyyy").valueOf() >= moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
-                moment(day, "DD. MM. yyyy").valueOf() <= moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() >=
+                    moment(event.firstDate, "DD. MM. yyyy").valueOf() &&
+                moment(day, "DD. MM. yyyy").valueOf() <=
+                    moment(event.lastDate, "DD. MM. yyyy").valueOf() &&
                 time.start == event.time.start
             )
                 currEventData = event;
@@ -173,7 +186,7 @@ export default class Schedule extends MainMixin {
         return `${hoursStart}:${minutesStart} - ${hoursEnd}:${minutesEnd} Uhr`;
     }
 
-    public getStreamerTime(time: { start: string, end: string }): string {
+    public getStreamerTime(time: { start: string; end: string }): string {
         const hoursStart = time.start.slice(0, 2);
         const hoursEnd = time.end.slice(0, 2);
         const minutesStart = time.start.slice(2, 4);

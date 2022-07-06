@@ -236,20 +236,73 @@
                     </div>
                     <div class="desc">
                         <img src="@/assets/images/radiodienste_logo.png" alt="" />
-                        <div>
-                            <span>
-                                Wir werden in Kürze auch auf
-                                <a href="https://www.radiodienste.de/" target="_blank">
-                                    Radiodienste.de</a
+                        <span>
+                            Wir sind seit neuestem auch auf
+                            <a href="https://www.radiodienste.de/" target="_blank">
+                                Radiodienste.de
+                                <!-- <md-icon>open_in_new</md-icon> -->
+                            </a>
+                            zu finden.
+                        </span>
+                    </div>
+                </section>
+                <section class="entry partners">
+                    <div class="title">
+                        <md-icon>handshake</md-icon>
+                        Unsere Partner
+                    </div>
+                    <div class="desc">
+                        <ul>
+                            <li class="partner hans-rosenthal">
+                                <span class="name">
+                                    Die Hans-Rosenthal-Stiftung
+                                </span>
+                                <a href="https://hans-rosenthal-stiftung.de/" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/hansrosenthalstiftung.jpg"
+                                        alt="Hans Rosenthal Stiftung - Schnelle Hilfe in akuter Not - e. V."
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner crazy-witch">
+                                <span class="name">
+                                    Martina Murseli
+                                </span>
+                                <a href="https://www.crazywitch.de/" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/crazywitch.jpg"
+                                        alt="Crazy Witch - Die verrückte Hexe"
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner charli">
+                                <span class="name">
+                                    Charli Wolf
+                                </span>
+                                <a
+                                    href="https://charli-wolf.wixsite.com/meinewebsite/referenzen"
+                                    target="_blank"
                                 >
-                                zu finden sein.
-                            </span>
-                        </div>
+                                    <img
+                                        src="@/assets/images/partners/charliwolf-ritterdermenschlichkeit.jpg"
+                                        alt="Charli Wolf - Ritter der Menschlichkeit"
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </section>
             </section>
-            <section aria-labelledby="player-title" class="music-player">
-            </section>
+            <section aria-labelledby="player-title" class="music-player"></section>
         </aside>
         <Footer />
     </div>

@@ -59,38 +59,47 @@
         row-gap: 1em;
         grid-template-areas:
             "nav"
-            "musicplayer"
+            "playerresp"
             "view" !important;
-            
 
         nav .content .player {
             display: none !important;
         }
 
         .player-resp {
-            margin-top: -1em;
             display: grid !important;
-            grid-area: musicplayer !important;
+            grid-area: playerresp !important;
             background-color: $purple-t;
             border: 1px solid $purple-t;
-            border-top: none;
             min-height: 80px;
             padding: 0 2em;
             width: 100%;
+            grid-template-areas: "musicplayer volumecontrol";
+            grid-template-columns: 1fr 145px;
+            column-gap: 2em;
         }
     }
 }
 
 @media only screen and (max-width: 660px) {
-    #Main nav .content {
-        grid-template-columns: 1fr 48px !important;
-        grid-template-areas: "logo burgermenu" !important;
+    #Main {
+        nav .content {
+            grid-template-columns: 1fr 48px !important;
+            grid-template-areas: "logo burgermenu" !important;
+        }
 
-        .player {
-            grid-template-columns: 24px 1fr 24px !important;
-            grid-template-areas: "play playergroup openplayer" !important;
+        .player-resp {
+            min-height: 100px;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr !important;
+            grid-template-areas:
+                "musicplayer" !important;
 
-            #volume-control {
+            .md-icon {
+                font-size: 36pt !important;
+            }
+            
+            .VolumeControl {
                 display: none !important;
             }
         }
@@ -125,6 +134,7 @@
         inset: 0 0 auto 0;
         position: fixed;
         grid-area: nav;
+        width: 100%;
 
         .content {
             align-items: center;
@@ -207,58 +217,9 @@
                 height: 100%;
                 min-width: 625px;
                 grid-area: player;
-                grid-template-areas: "play playergroup openplayer volumecontrol";
-                grid-template-columns: 24px 1fr 24px 145px;
+                grid-template-areas: "musicplayer volumecontrol";
+                grid-template-columns: 1fr 145px;
                 column-gap: 2em;
-
-                .play-button {
-                    grid-area: play;
-                    cursor: pointer;
-                }
-
-                .player-group {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    position: relative;
-                    width: 100%;
-                    grid-area: playergroup;
-                    min-width: 300px;
-
-                    .on-air-indicator {
-                        position: absolute;
-                        right: 0;
-                        top: -4px;
-                        padding: 2px 5px;
-                        border-radius: 5px;
-
-                        &.live {
-                            background-color: $red;
-                        }
-
-                        &.online {
-                            background-color: $magenta;
-                        }
-
-                        &.offline {
-                            background-color: $white-t;
-                        }
-                    }
-
-                    .song {
-                        font-size: 12pt;
-                    }
-
-                    .info {
-                        color: white;
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                }
-
-                .open-player-button {
-                    grid-area: openplayer;
-                }
             }
 
             .links {
@@ -306,7 +267,7 @@
 
     .drawer {
         .el-drawer {
-            background-color: $purple;
+            background-color: $purple-dark;
             font-size: 16pt;
             text-transform: uppercase;
             min-width: 300px;
@@ -346,23 +307,31 @@
             }
 
             .list-item {
-                padding: 1em;
+                padding: .75em 1em;
                 border-left: 5px solid transparent;
                 margin: 5px;
                 border-radius: 5px;
-                transition: background-color 150ms ease;
+                transition: background-color 150ms ease, color 150ms ease;
+
+                .md-icon {
+                    transition: color 150ms ease;
+                }
 
                 &.active {
-                    background-color: $white;
-                    color: $purple;
+                    background-color: $magenta-disabled;
+                    color: $purple-dark;
 
                     .md-icon {
-                        color: $purple;
+                        color: $purple-dark;
                     }
                 }
 
                 &:hover:not(.active) {
-                    background-color: $white-t;
+                    color: $magenta-disabled;
+
+                    .md-icon {
+                        color: $magenta-disabled;
+                    }
                 }
             }
         }

@@ -1,20 +1,22 @@
-import { Component } from "vue-property-decorator";
+import { Component, Watch } from "vue-property-decorator";
 import MainMixin from "@/mixins/MainMixin";
 import store from "@/store";
 
-@Component
+@Component({
+    name: "VolumeControl",
+})
 export default class VolumeControl extends MainMixin {
     public toggleIsMute(): void {
         store.dispatch("toggleIsMute", !this.isMute);
-        this.$cookies.set("isMute", !this.isMute);
+        this.$cookies.set("isMute", this.isMute);
     }
 
-    public updateVolume(): void {
-        if (this.volume > 0) store.dispatch("toggleIsMute", false);
-        store.dispatch(
-            "updateVolume",
-            (document.getElementById("volume-slider-js") as HTMLInputElement).value,
-        );
+    public updateVolume(event): void {
+        if (this.volume > 0) {
+            store.dispatch("toggleIsMute", false);
+            this.$cookies.set("isMute", "false");
+        }
+        store.dispatch("updateVolume", event.target.value);
     }
 
     public updateVolumeCookie(): void {
@@ -24,9 +26,14 @@ export default class VolumeControl extends MainMixin {
 
     public getVolumeCookie(): void {
         const volume: string = this.$cookies.get("volume");
-        const isMute: boolean = this.$cookies.get("isMute");
+        const isMute: boolean = this.$cookies.get("isMute") === "true";
         store.dispatch("updateVolume", volume ? volume : "50");
-        store.dispatch("toggleIsMute", isMute ? isMute : false);
+        store.dispatch("toggleIsMute", isMute);
+    }
+
+    public getVolumeTooltip(): string {
+        if (this.isMute) return "Stumm";
+        return `${this.volume}%`;
     }
 
     public get volumeIcon(): string {

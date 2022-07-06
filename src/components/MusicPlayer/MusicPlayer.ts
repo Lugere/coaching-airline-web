@@ -9,10 +9,7 @@ import store from "@/store";
 })
 export default class MusicPlayer extends MainMixin {
     public isLoading = false;
-
-    // audio-player
-    public audioPlayer;
-    public soundSrc;
+    
     public onPlayClicked(): void {
         if (this.songLength <= this.songPlayed && !this.isPlaying) {
             // set player to 0 and start playing when song has ended and play is pressed
@@ -32,11 +29,9 @@ export default class MusicPlayer extends MainMixin {
     }
 
     public get nowPlayingText(): string {
-        let rawText = "";
         if (this.song.artist && this.song.title)
-            rawText = `${this.song.artist} — ${this.song.title}`;
-        if (rawText.length >= 30) return `${rawText.slice(0, 30)}...`;
-        return rawText;
+            return `${this.song.artist} — ${this.song.title}`;
+        return "";
     }
 
     public get onAirStatus(): string {
@@ -62,8 +57,6 @@ export default class MusicPlayer extends MainMixin {
             if (this.isPlaying) store.dispatch("updatePlayingData");
         }, 1000);
 
-        // this.audioPlayer = new Audio(require(`@/assets/sounds/${this.song.meta.file}`));
-        this.audioPlayer = new Audio("https://stream.coachingairlineradio.de/radio/8000/radio.mp3");
         this.audioPlayer.volume = this.volume / 100;
         this.audioPlayer.addEventListener("pause", () => {
             store.dispatch("toggleIsPlaying", false);

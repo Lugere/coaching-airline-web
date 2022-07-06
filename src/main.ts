@@ -20,6 +20,10 @@ import "./utilities/theme/index.css";
 import locale from "element-ui/lib/locale/lang/de";
 Vue.use(ElementUI, { locale });
 
+// Vue Clamp
+import VClamp from "vue-clamp";
+Vue.use(VClamp);
+
 // Vue Material
 import { MdIcon, MdTooltip } from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";

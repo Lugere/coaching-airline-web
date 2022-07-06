@@ -11,7 +11,7 @@ const store = new Vuex.Store({
         // Playing Data
         isOnline: true,
         isLive: false,
-        isMute: false,
+        isMute: true,
         isPlaying: false,
         showLogin: false,
         song: {
@@ -329,6 +329,57 @@ const store = new Vuex.Store({
                     },
                 ],
                 theme: "",
+                desc: "",
+            },
+            {
+                time: {
+                    start: "2000",
+                    end: "2200",
+                },
+                date: "17. 06. 2022",
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "",
+                desc: "",
+            },
+            {
+                time: {
+                    start: "2200",
+                    end: "0000",
+                },
+                date: "17. 06. 2022",
+                streamerId: 6,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "",
+                desc: "",
+            },
+            {
+                time: {
+                    start: "1800",
+                    end: "2000",
+                },
+                date: "18. 06. 2022",
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Stream",
+                        type: "danger",
+                        icon: "stream",
+                    },
+                ],
+                theme: "Musicals",
                 desc: "",
             },
         ],

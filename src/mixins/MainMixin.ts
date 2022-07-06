@@ -3,8 +3,12 @@ import moment from "moment";
 import { mapState } from "vuex";
 // import * as firebase from "firebase/app";
 moment.locale("de");
+import VClamp from "vue-clamp";
 
 @Component({
+    components: {
+        VClamp
+    },
     computed: {
         ...mapState([
             "isLive",
@@ -42,6 +46,8 @@ export default class MainMixin extends Vue {
     public streamerName!: any;
     public team!: any;
     public volume!: any;
+
+    public audioPlayer = new Audio("https://stream.coachingairlineradio.de/radio/8000/radio.mp3");
 
     public sleep(ms: number) {
         return new Promise(r => setTimeout(r, ms));

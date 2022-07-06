@@ -1,6 +1,6 @@
 @import "@/utilities/variables.scss";
 
-#volume-control {
+.VolumeControl {
     align-items: center;
     display: flex;
     grid-area: volumecontrol;
@@ -12,6 +12,11 @@
         font-size: 18pt;
         justify-content: left;
         width: 30px;
+
+        .md-icon {
+            color: white !important;
+            font-size: 26pt !important;
+        }
     }
 
     .volume-bar {
