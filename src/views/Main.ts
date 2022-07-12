@@ -88,17 +88,6 @@ export default class Main extends MainMixin {
         return this.$route.name;
     }
 
-    @Watch("volume")
-    volumeHandler(): void {
-        this.audioPlayer.volume = this.volume / 100;
-    }
-
-    @Watch("isMute")
-    isMuteHandler(): void {
-        if (this.isMute) this.audioPlayer.volume = 0;
-        else this.audioPlayer.volume = this.volume / 100;
-    }
-
     beforeMount(): void {
         if (!this.$cookies.get("allowCookies")) this.$cookies.set("allowCookies", false);
 
@@ -106,13 +95,5 @@ export default class Main extends MainMixin {
         setInterval(() => {
             if (this.isPlaying) store.dispatch("updatePlayingData");
         }, 1000);
-
-        this.audioPlayer.volume = this.volume / 100;
-        this.audioPlayer.addEventListener("pause", () => {
-            store.dispatch("toggleIsPlaying", false);
-        });
-        this.audioPlayer.addEventListener("play", () => {
-            store.dispatch("toggleIsPlaying", true);
-        });
     }
 }

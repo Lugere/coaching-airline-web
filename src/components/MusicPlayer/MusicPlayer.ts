@@ -9,28 +9,20 @@ import store from "@/store";
 })
 export default class MusicPlayer extends MainMixin {
     public isLoading = false;
-    
-    public onPlayClicked(): void {
-        if (this.songLength <= this.songPlayed && !this.isPlaying) {
-            // set player to 0 and start playing when song has ended and play is pressed
-            store.dispatch("setSongPlayed", 0);
-            store.dispatch("toggleIsPlaying", true);
-        } else {
-            // start/stop playing when play is pressed
-            this.isLoading = true;
-            setTimeout(() => {
-                return 0;
-            }, 2000);
-            store.dispatch("toggleIsPlaying", !this.isPlaying);
-        }
+    public audioPlayer: HTMLAudioElement;
+
+    public async onPlayClicked(): Promise<void> {
+        // start/stop playing when play is pressed
+        store.dispatch("toggleIsPlaying", !this.isPlaying);
         // play/pause audio
-        if (this.isPlaying) this.audioPlayer.play();
-        else this.audioPlayer.pause();
+        if (this.isPlaying) {
+            // this.audioPlayer.load();
+            await this.audioPlayer.play();
+        } else this.audioPlayer.pause();
     }
 
     public get nowPlayingText(): string {
-        if (this.song.artist && this.song.title)
-            return `${this.song.artist} — ${this.song.title}`;
+        if (this.song.artist && this.song.title) return `${this.song.artist} — ${this.song.title}`;
         return "";
     }
 
@@ -52,12 +44,16 @@ export default class MusicPlayer extends MainMixin {
     }
 
     beforeMount(): void {
+        this.audioPlayer = new Audio("https://stream.coachingairlineradio.de/radio/8000/256kb.mp3");
+
         store.dispatch("updatePlayingData");
         setInterval(() => {
             if (this.isPlaying) store.dispatch("updatePlayingData");
         }, 1000);
 
         this.audioPlayer.volume = this.volume / 100;
+        // Event listener is needed, when the player gets handled from outside
+        // e.g. windows audio control
         this.audioPlayer.addEventListener("pause", () => {
             store.dispatch("toggleIsPlaying", false);
         });

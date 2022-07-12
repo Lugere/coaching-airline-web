@@ -6,26 +6,24 @@
             :alt="isPlaying ? 'musik pausieren' : 'musik abspielen'"
         >
             <md-icon v-if="!isPlaying" class="">play_circle</md-icon>
-            <!-- <md-icon v-else-if="isPlaying && isLoading" class="spinning">play_circle</md-icon> -->
             <md-icon v-else>pause_circle</md-icon>
             <md-tooltip :md-delay="300">
                 {{ isPlaying ? "Pause" : "Abspielen" }}
             </md-tooltip>
         </div>
         <div class="player-group">
-            <!-- <div class="live-indicator" :class="isLive ? 'live' : 'offline'">
-                            <md-tooltip :md-delay="300">
-                                {{ `Stream ist ${isLive ? "Live" : "Offline"}` }}</md-tooltip
-                            >
-                        </div> -->
             <div class="top-line">
                 <span class="song">
-                    <span v-if="!isOnline">Stream ist offline</span>
-                    <span v-else-if="isOnline && nowPlayingText.length > 0">
-                        <v-clamp autoresize :max-lines="1">
-                            {{ nowPlayingText }}
-                        </v-clamp>
-                    </span>
+                    <v-clamp v-if="!isOnline" autoresize :max-lines="1">
+                        Stream ist offline
+                    </v-clamp>
+                    <v-clamp
+                        v-else-if="isOnline && nowPlayingText.length > 0"
+                        autoresize
+                        :max-lines="1"
+                    >
+                        {{ nowPlayingText }}
+                    </v-clamp>
                     <span v-else>&lt;Songtitel nicht verfügbar&gt;</span>
                     <md-tooltip md-delay="300" v-if="nowPlayingText.length > 30">
                         {{ `${song.artist} — ${song.title}` }}
@@ -44,9 +42,6 @@
                     <span v-else-if="isOnline">AUTO-DJ moderiert</span>
                     <span v-else>&mdash;</span>
                 </div>
-                <!-- <div class="time">
-                    {{ `${songPlayedInMinutes} | ${songLengthInMinutes}` }}
-                </div> -->
             </div>
         </div>
         <a

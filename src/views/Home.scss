@@ -575,6 +575,22 @@
                     grid-area: wishes;
                 }
 
+                &.voting {
+                    .el-button {
+                        position: relative;
+
+                        .md-icon {
+                            color: $white;
+                            font-size: 14pt !important;
+                            height: 80%;
+                            padding: 0 .8em;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
+                }
+
                 &.radio-service {
                     .desc {
                         column-gap: 10px;

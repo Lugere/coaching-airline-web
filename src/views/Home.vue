@@ -229,6 +229,21 @@
                         Cooming Soon
                     </el-button>
                 </section>
+                <section class="entry voting">
+                    <div class="title">
+                        <md-icon>star_half</md-icon>
+                        Voten
+                    </div>
+                    <div class="desc">
+                        Hier kannst du auf Webradio Top 100 für unser Radio voten.
+                    </div>
+                    <a href="https://www.webradiotop100.de/radio/in/3884" target="_blank">
+                        <el-button type="primary">
+                            Hier voten
+                            <md-icon>open_in_new</md-icon>
+                        </el-button>
+                    </a>
+                </section>
                 <section aria-labelledby="radio-title" class="entry radio-service">
                     <div id="radio-service-title" class="title">
                         <md-icon>play_circle_filled</md-icon>

@@ -4,10 +4,11 @@ import { mapState } from "vuex";
 // import * as firebase from "firebase/app";
 moment.locale("de");
 import VClamp from "vue-clamp";
+import { Howl, Howler } from "howler";
 
 @Component({
     components: {
-        VClamp
+        VClamp,
     },
     computed: {
         ...mapState([
@@ -47,7 +48,7 @@ export default class MainMixin extends Vue {
     public team!: any;
     public volume!: any;
 
-    public audioPlayer = new Audio("https://stream.coachingairlineradio.de/radio/8000/radio.mp3");
+    // public audioPlayer: HTMLAudioElement;
 
     public sleep(ms: number) {
         return new Promise(r => setTimeout(r, ms));
