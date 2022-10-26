@@ -32,8 +32,8 @@
                         </div>
                         <div class="line">
                             <div class="highlight">Mobil</div>
-                            <a href="tel:+4917630783508">
-                                +49 176 / 30783508
+                            <a href="tel:+4915172207895">
+                                +49 1517 / 2207895
                             </a>
                         </div>
                     </div>

@@ -580,22 +580,27 @@
                         position: relative;
 
                         .md-icon {
+                            bottom: 50%;
                             color: $white;
                             font-size: 14pt !important;
                             height: 80%;
-                            padding: 0 .8em;
                             position: absolute;
-                            right: 0;
-                            top: 0;
+                            right: 0.5em;
+                            top: 50%;
                         }
                     }
                 }
 
-                &.radio-service {
+                &.radio-service,
+                &.radio-de {
                     .desc {
                         column-gap: 10px;
                         display: grid;
                         grid-template-columns: 50px 1fr;
+
+                        a {
+                            text-decoration: underline !important;
+                        }
 
                         img {
                             max-height: 50px;
@@ -623,6 +628,7 @@
                             img {
                                 border: 1px solid $magenta;
                                 border-radius: 8px;
+                                width: 100%;
                             }
 
                             .open-in-new {

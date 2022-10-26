@@ -160,9 +160,6 @@ export default class Schedule extends MainMixin {
 
     public getCurrEventData(day, time) {
         let currEventData;
-        this.schedule.map(event => {
-            if (day == event.date && time.start == event.time.start) currEventData = event;
-        });
         this.recurringSchedule.map(event => {
             if (
                 moment(day, "DD. MM. yyyy").weekday() == event.day &&
@@ -173,6 +170,9 @@ export default class Schedule extends MainMixin {
                 time.start == event.time.start
             )
                 currEventData = event;
+        });
+        this.schedule.map(event => {
+            if (day == event.date && time.start == event.time.start) currEventData = event;
         });
 
         return currEventData;

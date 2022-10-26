@@ -9,7 +9,7 @@ export default class VolumeControl extends MainMixin {
     public toggleIsMute(): void {
         store.dispatch("toggleIsMute", !this.isMute);
         this.$cookies.set("isMute", this.isMute);
-    }
+    }qqqq
 
     public updateVolume(event): void {
         if (this.volume > 0) {
@@ -26,8 +26,9 @@ export default class VolumeControl extends MainMixin {
 
     public getVolumeCookie(): void {
         const volume: string = this.$cookies.get("volume");
-        const isMute: boolean = this.$cookies.get("isMute") === "true";
         store.dispatch("updateVolume", volume ? volume : "50");
+        
+        const isMute: boolean = this.$cookies.get("isMute") === "true";
         store.dispatch("toggleIsMute", isMute);
     }
 

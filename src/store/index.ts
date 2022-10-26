@@ -382,6 +382,23 @@ const store = new Vuex.Store({
                 theme: "Musicals",
                 desc: "",
             },
+            {
+                time: {
+                    start: "1800",
+                    end: "2000",
+                },
+                date: "22. 08. 2022",
+                streamerId: 1,
+                tags: [
+                    {
+                        label: "Podcast",
+                        type: "success",
+                        icon: "podcasts",
+                    },
+                ],
+                theme: "\"Unter uns gesagt\"",
+                desc: "Alkoholismus, Sucht und sein Umfeld mit Andrea und Burkhard Thom",
+            },
         ],
         recurringSchedule: [
             {

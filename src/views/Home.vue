@@ -62,7 +62,7 @@
                 </div>
             </section>
             <div class="panel-group">
-                <section class="panel radioshow-panel">
+                <!-- <section class="panel radioshow-panel">
                     <div class="title">
                         <span class="highlight-text"> Alkoholismus</span>,
                         <span class="highlight-text"> Sucht </span> und sein
@@ -70,10 +70,40 @@
                     </div>
                     <div class="content">
                         <video autoplay muted>
-                            <source src="@/assets/videos/alkoholismus.mp4" type="video/mp4" />
+                            <source src="@/assets/videos/alkoholismus-e2.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </section> -->
+
+                <!-- <section class="panel oktoberfest-panel">
+                    <div class="title">
+                        Oktoberfest
+                        <span class="highlight-text"> party </span>
+                    </div>
+                    <div class="content">
+                        <video controls data-volume="30">
+                            <source src="@/assets/videos/oktoberfest.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </section> -->
+
+                <section class="panel nacht-unglaublich-panel">
+                    <div class="title">
+                        <span class="highlight-text"> Die Nacht </span>
+                        der
+                        <span class="highlight-text"> unglaublichen </span>
+                        Stories
+                    </div>
+                    <div class="content">
+                        <video controls data-volume="30">
+                            <source
+                                src="@/assets/videos/dienachtderunglaublichenstories.mp4"
+                                type="video/mp4"
+                            />
                         </video>
                     </div>
                 </section>
+
                 <section class="panel alcoholism-panel">
                     <div class="title">
                         Radioshow mit
@@ -86,6 +116,7 @@
                     </div>
                 </section>
             </div>
+
             <section id="podcast" class="panel podcast-panel">
                 <div class="title">
                     <span> Radio </span>
@@ -97,6 +128,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="news" class="panel news-panel">
                 <section class="title">
                     Aktuelle
@@ -244,16 +276,42 @@
                         </el-button>
                     </a>
                 </section>
+                <section aria-labelledby="radio-de-title" class="entry radio-de">
+                    <div id="radio-de-title" class="title">
+                        <md-icon>adjust</md-icon>
+                        Radio.de
+                    </div>
+                    <div class="desc">
+                        <a href="https://www.radio.de/s/coachingairline" target="_blank">
+                            <img src="@/assets/images/radio_de_logo.png" alt="" />
+                        </a>
+                        <span>
+                            Ihr könnt uns jetzt auch auf
+                            <a href="https://www.radio.de/s/coachingairline" target="_blank">
+                                Radio.de
+                            </a>
+                            zuhören.
+                        </span>
+                    </div>
+                </section>
                 <section aria-labelledby="radio-title" class="entry radio-service">
                     <div id="radio-service-title" class="title">
                         <md-icon>play_circle_filled</md-icon>
                         Radiodienste.de
                     </div>
                     <div class="desc">
-                        <img src="@/assets/images/radiodienste_logo.png" alt="" />
+                        <a
+                            href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio"
+                            target="_blank"
+                        >
+                            <img src="@/assets/images/radiodienste_logo.png" alt="" />
+                        </a>
                         <span>
                             Wir sind seit neuestem auch auf
-                            <a href="https://www.radiodienste.de/" target="_blank">
+                            <a
+                                href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio"
+                                target="_blank"
+                            >
                                 Radiodienste.de
                                 <!-- <md-icon>open_in_new</md-icon> -->
                             </a>
@@ -307,6 +365,56 @@
                                     <img
                                         src="@/assets/images/partners/charliwolf-ritterdermenschlichkeit.jpg"
                                         alt="Charli Wolf - Ritter der Menschlichkeit"
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner hz-nrw">
+                                <span class="name">
+                                    Hilfzentrum NRW e.V.
+                                </span>
+                                <a href="https://hilfszentrumnrw.de/" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/hilfszentrumnrw.jpg"
+                                        alt="Hilfzentrum NRW e.V."
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner franz">
+                                <span class="name">Franz Hofmann</span>
+                                <a href="https://www.hofmann-franz.de" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/franzhofmann.jpg"
+                                        alt="Franz Hofmann - Schauspieler"
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner thom">
+                                <span class="name">Burkhard Thom</span>
+                                <a href="https://www.burkhard-thom.de/" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/thomburkhard.jpg"
+                                        alt="Franz Hofmann - Schauspieler"
+                                    />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner thom">
+                                <span class="name">Geli's Leben</span>
+                                <a href="https://gelis-leben.de" target="_blank">
+                                    <img
+                                        src="@/assets/images/partners/gelisleben.jpg"
+                                        alt="Geli's Leben"
                                     />
                                     <div class="open-in-new">
                                         <md-icon>open_in_new</md-icon>
