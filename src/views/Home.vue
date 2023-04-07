@@ -17,18 +17,16 @@
                             .
                         </p>
                         <p>
-                            Wir gestalten für Euch ein Programm mit Themen hautnah am „Menschen“ und
-                            vermitteln nicht nur Spaß und gute Laune zur Unterhaltung durch unser
-                            vielfältiges Musikprogramm, sondern packen auch interessante und
-                            wissenswerte Themeninhalte an.
+                            Wir gestalten für Euch ein Programm mit Themen hautnah am „Menschen“ und vermitteln nicht
+                            nur Spaß und gute Laune zur Unterhaltung durch unser vielfältiges Musikprogramm, sondern
+                            packen auch interessante und wissenswerte Themeninhalte an.
                         </p>
                         <p>
-                            Livetalks, Interviews mit Künstlern und authentische Geschichten die
-                            ihresgleichen suchen.
+                            Livetalks, Interviews mit Künstlern und authentische Geschichten die ihresgleichen suchen.
                         </p>
                         <p>
-                            Jeder der etwas zu erzählen hat und es in die Welt hinaustragen will,
-                            ist bei Coaching Airline Radio herzlich willkommen.
+                            Jeder der etwas zu erzählen hat und es in die Welt hinaustragen will, ist bei Coaching
+                            Airline Radio herzlich willkommen.
                         </p>
                         <p>
                             Einfach Kontakt aufnehmen, sein Anliegen schildern über unser
@@ -96,10 +94,7 @@
                     </div>
                     <div class="content">
                         <video controls data-volume="30">
-                            <source
-                                src="@/assets/videos/dienachtderunglaublichenstories.mp4"
-                                type="video/mp4"
-                            />
+                            <source src="@/assets/videos/dienachtderunglaublichenstories.mp4" type="video/mp4" />
                         </video>
                     </div>
                 </section>
@@ -147,11 +142,7 @@
                         :direction="newsCarouselDirection"
                         trigger="click"
                     >
-                        <el-carousel-item
-                            class="article"
-                            v-for="article in news"
-                            :key="article.newsId"
-                        >
+                        <el-carousel-item class="article" v-for="article in news" :key="article.newsId">
                             <div class="image">
                                 <el-image :src="getImageUrl(article.imageUrl, '')" fit="cover">
                                     <div slot="placeholder" class="placeholder">
@@ -220,12 +211,10 @@
                     </div>
                     <div class="subtitle">
                         <span v-if="isLive">{{ streamerName }}</span>
-                        <span v-else-if="isOnline">AUTO-DJ</span>
-                        <span v-else>Stream ist Offline</span>
+                        <span v-else>AUTO-DJ</span>
                         <span class="time" v-if="isOnline">
                             {{ plannedTime }}
                         </span>
-                        <span class="time" v-else>-/-</span>
                     </div>
                     <div class="desc">
                         <span class="highlight" v-if="isLive">
@@ -300,18 +289,12 @@
                         Radiodienste.de
                     </div>
                     <div class="desc">
-                        <a
-                            href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio"
-                            target="_blank"
-                        >
+                        <a href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio" target="_blank">
                             <img src="@/assets/images/radiodienste_logo.png" alt="" />
                         </a>
                         <span>
                             Wir sind seit neuestem auch auf
-                            <a
-                                href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio"
-                                target="_blank"
-                            >
+                            <a href="https://www.radiodienste.de/senderinfo/Coaching%20Airline%20Radio" target="_blank">
                                 Radiodienste.de
                                 <!-- <md-icon>open_in_new</md-icon> -->
                             </a>
@@ -326,20 +309,6 @@
                     </div>
                     <div class="desc">
                         <ul>
-                            <li class="partner hans-rosenthal">
-                                <span class="name">
-                                    Die Hans-Rosenthal-Stiftung
-                                </span>
-                                <a href="https://hans-rosenthal-stiftung.de/" target="_blank">
-                                    <img
-                                        src="@/assets/images/partners/hansrosenthalstiftung.jpg"
-                                        alt="Hans Rosenthal Stiftung - Schnelle Hilfe in akuter Not - e. V."
-                                    />
-                                    <div class="open-in-new">
-                                        <md-icon>open_in_new</md-icon>
-                                    </div>
-                                </a>
-                            </li>
                             <li class="partner crazy-witch">
                                 <span class="name">
                                     Martina Murseli
@@ -358,10 +327,7 @@
                                 <span class="name">
                                     Charli Wolf
                                 </span>
-                                <a
-                                    href="https://charli-wolf.wixsite.com/meinewebsite/referenzen"
-                                    target="_blank"
-                                >
+                                <a href="https://charli-wolf.wixsite.com/meinewebsite/referenzen" target="_blank">
                                     <img
                                         src="@/assets/images/partners/charliwolf-ritterdermenschlichkeit.jpg"
                                         alt="Charli Wolf - Ritter der Menschlichkeit"
@@ -412,10 +378,7 @@
                             <li class="partner thom">
                                 <span class="name">Geli's Leben</span>
                                 <a href="https://gelis-leben.de" target="_blank">
-                                    <img
-                                        src="@/assets/images/partners/gelisleben.jpg"
-                                        alt="Geli's Leben"
-                                    />
+                                    <img src="@/assets/images/partners/gelisleben.jpg" alt="Geli's Leben" />
                                     <div class="open-in-new">
                                         <md-icon>open_in_new</md-icon>
                                     </div>

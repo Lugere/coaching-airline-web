@@ -1,10 +1,6 @@
 <template>
     <div class="MusicPlayer">
-        <div
-            class="play-button"
-            @click="onPlayClicked()"
-            :alt="isPlaying ? 'musik pausieren' : 'musik abspielen'"
-        >
+        <div class="play-button" @click="onPlayClicked()" :alt="isPlaying ? 'musik pausieren' : 'musik abspielen'">
             <md-icon v-if="!isPlaying" class="">play_circle</md-icon>
             <md-icon v-else>pause_circle</md-icon>
             <md-tooltip :md-delay="300">
@@ -15,32 +11,26 @@
             <div class="top-line">
                 <span class="song">
                     <v-clamp v-if="!isOnline" autoresize :max-lines="1">
-                        Stream ist offline
+                        Hier Coaching Airline Radio hören
                     </v-clamp>
-                    <v-clamp
-                        v-else-if="isOnline && nowPlayingText.length > 0"
-                        autoresize
-                        :max-lines="1"
-                    >
+                    <v-clamp v-else-if="isOnline && nowPlayingText.length > 0" autoresize :max-lines="1">
                         {{ nowPlayingText }}
                     </v-clamp>
-                    <span v-else>&lt;Songtitel nicht verfügbar&gt;</span>
+                    <span v-else>Songtitel nicht verfügbar</span>
                     <md-tooltip md-delay="300" v-if="nowPlayingText.length > 30">
                         {{ `${song.artist} — ${song.title}` }}
                     </md-tooltip>
                 </span>
-                <div class="on-air-indicator" :class="onAirStatus">
+                <div v-if="isOnline" class="on-air-indicator" :class="onAirStatus">
                     <span v-if="isLive">ON-AIR</span>
-                    <span v-else-if="!isLive && isOnline">ONLINE</span>
-                    <span v-else>OFFLINE</span>
+                    <span v-else>ONLINE</span>
                 </div>
             </div>
             <div class="seperation-bar"></div>
             <div class="info">
                 <div class="moderator">
                     <span v-if="isLive">{{ streamerName }} moderiert</span>
-                    <span v-else-if="isOnline">AUTO-DJ moderiert</span>
-                    <span v-else>&mdash;</span>
+                    <span v-else>AUTO-DJ moderiert</span>
                 </div>
             </div>
         </div>

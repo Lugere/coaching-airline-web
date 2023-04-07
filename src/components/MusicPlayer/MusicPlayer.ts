@@ -27,6 +27,7 @@ export default class MusicPlayer extends MainMixin {
     }
 
     public get onAirStatus(): string {
+        console.log({ isLive: this.isLive, isOnline: this.isOnline });
         if (this.isLive) return "live";
         if (!this.isLive && this.isOnline) return "online";
         else return "offline";
@@ -52,6 +53,7 @@ export default class MusicPlayer extends MainMixin {
         }, 1000);
 
         this.audioPlayer.volume = this.volume / 100;
+
         // Event listener is needed, when the player gets handled from outside
         // e.g. windows audio control
         this.audioPlayer.addEventListener("pause", () => {

@@ -396,7 +396,7 @@ const store = new Vuex.Store({
                         icon: "podcasts",
                     },
                 ],
-                theme: "\"Unter uns gesagt\"",
+                theme: '"Unter uns gesagt"',
                 desc: "Alkoholismus, Sucht und sein Umfeld mit Andrea und Burkhard Thom",
             },
         ],
@@ -482,17 +482,17 @@ const store = new Vuex.Store({
                 .then(result => {
                     if (result.data) {
                         const { live, now_playing, is_online } = result.data;
+                        console.log({ data: result.data });
+
+                        commit("setIsOnline", is_online);
+                        commit("setIsLive", live.is_live);
+
                         if (is_online) {
-                            commit("setIsOnline", is_online);
-                            commit("setIsLive", live.is_live);
                             commit("setStreamerName", live.streamer_name);
                             commit("setSongLength", now_playing.duration);
                             commit("setSongPlayed", now_playing.elapsed);
                             commit("setSongArtist", now_playing.song.artist);
                             commit("setSongTitle", now_playing.song.title);
-                        } else {
-                            commit("setIsOnline", false);
-                            commit("setIsLive", false);
                         }
                     }
                 })
@@ -503,8 +503,8 @@ const store = new Vuex.Store({
                 });
         },
 
-        toggleIsPlaying({ commit, state }, isPlaying): void {
-            if (state.isOnline) commit("setIsPlaying", isPlaying);
+        toggleIsPlaying({ commit }, isPlaying): void {
+            commit("setIsPlaying", isPlaying);
         },
 
         setSongPlayed({ commit }, songPlayed): void {
