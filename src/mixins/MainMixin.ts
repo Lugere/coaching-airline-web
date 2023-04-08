@@ -31,22 +31,22 @@ import { Howl, Howler } from "howler";
     },
 })
 export default class MainMixin extends Vue {
-    $refs;
+    $refs: any;
 
-    public isLive!: any;
-    public isMute!: any;
-    public isOnline!: any;
-    public isPlaying!: any;
+    public isLive!: boolean;
+    public isMute!: boolean;
+    public isOnline!: boolean;
+    public isPlaying!: boolean;
     public news!: any;
     public schedule!: any;
     public recurringSchedule!: any;
     public song!: any;
-    public songLength!: any;
-    public songPlayed!: any;
-    public songTitle!: any;
-    public streamerName!: any;
+    public songLength!: number;
+    public songPlayed!: number;
+    public songTitle!: string;
+    public streamerName!: string;
     public team!: any;
-    public volume!: any;
+    public volume!: number;
 
     // public audioPlayer: HTMLAudioElement;
 

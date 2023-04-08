@@ -482,7 +482,6 @@ const store = new Vuex.Store({
                 .then(result => {
                     if (result.data) {
                         const { live, now_playing, is_online } = result.data;
-                        console.log({ data: result.data });
 
                         commit("setIsOnline", is_online);
                         commit("setIsLive", live.is_live);
