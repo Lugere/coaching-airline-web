@@ -110,17 +110,7 @@ const store = new Vuex.Store({
                         link: "https://www.instagram.com/coachingairline/",
                     },
                 ],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             {
                 id: 2,
@@ -129,17 +119,7 @@ const store = new Vuex.Store({
                 role: "Moderator",
                 imageUrl: "thomas_brockmann.jpg",
                 socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             // {
             //     id: 3,
@@ -167,17 +147,7 @@ const store = new Vuex.Store({
                 role: "Moderatorin",
                 imageUrl: "alexandra_speder.jpg",
                 socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             {
                 id: 5,
@@ -186,17 +156,7 @@ const store = new Vuex.Store({
                 role: "Moderatorin",
                 imageUrl: "sabrina_koenig.jpg",
                 socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             {
                 id: 6,
@@ -205,17 +165,7 @@ const store = new Vuex.Store({
                 role: "Moderator",
                 imageUrl: "sascha_koenig.jpg",
                 socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             {
                 id: 7,
@@ -224,17 +174,7 @@ const store = new Vuex.Store({
                 role: "Moderator",
                 imageUrl: "burkhard_thom.jpg",
                 socialMedia: [],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
             },
             {
                 id: 8,
@@ -248,17 +188,16 @@ const store = new Vuex.Store({
                         link: "https://www.facebook.com/ChristianDeussenSaenger",
                     },
                 ],
-                desc: `Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.Lorem ipsum dolor sit amet,
-                       consectetuer adipiscing elit.
-                       Aenean commodo ligula eget dolor.
-                       Aenean massa. Cum sociis natoque
-                       penatibus et magnis dis parturient
-                       montes, nascetur ridiculus mus.`,
+                desc: ``,
+            },
+            {
+                id: 9,
+                name: "Pino",
+                modName: "",
+                role: "Moderator",
+                imageUrl: "pino.jpg",
+                socialMedia: [],
+                desc: ``,
             },
         ],
         // Schedule View

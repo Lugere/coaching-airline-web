@@ -11,9 +11,7 @@
                     <div class="text">
                         <p>
                             Coaching Airline Radio ist ein nicht kommerzielles Webradio der Marke
-                            <a target="_blank" href="https://www.coachingairline.de">
-                                Coaching Airline®
-                            </a>
+                            <a target="_blank" href="https://www.coachingairline.de"> Coaching Airline® </a>
                             .
                         </p>
                         <p>
@@ -30,13 +28,9 @@
                         </p>
                         <p>
                             Einfach Kontakt aufnehmen, sein Anliegen schildern über unser
-                            <router-link to="Kontakt">
-                                Kontaktformular!
-                            </router-link>
+                            <router-link to="Kontakt"> Kontaktformular! </router-link>
                         </p>
-                        <p>
-                            Wir freuen uns auf eine Nachricht!
-                        </p>
+                        <p>Wir freuen uns auf eine Nachricht!</p>
                         <div class="signature">
                             <img src="@/assets/images/signature.png" alt="signature" />
                         </div>
@@ -84,20 +78,6 @@
                         </video>
                     </div>
                 </section> -->
-
-                <section class="panel nacht-unglaublich-panel">
-                    <div class="title">
-                        <span class="highlight-text"> Die Nacht </span>
-                        der
-                        <span class="highlight-text"> unglaublichen </span>
-                        Stories
-                    </div>
-                    <div class="content">
-                        <video controls data-volume="30">
-                            <source src="@/assets/videos/dienachtderunglaublichenstories.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                </section>
 
                 <section class="panel alcoholism-panel">
                     <div class="title">
@@ -205,9 +185,7 @@
                 <section aria-labelledby="moderator-title" class="entry moderator">
                     <div id="moderator-title" class="title">
                         <md-icon>person</md-icon>
-                        <div>
-                            Aktueller Moderator
-                        </div>
+                        <div>Aktueller Moderator</div>
                     </div>
                     <div class="subtitle">
                         <span v-if="isLive">{{ streamerName }}</span>
@@ -217,53 +195,24 @@
                         </span>
                     </div>
                     <div class="desc">
-                        <span class="highlight" v-if="isLive">
-                            Alles von Abba bis Zappa
-                        </span>
+                        <span class="highlight" v-if="isLive"> Alles von Abba bis Zappa </span>
                     </div>
                 </section>
                 <section aria-labelledby="guestbook-title" class="entry guestbook">
                     <div id="guestbook-title" class="title">
                         <md-icon>menu_book</md-icon>
-                        <div>
-                            Gästebuch
-                        </div>
+                        <div>Gästebuch</div>
                     </div>
-                    <div class="desc">
-                        Hier könnt ihr eure Grüße schreiben
-                    </div>
-                    <el-button type="primary" disabled>
-                        Cooming Soon
-                    </el-button>
+                    <div class="desc">Hier könnt ihr eure Grüße schreiben</div>
+                    <el-button type="primary" disabled> Cooming Soon </el-button>
                 </section>
                 <section aria-labelledby="wishes-title" class="entry wishes">
                     <div id="wishes-title" class="title">
                         <md-icon>auto_awesome</md-icon>
-                        <div>
-                            Wunschbox
-                        </div>
+                        <div>Wunschbox</div>
                     </div>
-                    <div class="desc">
-                        Du willst etwas bestimmtes hören? Dann kannst du dir hier was wünschen!
-                    </div>
-                    <el-button type="primary" disabled>
-                        Cooming Soon
-                    </el-button>
-                </section>
-                <section class="entry voting">
-                    <div class="title">
-                        <md-icon>star_half</md-icon>
-                        Voten
-                    </div>
-                    <div class="desc">
-                        Hier kannst du auf Webradio Top 100 für unser Radio voten.
-                    </div>
-                    <a href="https://www.webradiotop100.de/radio/in/3884" target="_blank">
-                        <el-button type="primary">
-                            Hier voten
-                            <md-icon>open_in_new</md-icon>
-                        </el-button>
-                    </a>
+                    <div class="desc">Du willst etwas bestimmtes hören? Dann kannst du dir hier was wünschen!</div>
+                    <el-button type="primary" disabled> Cooming Soon </el-button>
                 </section>
                 <section aria-labelledby="radio-de-title" class="entry radio-de">
                     <div id="radio-de-title" class="title">
@@ -276,9 +225,7 @@
                         </a>
                         <span>
                             Ihr könnt uns jetzt auch auf
-                            <a href="https://www.radio.de/s/coachingairline" target="_blank">
-                                Radio.de
-                            </a>
+                            <a href="https://www.radio.de/s/coachingairline" target="_blank"> Radio.de </a>
                             zuhören.
                         </span>
                     </div>
@@ -310,9 +257,7 @@
                     <div class="desc">
                         <ul>
                             <li class="partner crazy-witch">
-                                <span class="name">
-                                    Martina Murseli
-                                </span>
+                                <span class="name"> Martina Murseli </span>
                                 <a href="https://www.crazywitch.de/" target="_blank">
                                     <img
                                         src="@/assets/images/partners/crazywitch.jpg"
@@ -323,24 +268,8 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="partner charli">
-                                <span class="name">
-                                    Charli Wolf
-                                </span>
-                                <a href="https://charli-wolf.wixsite.com/meinewebsite/referenzen" target="_blank">
-                                    <img
-                                        src="@/assets/images/partners/charliwolf-ritterdermenschlichkeit.jpg"
-                                        alt="Charli Wolf - Ritter der Menschlichkeit"
-                                    />
-                                    <div class="open-in-new">
-                                        <md-icon>open_in_new</md-icon>
-                                    </div>
-                                </a>
-                            </li>
                             <li class="partner hz-nrw">
-                                <span class="name">
-                                    Hilfzentrum NRW e.V.
-                                </span>
+                                <span class="name"> Hilfzentrum NRW e.V. </span>
                                 <a href="https://hilfszentrumnrw.de/" target="_blank">
                                     <img
                                         src="@/assets/images/partners/hilfszentrumnrw.jpg"
@@ -379,6 +308,21 @@
                                 <span class="name">Geli's Leben</span>
                                 <a href="https://gelis-leben.de" target="_blank">
                                     <img src="@/assets/images/partners/gelisleben.jpg" alt="Geli's Leben" />
+                                    <div class="open-in-new">
+                                        <md-icon>open_in_new</md-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="partner sund-diskothek">
+                                <span class="name">Sund Diskothek Stralsund</span>
+                                <a
+                                    href="https://www.sunddiskothek.de/?fbclid=IwAR1B7bioZiTbi5kh2WsrHuFAoBorgErL3evISJxf-8prr1kOQprOxJW0uJU"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="@/assets/images/partners/sunddiskothek.jpg"
+                                        alt="Sund Diskothek Stralsund"
+                                    />
                                     <div class="open-in-new">
                                         <md-icon>open_in_new</md-icon>
                                     </div>
