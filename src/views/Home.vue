@@ -81,7 +81,7 @@
 
                 <section class="panel alcoholism-panel">
                     <div class="title">
-                        Radioshow mit
+                        Mache die
                         <span class="highlight-text"> Herbert </span>
                     </div>
                     <div class="content">

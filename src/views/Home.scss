@@ -36,9 +36,6 @@
                     }
                 }
             }
-
-            .partners {
-            }
         }
     }
 }
@@ -47,8 +44,9 @@
     #Home main {
         .panel-group {
             grid-template-columns: 1fr !important;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr;
         }
+
         .panel.welcome-panel {
             .title {
                 width: 100% !important;
@@ -73,8 +71,8 @@
     #Home {
         grid-template-columns: 1fr !important;
         grid-template-areas:
-            "sidebar"
             "main"
+            "sidebar"
             "footer" !important;
 
         aside .panel {
