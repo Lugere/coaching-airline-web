@@ -44,7 +44,7 @@
     #Home main {
         .panel-group {
             grid-template-columns: 1fr !important;
-            grid-template-rows: 1fr;
+            grid-template-rows: 1fr 1fr;
         }
 
         .panel.welcome-panel {
@@ -161,7 +161,7 @@
 
         .panel-group {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 1em;
             margin: 1em 0;
 
@@ -204,11 +204,6 @@
 
             + .panel {
                 margin-top: 1em;
-            }
-
-            &.player-panel {
-                // display: none;
-                // margin-top: -1em;
             }
 
             &.welcome-panel {
@@ -254,14 +249,15 @@
                 }
             }
 
-            &.easter-panel,
-            &.alcoholism-panel,
-            &.rosenthal-panel {
+            &.split-panel {
                 max-height: 600px;
+
+                .content {
+                    height: 400px;
+                }
 
                 video {
                     height: 100%;
-                    max-height: 500px;
                     width: 100%;
                     background-color: black;
                 }
@@ -292,7 +288,8 @@
 
                     video {
                         width: 100%;
-                        max-height: 700px;
+                        max-height: 600px;
+                        height: 100%;
                         display: block;
                     }
                 }

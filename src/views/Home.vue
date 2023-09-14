@@ -79,14 +79,28 @@
                     </div>
                 </section> -->
 
-                <section class="panel alcoholism-panel">
+                <section class="panel split-panel">
                     <div class="title">
-                        Mache die
-                        <span class="highlight-text"> Herbert </span>
+                        Herzlich
+                        <span class="highlight-text"> willkommen </span>
                     </div>
                     <div class="content">
                         <video controls data-volume="30">
-                            <source src="@/assets/videos/radioshow.mp4" type="video/mp4" />
+                            <source src="@/assets/videos/werbung1.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </section>
+
+                <section class="panel split-panel">
+                    <div class="title">
+                        mache die
+                        <span class="highlight-text"> reise </span>
+                        deines
+                        <span class="highlight-text"> lebens </span>
+                    </div>
+                    <div class="content">
+                        <video controls data-volume="30">
+                            <source src="@/assets/videos/machdiereise.mp4" type="video/mp4" />
                         </video>
                     </div>
                 </section>
@@ -94,7 +108,7 @@
 
             <section id="podcast" class="panel podcast-panel">
                 <div class="title">
-                    <span> Radio </span>
+                    <span> radio </span>
                     <span class="highlight-text"> podcast </span>
                 </div>
                 <div class="content">
@@ -308,21 +322,6 @@
                                 <span class="name">Geli's Leben</span>
                                 <a href="https://gelis-leben.de" target="_blank">
                                     <img src="@/assets/images/partners/gelisleben.jpg" alt="Geli's Leben" />
-                                    <div class="open-in-new">
-                                        <md-icon>open_in_new</md-icon>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="partner sund-diskothek">
-                                <span class="name">Sund Diskothek Stralsund</span>
-                                <a
-                                    href="https://www.sunddiskothek.de/?fbclid=IwAR1B7bioZiTbi5kh2WsrHuFAoBorgErL3evISJxf-8prr1kOQprOxJW0uJU"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="@/assets/images/partners/sunddiskothek.jpg"
-                                        alt="Sund Diskothek Stralsund"
-                                    />
                                     <div class="open-in-new">
                                         <md-icon>open_in_new</md-icon>
                                     </div>

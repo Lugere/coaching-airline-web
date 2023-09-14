@@ -190,15 +190,6 @@ const store = new Vuex.Store({
                 ],
                 desc: ``,
             },
-            {
-                id: 9,
-                name: "Pino",
-                modName: "",
-                role: "Moderator",
-                imageUrl: "pino.jpg",
-                socialMedia: [],
-                desc: ``,
-            },
         ],
         // Schedule View
         schedule: [
